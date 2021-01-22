@@ -96,8 +96,7 @@ function ProductCard(props) {
     <React.Fragment>
       <Grid item key={props.product.id}>
           <Card className={classes.card}>
-              <CardMedia className={classes.cardMedia} title={props.product.name} />
-              {/* <CardMedia className={classes.cardMedia} image={props.product.image_url} title={props.product.name} /> */}
+              <CardMedia className={classes.cardMedia} image={props.product.image_url} title={props.product.name} />
               <CardContent className={classes.cardContent}>
                   <Typography className={classes.price}>
                     $ {props.product.price}
