@@ -376,3 +376,788 @@ FOREIGN KEY ("product_id")
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nintendo"], ["product_id", "045496596743"], ["department", "ELECTRONICS"], ["title", "Super Mario 3D All-Stars - Nintendo Switch"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_c2f19539-056c-406d-bd99-70d2a97f4853"], ["rating", 4], ["num_reviews", 90], ["in_stock", true], ["stock", 100], ["price", "$59.99"], ["created_at", "2021-01-22 01:34:53.580131"], ["updated_at", "2021-01-22 01:34:53.580131"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333048642"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AA Batteries - 10 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_89bea4d3-a9e5-4ec4-b2e4-ca4814aca586"], ["rating", 4], ["num_reviews", 184], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:34:53.585144"], ["updated_at", "2021-01-22 01:34:53.585144"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109903"], ["department", "ELECTRONICS"], ["title", "Energizer 10pk MAX Alkaline AA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_426b7550-771c-4ec0-9131-6dd0d63221f2"], ["rating", 4], ["num_reviews", 610], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:34:53.590235"], ["updated_at", "2021-01-22 01:34:53.590235"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333758640"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AA Batteries - 20 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_5ccc6dd5-f491-45cf-a400-19f4b5385239"], ["rating", 4], ["num_reviews", 241], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:34:53.592732"], ["updated_at", "2021-01-22 01:34:53.592732"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800803"], ["department", "ELECTRONICS"], ["title", "AAA Batteries - 10ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_946ea52f-2355-47be-b320-3ad11ec74bd7"], ["rating", 4], ["num_reviews", 32], ["in_stock", true], ["stock", 100], ["price", "$8.49"], ["created_at", "2021-01-22 01:34:53.595390"], ["updated_at", "2021-01-22 01:34:53.595390"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Apple"], ["product_id", "190199098428"], ["department", "ELECTRONICS"], ["title", "Apple AirPods with Charging Case"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_da2035e3-ba06-430c-bae4-c3108d02e48f"], ["rating", 4], ["num_reviews", 3429], ["in_stock", true], ["stock", 100], ["price", "$129.99"], ["created_at", "2021-01-22 01:34:53.597707"], ["updated_at", "2021-01-22 01:34:53.597707"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800773"], ["department", "ELECTRONICS"], ["title", "AA Batteries - 10ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_f7c1b17b-6c98-4351-9dec-0e842dc2e0b5"], ["rating", 4], ["num_reviews", 36], ["in_stock", true], ["stock", 100], ["price", "$8.49"], ["created_at", "2021-01-22 01:34:53.599863"], ["updated_at", "2021-01-22 01:34:53.599863"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109941"], ["department", "ELECTRONICS"], ["title", "Energizer 20pk MAX Alkaline AA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_094a21b5-c60d-4537-9aa5-52c7d53e709e"], ["rating", 4], ["num_reviews", 624], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:34:53.601747"], ["updated_at", "2021-01-22 01:34:53.601747"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109927"], ["department", "ELECTRONICS"], ["title", "Energizer 10pk MAX Alkaline AAA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_4213382f-afc2-42f7-b1a3-92a9c1e2752b"], ["rating", 4], ["num_reviews", 519], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:34:53.603699"], ["updated_at", "2021-01-22 01:34:53.603699"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333170640"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AAA Batteries - 10 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_607dd7a2-d11a-426e-aac1-ef9efd702892"], ["rating", 4], ["num_reviews", 829], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:34:53.605595"], ["updated_at", "2021-01-22 01:34:53.605595"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800766"], ["department", "ELECTRONICS"], ["title", "AA Batteries - 20ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_313f088c-d671-43ab-ab36-60fb7745603e"], ["rating", 4], ["num_reviews", 57], ["in_stock", true], ["stock", 100], ["price", "$12.99"], ["created_at", "2021-01-22 01:34:53.607568"], ["updated_at", "2021-01-22 01:34:53.607568"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333216010"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop 9V Batteries - 2pk Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_c57e9e26-94fc-479d-b783-fd6481eac44d"], ["rating", 4], ["num_reviews", 123], ["in_stock", true], ["stock", 100], ["price", "$7.99"], ["created_at", "2021-01-22 01:34:53.609404"], ["updated_at", "2021-01-22 01:34:53.609404"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800797"], ["department", "ELECTRONICS"], ["title", "AAA Batteries - 20ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_53ecf867-d779-45da-bf8b-76ad781e8d5b"], ["rating", 4], ["num_reviews", 34], ["in_stock", true], ["stock", 100], ["price", "$12.99"], ["created_at", "2021-01-22 01:34:53.611152"], ["updated_at", "2021-01-22 01:34:53.611152"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109958"], ["department", "ELECTRONICS"], ["title", "Energizer 20pk MAX Alkaline AAA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_a7cb9fac-c39e-4b42-bd35-611ceb3d057b"], ["rating", 4], ["num_reviews", 524], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:34:53.612826"], ["updated_at", "2021-01-22 01:34:53.612826"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333015484"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AAA Batteries - 20 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_fe5f038f-8ed8-465a-8b0b-bf1ba0ecd892"], ["rating", 4], ["num_reviews", 881], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:34:53.614605"], ["updated_at", "2021-01-22 01:34:53.614605"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Apple"], ["product_id", "190198001757"], ["department", "ELECTRONICS"], ["title", "Apple Lightning to 3.5mm Headphone Adapter"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_2cef39e0-94f3-473c-a497-f5309c86f0d9"], ["rating", 4], ["num_reviews", 729], ["in_stock", true], ["stock", 100], ["price", "$7.99"], ["created_at", "2021-01-22 01:34:53.616228"], ["updated_at", "2021-01-22 01:34:53.616228"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nintendo"], ["product_id", "045496596439"], ["department", "ELECTRONICS"], ["title", "Animal Crossing: New Horizons &#8211; Nintendo Switch"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_83f32699-98bf-49e0-903a-1eede0c034e8"], ["rating", 4], ["num_reviews", 176], ["in_stock", true], ["stock", 100], ["price", "$59.99"], ["created_at", "2021-01-22 01:38:50.740442"], ["updated_at", "2021-01-22 01:38:50.740442"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800130709"], ["department", "ELECTRONICS"], ["title", "Energizer 6pk Ultimate Lithium AA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_a78ada29-98ee-4650-8c86-237a77e6482c"], ["rating", 4], ["num_reviews", 96], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:38:50.743268"], ["updated_at", "2021-01-22 01:38:50.743268"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Roku"], ["product_id", "829610003252"], ["department", "ELECTRONICS"], ["title", "Roku Express | HD Streaming Media Player with High Speed HDMI Cable and Simple Remote"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_6481a5b7-c267-48d4-97dc-ad286f1dd6b6"], ["rating", 4], ["num_reviews", 22372], ["in_stock", true], ["stock", 100], ["price", "$24.99"], ["created_at", "2021-01-22 01:38:50.745603"], ["updated_at", "2021-01-22 01:38:50.745603"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800090218"], ["department", "ELECTRONICS"], ["title", "Energizer 4pk MAX Alkaline 9V Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_6248685a-ccf2-47b5-a954-aa9bdb6af9ae"], ["rating", 4], ["num_reviews", 227], ["in_stock", true], ["stock", 100], ["price", "$13.99"], ["created_at", "2021-01-22 01:38:50.747769"], ["updated_at", "2021-01-22 01:38:50.747769"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333001494"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AA Batteries - 6 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_abe4a8d6-5160-4460-bf72-ed607cbbfef3"], ["rating", 4], ["num_reviews", 133], ["in_stock", true], ["stock", 100], ["price", "$6.99"], ["created_at", "2021-01-22 01:38:50.749940"], ["updated_at", "2021-01-22 01:38:50.749940"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "HP Inc."], ["product_id", "764025932493"], ["department", "STATIONERY & OFFICE SUPPLIES"], ["title", "HP Office Paper 500-ct."], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_60615c3c-84bb-4551-9cc3-454ee29e1a7d"], ["rating", 4], ["num_reviews", 116], ["in_stock", true], ["stock", 100], ["price", "$5.99"], ["created_at", "2021-01-22 01:38:50.752245"], ["updated_at", "2021-01-22 01:38:50.752245"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800066107"], ["department", "ELECTRONICS"], ["title", "Energizer 2pk 2025 Batteries Lithium Coin Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_9947e030-81f0-4e46-ad9e-00f852fe05cc"], ["rating", 4], ["num_reviews", 128], ["in_stock", true], ["stock", 100], ["price", "$6.99"], ["created_at", "2021-01-22 01:38:50.754478"], ["updated_at", "2021-01-22 01:38:50.754478"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (40.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (22.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (147.4ms)[0m  [1m[35mCREATE DATABASE "rails-backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE DATABASE "rails-backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210121175633)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "firstname" character varying, "lastname" character varying, "isStoreManager" boolean DEFAULT FALSE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121175633_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121175633"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210121180226)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "brand" character varying, "product_id" character varying, "department" character varying, "title" character varying, "description" character varying, "image_url" character varying, "rating" integer, "num_reviews" integer, "in_stock" boolean, "stock" integer, "price" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121180226_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180226"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateReviews (20210121180359)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "user_id" bigint, "product_id" bigint, "content" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_user_id" ON "reviews"  ("user_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180359"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrders (20210121180731)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "total" character varying, "item_count" integer, "isShipped" boolean DEFAULT FALSE, "paid" boolean DEFAULT FALSE, "payment" character varying, "address_street" character varying, "address_city" character varying, "address_state" character varying, "address_zip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180731"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderItems (20210121180928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint, "product_id" bigint, "qty" integer, "price" character varying, "subtotal" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_order_id" ON "order_items"  ("order_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_product_id" ON "order_items"  ("product_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180928"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-22 01:44:29.368311"], ["updated_at", "2021-01-22 01:44:29.368311"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "euberman@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "isStoreManager", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "euberman@gmail.com"], ["password_digest", "$2a$12$KDXzGtr7GPT2/m4GVf61Te0vr5V5UPlvi27KaM/Bjg/k4SIbg56mi"], ["firstname", "Eric"], ["lastname", "Uberman"], ["isStoreManager", true], ["created_at", "2021-01-22 01:45:37.304793"], ["updated_at", "2021-01-22 01:45:37.304793"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "euberman@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:8
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nintendo"], ["product_id", "045496596743"], ["department", "ELECTRONICS"], ["title", "Super Mario 3D All-Stars - Nintendo Switch"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_c2f19539-056c-406d-bd99-70d2a97f4853"], ["rating", 4], ["num_reviews", 90], ["in_stock", true], ["stock", 100], ["price", "$59.99"], ["created_at", "2021-01-22 01:46:43.902514"], ["updated_at", "2021-01-22 01:46:43.902514"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333048642"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AA Batteries - 10 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_89bea4d3-a9e5-4ec4-b2e4-ca4814aca586"], ["rating", 4], ["num_reviews", 184], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:46:43.906493"], ["updated_at", "2021-01-22 01:46:43.906493"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109903"], ["department", "ELECTRONICS"], ["title", "Energizer 10pk MAX Alkaline AA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_426b7550-771c-4ec0-9131-6dd0d63221f2"], ["rating", 4], ["num_reviews", 610], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:46:43.909214"], ["updated_at", "2021-01-22 01:46:43.909214"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333758640"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AA Batteries - 20 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_5ccc6dd5-f491-45cf-a400-19f4b5385239"], ["rating", 4], ["num_reviews", 241], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:46:43.911576"], ["updated_at", "2021-01-22 01:46:43.911576"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800803"], ["department", "ELECTRONICS"], ["title", "AAA Batteries - 10ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_946ea52f-2355-47be-b320-3ad11ec74bd7"], ["rating", 4], ["num_reviews", 32], ["in_stock", true], ["stock", 100], ["price", "$8.49"], ["created_at", "2021-01-22 01:46:43.913776"], ["updated_at", "2021-01-22 01:46:43.913776"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Apple"], ["product_id", "190199098428"], ["department", "ELECTRONICS"], ["title", "Apple AirPods with Charging Case"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_da2035e3-ba06-430c-bae4-c3108d02e48f"], ["rating", 4], ["num_reviews", 3427], ["in_stock", true], ["stock", 100], ["price", "$129.99"], ["created_at", "2021-01-22 01:46:43.915934"], ["updated_at", "2021-01-22 01:46:43.915934"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800773"], ["department", "ELECTRONICS"], ["title", "AA Batteries - 10ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_f7c1b17b-6c98-4351-9dec-0e842dc2e0b5"], ["rating", 4], ["num_reviews", 36], ["in_stock", true], ["stock", 100], ["price", "$8.49"], ["created_at", "2021-01-22 01:46:43.918103"], ["updated_at", "2021-01-22 01:46:43.918103"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109941"], ["department", "ELECTRONICS"], ["title", "Energizer 20pk MAX Alkaline AA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_094a21b5-c60d-4537-9aa5-52c7d53e709e"], ["rating", 4], ["num_reviews", 624], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:46:43.920396"], ["updated_at", "2021-01-22 01:46:43.920396"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109927"], ["department", "ELECTRONICS"], ["title", "Energizer 10pk MAX Alkaline AAA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_4213382f-afc2-42f7-b1a3-92a9c1e2752b"], ["rating", 4], ["num_reviews", 519], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:46:43.922479"], ["updated_at", "2021-01-22 01:46:43.922479"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333170640"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AAA Batteries - 10 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_607dd7a2-d11a-426e-aac1-ef9efd702892"], ["rating", 4], ["num_reviews", 829], ["in_stock", true], ["stock", 100], ["price", "$9.49"], ["created_at", "2021-01-22 01:46:43.924710"], ["updated_at", "2021-01-22 01:46:43.924710"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800766"], ["department", "ELECTRONICS"], ["title", "AA Batteries - 20ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_313f088c-d671-43ab-ab36-60fb7745603e"], ["rating", 4], ["num_reviews", 57], ["in_stock", true], ["stock", 100], ["price", "$12.99"], ["created_at", "2021-01-22 01:46:43.926824"], ["updated_at", "2021-01-22 01:46:43.926824"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333216010"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop 9V Batteries - 2pk Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_c57e9e26-94fc-479d-b783-fd6481eac44d"], ["rating", 4], ["num_reviews", 123], ["in_stock", true], ["stock", 100], ["price", "$7.99"], ["created_at", "2021-01-22 01:46:43.929207"], ["updated_at", "2021-01-22 01:46:43.929207"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "up & up"], ["product_id", "490080800797"], ["department", "ELECTRONICS"], ["title", "AAA Batteries - 20ct - Up&#38;Up&#8482;"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_53ecf867-d779-45da-bf8b-76ad781e8d5b"], ["rating", 4], ["num_reviews", 34], ["in_stock", true], ["stock", 100], ["price", "$12.99"], ["created_at", "2021-01-22 01:46:43.931607"], ["updated_at", "2021-01-22 01:46:43.931607"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Energizer"], ["product_id", "039800109958"], ["department", "ELECTRONICS"], ["title", "Energizer 20pk MAX Alkaline AAA Batteries"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_a7cb9fac-c39e-4b42-bd35-611ceb3d057b"], ["rating", 4], ["num_reviews", 524], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:46:43.933681"], ["updated_at", "2021-01-22 01:46:43.933681"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Duracell"], ["product_id", "041333015484"], ["department", "ELECTRONICS"], ["title", "Duracell Coppertop AAA Batteries - 20 Pack Alkaline Battery"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_fe5f038f-8ed8-465a-8b0b-bf1ba0ecd892"], ["rating", 4], ["num_reviews", 881], ["in_stock", true], ["stock", 100], ["price", "$15.99"], ["created_at", "2021-01-22 01:46:43.935636"], ["updated_at", "2021-01-22 01:46:43.935636"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Apple"], ["product_id", "190198001757"], ["department", "ELECTRONICS"], ["title", "Apple Lightning to 3.5mm Headphone Adapter"], ["image_url", "https://target.scene7.com/is/image/Target/GUEST_2cef39e0-94f3-473c-a497-f5309c86f0d9"], ["rating", 4], ["num_reviews", 729], ["in_stock", true], ["stock", 100], ["price", "$7.99"], ["created_at", "2021-01-22 01:46:43.937766"], ["updated_at", "2021-01-22 01:46:43.937766"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ db/seeds.rb:86
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (2.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1819278"], ["department", "bags"], ["title", "Nike Advance crossbody bag in neon pink"], ["image_url", "images.asos-media.com/products/nike-advance-crossbody-bag-in-neon-pink/21682632-1-neonpink"], ["rating", 4], ["num_reviews", 30], ["price", "30.0"], ["created_at", "2021-01-22 05:36:53.831548"], ["updated_at", "2021-01-22 05:36:53.831548"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864198"], ["department", "bags"], ["title", "The North Face Vault backpack in black"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-black/22290213-1-tnfblkhrtnfblu"], ["rating", 4], ["num_reviews", 59], ["price", "59.0"], ["created_at", "2021-01-22 05:36:53.837704"], ["updated_at", "2021-01-22 05:36:53.837704"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818634"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-yellow/21674050-1-summitgold"], ["rating", 4], ["num_reviews", 38], ["price", "38.0"], ["created_at", "2021-01-22 05:36:53.839756"], ["updated_at", "2021-01-22 05:36:53.839756"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873389"], ["department", "bags"], ["title", "Nike Training Elemental logo backpack in black"], ["image_url", "images.asos-media.com/products/nike-training-elemental-logo-backpack-in-black/22429198-1-black"], ["rating", 4], ["num_reviews", 47], ["price", "47.25"], ["created_at", "2021-01-22 05:36:53.842111"], ["updated_at", "2021-01-22 05:36:53.842111"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818631"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in purple"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-purple/21674041-1-peakpurple"], ["rating", 4], ["num_reviews", 38], ["price", "38.0"], ["created_at", "2021-01-22 05:36:53.843892"], ["updated_at", "2021-01-22 05:36:53.843892"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864168"], ["department", "bags"], ["title", "The North Face Recon backpack in black"], ["image_url", "images.asos-media.com/products/the-north-face-recon-backpack-in-black/22290219-1-tnfblack"], ["rating", 4], ["num_reviews", 84], ["price", "84.15"], ["created_at", "2021-01-22 05:36:53.845406"], ["updated_at", "2021-01-22 05:36:53.845406"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789660"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in brown"], ["image_url", "images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-brown/21315685-1-utilitybrowntnfbla"], ["rating", 4], ["num_reviews", 69], ["price", "69.0"], ["created_at", "2021-01-22 05:36:53.847060"], ["updated_at", "2021-01-22 05:36:53.847060"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789665"], ["department", "bags"], ["title", "The North Face Explore fanny pack in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-explore-fanny-pack-in-yellow/21315755-1-summitgoldtnfblack"], ["rating", 4], ["num_reviews", 30], ["price", "30.0"], ["created_at", "2021-01-22 05:36:53.848529"], ["updated_at", "2021-01-22 05:36:53.848529"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789667"], ["department", "bags"], ["title", "The North Face Explore fanny pack in green"], ["image_url", "images.asos-media.com/products/the-north-face-explore-fanny-pack-in-green/21315762-1-evergreentnfblack"], ["rating", 4], ["num_reviews", 30], ["price", "30.0"], ["created_at", "2021-01-22 05:36:53.849983"], ["updated_at", "2021-01-22 05:36:53.849983"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864089"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in brown"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-brown/22289490-1-utiltybntnfblk"], ["rating", 4], ["num_reviews", 38], ["price", "38.0"], ["created_at", "2021-01-22 05:36:53.851381"], ["updated_at", "2021-01-22 05:36:53.851381"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864199"], ["department", "bags"], ["title", "The North Face Vault backpack in brown"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-brown/22290189-1-timbrtntnfnavy"], ["rating", 4], ["num_reviews", 59], ["price", "59.0"], ["created_at", "2021-01-22 05:36:53.852689"], ["updated_at", "2021-01-22 05:36:53.852689"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864190"], ["department", "bags"], ["title", "The North Face Jester backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-jester-backpack-in-gray/22290217-1-zncgdkhrprsnor"], ["rating", 4], ["num_reviews", 55], ["price", "55.2"], ["created_at", "2021-01-22 05:36:53.854024"], ["updated_at", "2021-01-22 05:36:53.854024"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864192"], ["department", "bags"], ["title", "The North Face Jester backpack in navy"], ["image_url", "images.asos-media.com/products/the-north-face-jester-backpack-in-navy/22290221-1-avtrnvylhrtnfw"], ["rating", 4], ["num_reviews", 69], ["price", "69.0"], ["created_at", "2021-01-22 05:36:53.855419"], ["updated_at", "2021-01-22 05:36:53.855419"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680647"], ["department", "bags"], ["title", "The North Face Base Camp travel canister large wash bag in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-travel-canister-large-wash-bag-in-yellow/14930109-1-summitgoldtnfblac"], ["rating", 4], ["num_reviews", 33], ["price", "33.0"], ["created_at", "2021-01-22 05:36:53.856679"], ["updated_at", "2021-01-22 05:36:53.856679"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864087"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in orange"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-orange/22289486-1-flaretnfblack"], ["rating", 4], ["num_reviews", 32], ["price", "32.3"], ["created_at", "2021-01-22 05:36:53.857987"], ["updated_at", "2021-01-22 05:36:53.857987"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873337"], ["department", "bags"], ["title", "Nike Training logo holdall in black"], ["image_url", "images.asos-media.com/products/nike-training-logo-holdall-in-black/22429205-1-black"], ["rating", 4], ["num_reviews", 63], ["price", "63.0"], ["created_at", "2021-01-22 05:36:53.859207"], ["updated_at", "2021-01-22 05:36:53.859207"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873307"], ["department", "bags"], ["title", "Nike Training logo side bag in black"], ["image_url", "images.asos-media.com/products/nike-training-logo-side-bag-in-black/22429202-1-black"], ["rating", 4], ["num_reviews", 25], ["price", "25.6"], ["created_at", "2021-01-22 05:36:53.860433"], ["updated_at", "2021-01-22 05:36:53.860433"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818637"], ["department", "bags"], ["title", "The North Face Bozer fanny pack in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-bozer-fanny-pack-in-yellow/21674067-1-summitgold"], ["rating", 4], ["num_reviews", 32], ["price", "32.0"], ["created_at", "2021-01-22 05:36:53.862014"], ["updated_at", "2021-01-22 05:36:53.862014"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864195"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-gray/22290209-1-mdgydkhrtnfblk"], ["rating", 4], ["num_reviews", 47], ["price", "47.2"], ["created_at", "2021-01-22 05:36:53.863247"], ["updated_at", "2021-01-22 05:36:53.863247"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864188"], ["department", "bags"], ["title", "The North Face Cotton Tote bag in gray"], ["image_url", "images.asos-media.com/products/the-north-face-cotton-tote-bag-in-gray/22290204-1-asphgyfxdplntpt"], ["rating", 4], ["num_reviews", 25], ["price", "25.0"], ["created_at", "2021-01-22 05:36:53.864560"], ["updated_at", "2021-01-22 05:36:53.864560"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789661"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-yellow/21315692-1-summitgoldtnfblack"], ["rating", 4], ["num_reviews", 69], ["price", "69.0"], ["created_at", "2021-01-22 05:36:53.865894"], ["updated_at", "2021-01-22 05:36:53.865894"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789666"], ["department", "bags"], ["title", "The North Face Explore fanny pack in black"], ["image_url", "images.asos-media.com/products/the-north-face-explore-fanny-pack-in-black/21315749-1-tnfblacktnfwhite"], ["rating", 4], ["num_reviews", 30], ["price", "30.0"], ["created_at", "2021-01-22 05:36:53.867185"], ["updated_at", "2021-01-22 05:36:53.867185"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789669"], ["department", "bags"], ["title", "The North Face Bozer II fanny pack in brown"], ["image_url", "images.asos-media.com/products/the-north-face-bozer-ii-fanny-pack-in-brown/21315764-1-utilitybrowntnfbla"], ["rating", 4], ["num_reviews", 29], ["price", "29.0"], ["created_at", "2021-01-22 05:36:53.868418"], ["updated_at", "2021-01-22 05:36:53.868418"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864177"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Navy"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-backpack-in-navy/22290216-1-avtrnavymeldgy"], ["rating", 4], ["num_reviews", 75], ["price", "75.65"], ["created_at", "2021-01-22 05:36:53.869630"], ["updated_at", "2021-01-22 05:36:53.869630"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864172"], ["department", "bags"], ["title", "The North Face Borealis backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-backpack-in-gray/22290211-1-aspgrslvrflctv"], ["rating", 4], ["num_reviews", 89], ["price", "89.0"], ["created_at", "2021-01-22 05:36:53.870848"], ["updated_at", "2021-01-22 05:36:53.870848"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789671"], ["department", "bags"], ["title", "The North Face Surge Backpack In Black"], ["image_url", "images.asos-media.com/products/the-north-face-surge-backpack-in-black/21315760-1-tnfblack"], ["rating", 4], ["num_reviews", 109], ["price", "109.65"], ["created_at", "2021-01-22 05:36:53.872068"], ["updated_at", "2021-01-22 05:36:53.872068"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680375"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in black"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-black/14927823-1-tnfblackasphaltgr"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.873292"], ["updated_at", "2021-01-22 05:36:53.873292"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789673"], ["department", "bags"], ["title", "The North Face Jester backpack in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-jester-backpack-in-yellow/21315758-1-summitgoldtnfblack"], ["rating", 4], ["num_reviews", 55], ["price", "55.2"], ["created_at", "2021-01-22 05:36:53.874573"], ["updated_at", "2021-01-22 05:36:53.874573"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793265"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in green"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-green/21356585-1-newtaupegrnutilit"], ["rating", 4], ["num_reviews", 80], ["price", "80.0"], ["created_at", "2021-01-22 05:36:53.875631"], ["updated_at", "2021-01-22 05:36:53.875631"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793248"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in blue"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-blue/21356589-1-aviatornavytnfwhi"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.876695"], ["updated_at", "2021-01-22 05:36:53.876695"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793272"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in red"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-red/21356855-1-flareripstoptnfbl"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.877913"], ["updated_at", "2021-01-22 05:36:53.877913"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793269"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-gray/21356876-1-asphltgrylightningy"], ["rating", 4], ["num_reviews", 80], ["price", "80.0"], ["created_at", "2021-01-22 05:36:53.878973"], ["updated_at", "2021-01-22 05:36:53.878973"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793680"], ["department", "bags"], ["title", "The North Face Base Camp extra small duffel bag in blue"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-extra-small-duffel-bag-in-blue/21361266-1-clearlakebluetnf"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.879997"], ["updated_at", "2021-01-22 05:36:53.879997"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793690"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag in orange"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-in-orange/21361282-1-flaretnfblack"], ["rating", 4], ["num_reviews", 96], ["price", "96.0"], ["created_at", "2021-01-22 05:36:53.881187"], ["updated_at", "2021-01-22 05:36:53.881187"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794848"], ["department", "bags"], ["title", "The North Face Explore BLT small fanny pack in black"], ["image_url", "images.asos-media.com/products/the-north-face-explore-blt-small-fanny-pack-in-black/21372664-1-tnfblacktnfwhite"], ["rating", 4], ["num_reviews", 55], ["price", "55.5"], ["created_at", "2021-01-22 05:36:53.882275"], ["updated_at", "2021-01-22 05:36:53.882275"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794832"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in black"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-black/21372666-1-tnfblack"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.883334"], ["updated_at", "2021-01-22 05:36:53.883334"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794835"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in gray/yellow"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-gray-yellow/21372685-1-asphaltgreysummit"], ["rating", 4], ["num_reviews", 100], ["price", "100.0"], ["created_at", "2021-01-22 05:36:53.884379"], ["updated_at", "2021-01-22 05:36:53.884379"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794925"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21373255-1-zincgrydrkhthrpersi"], ["rating", 4], ["num_reviews", 80], ["price", "80.0"], ["created_at", "2021-01-22 05:36:53.885412"], ["updated_at", "2021-01-22 05:36:53.885412"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794929"], ["department", "bags"], ["title", "The North Face Vault backpack in khaki camo"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-khaki-camo/21373637-1-hawthrnkhkdckcmptnw"], ["rating", 4], ["num_reviews", 87], ["price", "87.2"], ["created_at", "2021-01-22 05:36:53.886493"], ["updated_at", "2021-01-22 05:36:53.886493"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1674180"], ["department", "bags"], ["title", "Nike Training black gym drawstring bag"], ["image_url", "images.asos-media.com/products/nike-training-black-gym-drawstring-bag/14852203-1-black"], ["rating", 4], ["num_reviews", 16], ["price", "16.0"], ["created_at", "2021-01-22 05:36:53.887540"], ["updated_at", "2021-01-22 05:36:53.887540"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1687936"], ["department", "bags"], ["title", "Nike Hayward 2.0 backpack in navy"], ["image_url", "images.asos-media.com/products/nike-hayward-20-backpack-in-navy/20055112-1-navy"], ["rating", 4], ["num_reviews", 55], ["price", "55.0"], ["created_at", "2021-01-22 05:36:53.888672"], ["updated_at", "2021-01-22 05:36:53.888672"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680939"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag 50L in yellow"], ["image_url", "images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-50l-in-yellow/14932599-1-summitgoldtnfblac"], ["rating", 4], ["num_reviews", 120], ["price", "120.0"], ["created_at", "2021-01-22 05:36:53.889823"], ["updated_at", "2021-01-22 05:36:53.889823"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789654"], ["department", "bags"], ["title", "The North Face Cotton brown logo tote bag in natural"], ["image_url", "images.asos-media.com/products/the-north-face-cotton-brown-logo-tote-bag-in-natural/21315680-1-weimaranerbrnlargelo"], ["rating", 4], ["num_reviews", 25], ["price", "25.0"], ["created_at", "2021-01-22 05:36:53.890851"], ["updated_at", "2021-01-22 05:36:53.890851"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789651"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21315683-1-newtaupegrnutility"], ["rating", 4], ["num_reviews", 47], ["price", "47.2"], ["created_at", "2021-01-22 05:36:53.891883"], ["updated_at", "2021-01-22 05:36:53.891883"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789653"], ["department", "bags"], ["title", "The North Face Vault backpack in camo"], ["image_url", "images.asos-media.com/products/the-north-face-vault-backpack-in-camo/21315688-1-hawthrnkhkdckcmptnwt"], ["rating", 4], ["num_reviews", 59], ["price", "59.0"], ["created_at", "2021-01-22 05:36:53.892983"], ["updated_at", "2021-01-22 05:36:53.892983"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789672"], ["department", "bags"], ["title", "The North Face Jester backpack in black"], ["image_url", "images.asos-media.com/products/the-north-face-jester-backpack-in-black/21315747-1-tnfblack"], ["rating", 4], ["num_reviews", 69], ["price", "69.0"], ["created_at", "2021-01-22 05:36:53.894064"], ["updated_at", "2021-01-22 05:36:53.894064"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789658"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Green"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-backpack-in-green/21315682-1-zincgrydarkheathreve"], ["rating", 4], ["num_reviews", 71], ["price", "71.2"], ["created_at", "2021-01-22 05:36:53.895212"], ["updated_at", "2021-01-22 05:36:53.895212"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789657"], ["department", "bags"], ["title", "The North Face Borealis backpack in dark gray"], ["image_url", "images.asos-media.com/products/the-north-face-borealis-backpack-in-dark-gray/21315690-1-zincgreydarkhthrtnfb"], ["rating", 4], ["num_reviews", 71], ["price", "71.2"], ["created_at", "2021-01-22 05:36:53.896399"], ["updated_at", "2021-01-22 05:36:53.896399"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "euberman@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-01-22 01:06:06 -0600
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ericuberman/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuthController#create as HTML
+  Parameters: {"user"=>{"email"=>"euberman@gmail.com", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"euberman@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "euberman@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.71ms)
+Completed 202 Accepted in 230ms (Views: 7.4ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/api/v1/products" for 127.0.0.1 at 2021-01-22 01:07:58 -0600
+Processing by Api::V1::ProductsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-01-22 01:08:21 -0600
+Processing by Api::V1::AuthController#create as HTML
+  Parameters: {"user"=>{"email"=>"euberman@gmail.com", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"euberman@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "euberman@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 202 Accepted in 196ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/products" for 127.0.0.1 at 2021-01-22 01:09:21 -0600
+Processing by Api::V1::ProductsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/products" for 127.0.0.1 at 2021-01-22 01:22:17 -0600
+Processing by Api::V1::ProductsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+[active_model_serializers]   [1m[36mProduct Load (5.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+[active_model_serializers]   ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (36.83ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 13.3ms)
+
+
+  
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `read_attribute_for_serialization' for #<Product::ActiveRecord_Relation:0x00007fc848821c80>):
+  
+app/controllers/api/v1/products_controller.rb:4:in `index'
+Started GET "/api/v1/products" for 127.0.0.1 at 2021-01-22 01:29:46 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ericuberman/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+[active_model_serializers]   ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (32.72ms)
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 5.6ms)
+
+
+  
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/ericuberman/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `read_attribute_for_serialization' for #<Product::ActiveRecord_Relation:0x00007fd9c828e0c0>):
+  
+app/controllers/api/v1/products_controller.rb:4:in `index'
+Started GET "/api/v1/products" for 127.0.0.1 at 2021-01-22 01:30:29 -0600
+Processing by Api::V1::ProductsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.33ms)
+Completed 200 OK in 54ms (Views: 35.2ms | ActiveRecord: 7.0ms)
+
+

@@ -40,31 +40,54 @@ function LoginForm({setToken}) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    };
+
     const handleSubmit = (e) => {
       e.preventDefault()
-      // loginUser({ email, password })
-      /**  Need function to set currentUser in Redux Store **/
-      fetch('http://localhost:3000/api/v1/login',{
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          user: {
-            email,
-            password
+      fetch('http://localhost:3000/login', requestOptions)
+      .then(handleResponse)
+      .then(data => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          let user;
+          if (data.user && data.token){
+              user = data.user;
+              user.token = data.token;
           }
-        })
-      }).then(res => res.json())
-      .then(token => {
-        console.log(token)
-        if(token.hasOwnProperty('auth_key')){
+          localStorage.setItem('user', JSON.stringify(user));
 
-          localStorage.setItem('token',token.auth_key)
-          this.props.history.push('/')
-        }else{
-          alert('Login Failed..')
-        }
-      })
+          return user;
+      });
     }
+  
+    // const handleSubmit = (e) => {
+    //   e.preventDefault()
+    //   // loginUser({ email, password })
+    //   /**  Need function to set currentUser in Redux Store **/
+    //   fetch('http://localhost:3000/api/v1/login',{
+    //     method: 'POST',
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify({
+    //       user: {
+    //         email,
+    //         password
+    //       }
+    //     })
+    //   }).then(res => res.json())
+    //   .then(token => {
+    //     console.log(token)
+    //     if(token.hasOwnProperty('auth_key')){
+
+    //       localStorage.setItem('token',token.auth_key)
+    //       this.props.history.push('/')
+    //     }else{
+    //       alert('Login Failed..')
+    //     }
+    //   })
+    // }
 
   return (
     <Container component="main" maxWidth="xs">

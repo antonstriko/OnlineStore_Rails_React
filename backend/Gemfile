@@ -23,10 +23,10 @@ gem 'rack-cors'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # gem 'net-http'
-
+gem 'faraday'
 # gem 'uri'
 
-# gem 'openssl'
+# gem 'openssl', git: 'https://github.com/ruby/openssl'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

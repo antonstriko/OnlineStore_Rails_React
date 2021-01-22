@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import Storefront from './components/storefront/Storefront'
-import SignupForm from './components/signup/SignupForm'
+// import SignupForm from './components/signup/SignupForm'
 import LoginForm from './components/login/LoginForm'
 import LandingPage from './components/LandingPage'
 import Checkout from './components/checkout/Checkout'
@@ -36,7 +36,7 @@ function App() {
           {/* <Route path={"/"}>
             <LandingPage />
           </Route> */}
-          <Route exact path="/">
+          <Route path="/">
               {localStorage.token ? <Redirect to="/storefront" /> : <Redirect to="/login" />}
           </Route>
           <Route path={"/storefront"}>

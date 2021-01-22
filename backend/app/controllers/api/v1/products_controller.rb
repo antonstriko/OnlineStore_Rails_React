@@ -1,13 +1,15 @@
 class Api::V1::ProductsController < ApplicationController
-  def index
-        products = Product.all
-        render json: products, except: [:created_at, :updated_at] #, include: [:shopping_carts, :reviews]
+    def index
+        @products = Product.all
+        #render json: { product: ProductSerializer.new(@products)}
+        render json: @products, except: [:created_at, :updated_at] , include: [:reviews]
     end
 
     def show
-        product = Product.find_by(id: params[:id])
-        if product
-            render json: product, except: [:created_at, :updated_at] #, include: [:reviews]
+        @product = Product.find_by(id: params[:id])
+        if @product
+            render json: {product: ProductSerializer.new(@product)}
+            # render json: @product, except: [:created_at, :updated_at], include: [:reviews]
         else
             render json: { message: 'Item not found' }
         end
@@ -15,9 +17,9 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def create
-        product = Product.new(product_params)
-        product.save
-        render json: product, except: [:created_at, :updated_at]
+        @product = Product.new(product_params)
+        @product.save
+        render json: @product, except: [:created_at, :updated_at]
     end
 
     def update

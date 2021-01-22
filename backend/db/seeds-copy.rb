@@ -148,26 +148,8 @@ products_data = [
 # request3["x-rapidapi-key"] = '5a22496735mshf51f4c817a7b0f2p14c354jsnabf34077db46'
 # request3["x-rapidapi-host"] = 'target1.p.rapidapi.com'
 # response3 = http3.request(request3)
-# res3 = JSON.parse response3.read_body
+# res3 = JSON.parse(response3.read_body)
 # res3["products"].each{|p| all_products.push(p)}
-
-# all_products.each do |product|
-#   same_id = Product.all.select{|p| p[:product_id] == product["upc"]}
-#   if same_id.length == 0
-#       prod = Product.new(brand: product["manufacturingBrand"], product_id: product["upc"], department: product["storeInfo"]["locations"][0]["department"], title: product["title"], image_url: product["images"]["primaryUri"], rating: product["guestReviews"]["overallGuestRating"], num_reviews: product["guestReviews"]["guestReviewCount"], price: product["price"]["formatted_current_price"])
-#       if product["onlineInfo"]["availabilityCode"] == "IN_STOCK"
-#           prod[:in_stock] = true
-#           prod[:stock] = 100
-#       else
-#           prod[:in_stock] = false
-#           prod[:stock] = 0
-#       end
-#       prod.save
-#   end
-# end
-
-
-
 
 # url4 = URI("https://target1.p.rapidapi.com/products/list?storeId=911&endecaId=5xtg6&pageSize=20&pageNumber=4&sortBy=bestselling")
 # http4 = Net::HTTP.new(url4.host, url4.port)
@@ -308,5 +290,3 @@ products_data = [
 # }).catch(function (error) {
 # 	console.error(error);
 # });
-
-{"user":{"id":1,"email":"euberman@gmail.com","password_digest":"$2a$12$SYsNt//f6SsoJiiaWODHc.4K7WJUNHhKjoujVYlzllBcxG3KUrumW","firstname":"Eric","lastname":"Uberman","isStoreManager":true,"created_at":"2021-01-21T21:44:54.548Z","updated_at":"2021-01-21T21:44:54.548Z"},"token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.g0U5SAOLozk3dz0mNUrvBSR-0CSewJ5eParRWg_abVk"}
