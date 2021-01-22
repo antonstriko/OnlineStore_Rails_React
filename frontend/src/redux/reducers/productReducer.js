@@ -45,12 +45,6 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 filteredProducts: action.payload.filteredProducts
             }
-        case 'SET_PRODUCT_FILTER':
-            return {
-                ...state,
-                filterTerm: action.payload.filter,
-                filteredProducts: action.payload.filteredProducts
-            }
         default:
             return state;
   

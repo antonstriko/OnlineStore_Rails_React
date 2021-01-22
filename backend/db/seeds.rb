@@ -1,5 +1,4 @@
 # require 'faraday'
-
 # @resp = Faraday.get 'https://target1.p.rapidapi.com/products/list?storeId=911&endecaId=5xtg6&pageSize=20&pageNumber=1&sortBy=newest' do |req|
 #   req.headers["x-rapidapi-key"] = "5a22496735mshf51f4c817a7b0f2p14c354jsnabf34077db46"
 #   req.headers["x-rapidapi-host"] = "target1.p.rapidapi.com"
@@ -46,6 +45,11 @@
 #   end
 #   p.save
 # end
+
+# 5.times do |i|
+#   Product.create(name: "Product ##{i}", description: "A product.")
+# end
+
 products_data = [
   {"id"=>21682632,"name"=>"Nike Advance crossbody bag in neon pink","price"=>{"current"=>{"value"=>30.0,"text"=>"$30.00"}}, "colour"=>"", "colourWayId"=>60187246, "brandName"=>"Nike", "hasVariantColours"=>false, "hasMultiplePrices"=>false, "groupId"=>"bags", "productCode"=>1819278, "productType"=>"Product", "url"=>"nike/nike-advance-crossbody-bag-in-neon-pink/prd/21682632?colourwayid=60187246", "imageUrl"=>"images.asos-media.com/products/nike-advance-crossbody-bag-in-neon-pink/21682632-1-neonpink", "videoUrl"=>"","isSellingFast"=>false},
   {"id"=>22290213,"name"=>"The North Face Vault backpack in black","price"=>{"current"=>{"value"=>59.0,"text"=>"$59.00"},"previous"=>{"value"=>"","text"=>""},"rrp"=>{"value"=>"","text"=>""},"isMarkedDown"=>false,"isOutletPrice"=>false,"currency"=>"USD"},"colour"=>"","colourWayId"=>60387315,"brandName"=>"The North Face","hasVariantColours"=>false,"hasMultiplePrices"=>false,"groupId"=>"bags","productCode"=>1864198,"productType"=>"Product","url"=>"the-north-face/the-north-face-vault-backpack-in-black/prd/22290213?colourwayid=60387315","imageUrl"=>"images.asos-media.com/products/the-north-face-vault-backpack-in-black/22290213-1-tnfblkhrtnfblu","videoUrl"=>"","isSellingFast"=>false},
@@ -308,5 +312,3 @@ products_data = [
 # }).catch(function (error) {
 # 	console.error(error);
 # });
-
-{"user":{"id":1,"email":"euberman@gmail.com","password_digest":"$2a$12$SYsNt//f6SsoJiiaWODHc.4K7WJUNHhKjoujVYlzllBcxG3KUrumW","firstname":"Eric","lastname":"Uberman","isStoreManager":true,"created_at":"2021-01-21T21:44:54.548Z","updated_at":"2021-01-21T21:44:54.548Z"},"token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.g0U5SAOLozk3dz0mNUrvBSR-0CSewJ5eParRWg_abVk"}

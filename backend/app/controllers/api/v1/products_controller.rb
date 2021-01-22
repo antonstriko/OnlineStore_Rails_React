@@ -1,4 +1,6 @@
 class Api::V1::ProductsController < ApplicationController
+    # skip_before_action :authorized, only: [:create]
+
     def index
         @products = Product.all
         #render json: { product: ProductSerializer.new(@products)}

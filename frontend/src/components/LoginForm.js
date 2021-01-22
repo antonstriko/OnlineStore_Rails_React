@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
-import {useHistory} from "react-router-dom"
+import {useHistory} from "react-router"
 import PropTypes from 'prop-types'
 
 import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container, makeStyles} from '@material-ui/core'
@@ -43,18 +43,18 @@ function LoginForm() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ user:{ email, password }})
     };
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      fetch('http://localhost:3000/login', requestOptions)
+      fetch('http://localhost:3000/api/v1/login', requestOptions)
       .then(resp => resp.json())
       .then(data => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           console.log(data)
           localStorage.setItem('token', data.token);
-          localStorage.setItem('user', data.user);
+          //localStorage.setItem('user', data.user);
           dispatch({type:'LOGIN', user: data.user})
           history.push('/storefront')
       });
@@ -88,7 +88,7 @@ function LoginForm() {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="http://localhost:3001/signup" variant="body2">
+                    <Link href="http://localhost:3001/api/v1/signup" variant="body2">
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>

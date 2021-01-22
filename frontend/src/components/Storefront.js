@@ -7,20 +7,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
 import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
 
-import { MainListItems, SecondaryListItems } from '../DrawerNavList';
-import ProductListContainer from '../product/ProductListContainer'
-import Cart from '../shoppingCart/Cart'
-// import ProductPage from '../product/ProductPage'
-import OrdersList from '../order/OrdersList';
-import Checkout from '../checkout/Checkout';
+import { MainListItems, SecondaryListItems } from './DrawerNavList';
+import ProductListContainer from './product/ProductListContainer'
+import Cart from './shoppingCart/Cart'
+import OrdersList from './order/OrdersList';
+import Checkout from './checkout/Checkout';
 
-import { fetchProducts } from '../../redux/actions/productActions';
-
-// import { setupCheckout } from '../../redux/actions/checkoutActions';
-// import { setupCheckout } from '../../redux/actions/checkoutActions';
+import { fetchProducts } from '../redux/actions/productActions';
 
     const drawerWidth = 240;
-
     const useStyles = makeStyles((theme) => ({
       root: {
         display: 'flex'
@@ -112,7 +107,7 @@ import { fetchProducts } from '../../redux/actions/productActions';
       }
     }));
 
-export default function Storefront() {
+export default function Storefront(props) {
       let history = useHistory();
       const dispatch = useDispatch();
       const classes = useStyles();
@@ -138,22 +133,14 @@ export default function Storefront() {
 
       let { path, url } = useRouteMatch();
 
-      const token = localStorage.token;
-      const headers = {
-        headers: {'Content-type':'application/json','Authorization': `Bearer ${token}`}
-      };
+      
       useEffect(()=> {
-          fetch('http://localhost:3000/products', headers)
+          const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${localStorage.token}`}};
+          fetch('http://localhost:3000/api/v1/products', headers)
             .then(resp => resp.json())
             .then(data => {
               dispatch(fetchProducts(data))
             })
-
-          fetch('http://localhost:3000/orders', headers)
-          .then(res => res.json())
-          .then(data => {
-            dispatch({type: 'GET_ORDERS', orders: data})
-          })
       }, [])
 
       const logout = (event) => {
@@ -215,18 +202,15 @@ export default function Storefront() {
                 </Fade>
               </Modal>
               <Switch> 
-                <Route exact path={path}>
-                  <ProductListContainer />
-                </Route>
-                <Route exact path={`${path}/orders`}>
-                  <OrdersList />
-                </Route>
-                <Route exact path={`${path}/checkout`}>
-                  <Checkout />
-                </Route>
-                {/* <Route path={`${path}/:productId`}>
-                  <ProductPage />
-                </Route> */}
+                  <Route exact path={path}>
+                    <ProductListContainer />
+                  </Route>
+                  <Route exact path={`${path}/orders`}>
+                    <OrdersList />
+                  </Route>
+                  <Route exact path={`${path}/checkout`}>
+                    <Checkout />
+                  </Route>
               </Switch>
             </Container>
           </main>

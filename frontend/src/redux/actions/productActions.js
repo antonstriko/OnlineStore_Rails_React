@@ -6,6 +6,7 @@ export const isLoadingProducts = () => {
 }
 
 export const fetchProducts = (data) => {
+  debugger
   return {
       type: 'FETCH_PRODUCTS',
       payload: data

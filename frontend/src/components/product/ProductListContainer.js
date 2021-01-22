@@ -12,23 +12,7 @@ import axios from "axios";
 
 export default function ProductListContainer(props){
   const dispatch = useDispatch();
-  const token = JSON.parse(localStorage.getItem('token'));
-
-  // const auth = `Bearer ${token}`
-  // const options = {
-  //   method: 'GET',
-  //   url: 'http://localhost:3000/api/v1/products',
-  //   headers: {'Content-type':'application/json','Authorization': auth}
-  // };
-
-  // useEffect(()=> {
-  //     axios.request(options).then(function (response) {
-  //       console.log(response.data);
-  //       dispatch(fetchProducts(response.data))
-  //     }).catch(function (error) {
-  //       console.error(error);
-  //     });
-  // }, [])
+  const token = localStorage.getItem('token');
 
   /* instead of sending filtered products to redux store
   add this to productListContainer:

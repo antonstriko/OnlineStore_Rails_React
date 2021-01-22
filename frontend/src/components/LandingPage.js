@@ -7,14 +7,17 @@ import {
 export default function LandingPage(props) {
   // const showHistory = () => console.log(props.history)
   let history = useHistory();
-  useEffect(()=> {
-      if (localStorage.token){
+  let token = localStorage.token || null;
+  useEffect((history,token)=> {
+      if (token){
+        //<Redirect push to="/storefront" />
         history.push('/storefront')
       } else {
+        //<Redirect push to="/login" />
         history.push('/login')
       }
     },[])
   return (
-    <div></div>
+    <div>Landing Page</div>
   )
 }
