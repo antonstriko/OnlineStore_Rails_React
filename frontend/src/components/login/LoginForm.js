@@ -1,13 +1,13 @@
 import React, { useState, useEffect} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
+import {useHistory} from "react-router-dom"
+import PropTypes from 'prop-types'
 
 import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container, makeStyles} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
-// import { login } from '../_actions/userActions'
-import { useHistory } from "react-router-dom"
-import PropTypes from 'prop-types'
-// import { getLocalCurrentUser, setLocalCurrentUser } from '../localServices';
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function LoginForm({setToken}) {
+function LoginForm() {
     const classes = useStyles();
-    let history = useHistory();
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState();
@@ -49,45 +49,16 @@ function LoginForm({setToken}) {
     const handleSubmit = (e) => {
       e.preventDefault()
       fetch('http://localhost:3000/login', requestOptions)
-      .then(handleResponse)
+      .then(resp => resp.json())
       .then(data => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          let user;
-          if (data.user && data.token){
-              user = data.user;
-              user.token = data.token;
-          }
-          localStorage.setItem('user', JSON.stringify(user));
-
-          return user;
+          console.log(data)
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', data.user);
+          dispatch({type:'LOGIN', user: data.user})
+          history.push('/storefront')
       });
     }
-  
-    // const handleSubmit = (e) => {
-    //   e.preventDefault()
-    //   // loginUser({ email, password })
-    //   /**  Need function to set currentUser in Redux Store **/
-    //   fetch('http://localhost:3000/api/v1/login',{
-    //     method: 'POST',
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify({
-    //       user: {
-    //         email,
-    //         password
-    //       }
-    //     })
-    //   }).then(res => res.json())
-    //   .then(token => {
-    //     console.log(token)
-    //     if(token.hasOwnProperty('auth_key')){
-
-    //       localStorage.setItem('token',token.auth_key)
-    //       this.props.history.push('/')
-    //     }else{
-    //       alert('Login Failed..')
-    //     }
-    //   })
-    // }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -99,13 +70,13 @@ function LoginForm({setToken}) {
                 <TextField variant="outlined" margin="normal" required fullWidth autoComplete="email" autoFocus
                   label="Email Address"
                   name="email"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField variant="outlined" margin="normal" required fullWidth autoComplete="current-password"
                   name="password"
                   label="Password"
                   type="password"
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e)=> setPassword(e.target.value)}
                 />
                 <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} >
                   Sign In
@@ -129,7 +100,3 @@ function LoginForm({setToken}) {
 
 }
 export default LoginForm
-
-LoginForm.propTypes = {
-  setToken: PropTypes.func.isRequired
-}

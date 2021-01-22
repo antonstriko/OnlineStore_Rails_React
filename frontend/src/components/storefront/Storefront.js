@@ -14,6 +14,8 @@ import Cart from '../shoppingCart/Cart'
 import OrdersList from '../order/OrdersList';
 import Checkout from '../checkout/Checkout';
 
+import { fetchProducts } from '../../redux/actions/productActions';
+
 // import { setupCheckout } from '../../redux/actions/checkoutActions';
 // import { setupCheckout } from '../../redux/actions/checkoutActions';
 
@@ -136,7 +138,23 @@ export default function Storefront() {
 
       let { path, url } = useRouteMatch();
 
-      
+      const token = localStorage.token;
+      const headers = {
+        headers: {'Content-type':'application/json','Authorization': `Bearer ${token}`}
+      };
+      useEffect(()=> {
+          fetch('http://localhost:3000/products', headers)
+            .then(resp => resp.json())
+            .then(data => {
+              dispatch(fetchProducts(data))
+            })
+
+          fetch('http://localhost:3000/orders', headers)
+          .then(res => res.json())
+          .then(data => {
+            dispatch({type: 'GET_ORDERS', orders: data})
+          })
+      }, [])
 
       const logout = (event) => {
         localStorage.removeItem('token')

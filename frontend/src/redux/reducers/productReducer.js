@@ -23,20 +23,17 @@ const productReducer = (state = initialState, action) => {
                 filteredProducts: action.payload,
                 isLoading: false
             }
-
         case 'CHANGE_CURRENT_PRODUCT':
             return {
                 ...state,
                 currentProduct: action.payload
             }
-
         case 'SET_PRODUCT_SORT':
             return {
                 ...state,
                 sortTerm: action.payload.sort,
                 filteredProducts: action.payload.filteredProducts
             }
-
         case 'SET_PRODUCT_FILTER':
             return {
                 ...state,
@@ -44,17 +41,6 @@ const productReducer = (state = initialState, action) => {
                 filteredProducts: action.payload.filteredProducts
             }
         case 'UPDATE_FILTERED_PRODUCTS':
-            /* instead of sending filtered products to redux store
-            add this to productListContainer:
-            const products = useSelector(state=> state.products.all)
-            const [filter, setFilter] = useState()
-            const [sortTerm, setSortTerm] = useState()
-            let filteredProducts;
-            switch(filter) {
-                case 'category': return filteredProducts = products.filter(p=> p.category === filter)
-                }
-            }            
-            */
             return {
                 ...state,
                 filteredProducts: action.payload.filteredProducts
@@ -65,7 +51,6 @@ const productReducer = (state = initialState, action) => {
                 filterTerm: action.payload.filter,
                 filteredProducts: action.payload.filteredProducts
             }
-    
         default:
             return state;
   

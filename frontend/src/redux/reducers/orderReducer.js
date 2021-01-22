@@ -1,5 +1,5 @@
 const initialState = {
-    all: [],
+    allOrders: [],
     currentOrder: {
         user_id: '',
         orderItems: [],
