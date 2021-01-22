@@ -1,11 +1,13 @@
-import config from 'config';
-import { authHeader } from '../_helpers';
+
+import authHeader from './auth-header';
 
 export const userService = {
     login,
     logout,
     getAll
 };
+
+const apiUrl = 'http://localhost:3000';
 
 function login(username, password) {
     const requestOptions = {
