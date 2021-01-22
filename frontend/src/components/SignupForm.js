@@ -2,12 +2,9 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-// import { Link } from "react-router-dom";
-
 import {CssBaseline, Avatar, Button, Container, makeStyles, TextField, Link, Typography, Grid, FormControlLabel} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
-import { signupNewUser } from '../../redux/actions/userActions';
 
     const useStyles = makeStyles((theme) => ({
       paper: {
@@ -30,59 +27,37 @@ import { signupNewUser } from '../../redux/actions/userActions';
     }));
 
 function SignupForm() {
-  const classes = useStyles()
-  let history = useHistory()
-  const dispatch = useDispatch();
+    const classes = useStyles()
+    let history = useHistory()
+    const dispatch = useDispatch();
 
-  const currentUser = useSelector(state => state.user.currentUser)
-  const [user, setUser] = useState(currentUser);
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [firstname, setFirstname] = useState();
+    const [lastname, setLastname] = useState();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    let emailVar = e.target.querySelector('#email').value
-    let passwordVar = e.target.querySelector('#password').value
-    let firstNameVar = e.target.querySelector('#firstName').value
-    let lastNameVar = e.target.querySelector('#lastName').value
-
-    fetch('http://localhost:3000/users', {
+    const requestOptions = {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "email": emailVar,
-        "password": passwordVar,
-        "firstname": firstNameVar,
-        "lastname": lastNameVar
-      })
-    })
-    .then(res => res.json())
-    .then((data) => {
-      
-      let tempUser = {
-        email: data.email,
-        password: data.password,
-        firstname: data.firstname,
-        lastname: data.lastname
-      }
-      setUser(tempUser)
-      dispatch(signupNewUser(data))
-      localStorage.setItem('currentUser', tempUser)
-      history.push('/storefront')
-    })
-  }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, firstname, lastname })
+    };
 
-  useEffect(() => {
-    setUser(currentUser)
-  }, [currentUser])
-
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      fetch('http://localhost:3000/login', requestOptions)
+      .then(resp => resp.json())
+      .then(data => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('token', JSON.stringify(data.token));
+          localStorage.setItem('user', JSON.stringify(data.user));
+          dispatch({type:'LOGIN', user: data.user})
+          history.push('/storefront')
+      });
+    }
+  
   return (
     <Container component="main" maxWidth="xs">
         <CssBaseline />
-        {user.email}
-        {currentUser.email}
-
         <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
@@ -97,7 +72,7 @@ function SignupForm() {
                           name="firstName"
                           id="firstName"
                           label="First Name"
-                          
+                          onChange={(e) => setFirstname(e.target.value)}
                         />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -106,6 +81,7 @@ function SignupForm() {
                           label="Last Name"
                           name="lastName"
                           autoComplete="lname"
+                          onChange={(e) => setLastname(e.target.value)}
                         />
                   </Grid>
                   <Grid item xs={12}>
@@ -114,6 +90,7 @@ function SignupForm() {
                           label="Email Address"
                           name="email"
                           autoComplete="email"
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                   </Grid>
                   <Grid item xs={12}>
@@ -123,6 +100,7 @@ function SignupForm() {
                           type="password"
                           id="password"
                           autoComplete="current-password"
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                   </Grid>
                 </Grid>

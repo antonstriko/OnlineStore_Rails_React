@@ -8,18 +8,23 @@ import ProductSearchBar from './ProductSearchBar'
 
 // import { setupCheckout } from '../../redux/actions/checkoutActions';
 import { fetchProducts } from '../../redux/actions/productActions';
+import axios from "axios";
 
 export default function ProductListContainer(props){
   const dispatch = useDispatch();
-  const headers = {
-    headers: {'Content-Type':'application/json', 'Authorization': localStorage.token} 
-    }
+  const token = localStorage.getItem('token');
 
-  useEffect(()=> {
-    fetch('http://localhost:3000/api/v1/products', headers)
-      .then(resp => resp.json())
-      .then(data => dispatch(fetchProducts(data)))
-  }, [])
+  /* instead of sending filtered products to redux store
+  add this to productListContainer:
+  const products = useSelector(state=> state.products.all)
+  const [filter, setFilter] = useState()
+  const [sortTerm, setSortTerm] = useState()
+  let filteredProducts;
+  switch(filter) {
+    case 'category': return filteredProducts = products.filter(p=> p.category === filter)
+    }
+  }            
+  */
 
   const {allProducts, filteredProducts, isLoading, currentProduct, sortTerm, filterTerm, searchInput} = useSelector(state => state.products)
 

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
  
 const getVisibilityFilter = (state, props) => state.products.searchInput
  
-const getProducts = (state, props) => state.products.all
+const getProducts = (state, props) => state.products.allProducts
  
 const getVisibleTodos = createSelector(
   [ getVisibilityFilter, getTodos ],

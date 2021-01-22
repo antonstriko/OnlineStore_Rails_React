@@ -1,11 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-    # skip_before_action :logged_in?, only: [:create]
+    # skip_before_action :authorized, only: [:create]
 
     def create
       @user = User.create(user_params)
       if @user.valid?
         @token = JWT.encode({user_id: @user.id}, 'my_s3cr3t')
-        render json: { user: @user, auth_token: @token }, status: :created
+        render json: { user: @user, token: @token }, status: :created
       else
         render json: { error: 'failed to create user' }, status: :not_acceptable
       end

@@ -1,28 +1,23 @@
 import React, { useEffect } from 'react'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   Redirect,
-  useHistory,
-  useLocation
+  useHistory
 } from "react-router-dom";
 
 export default function LandingPage(props) {
-  const showHistory = () => console.log(props.history)
+  // const showHistory = () => console.log(props.history)
   let history = useHistory();
-  useEffect(()=> {
-      if (localStorage.token){
-
-        // history.push('/storefront')
+  let token = localStorage.token || null;
+  useEffect((history,token)=> {
+      if (token){
+        //<Redirect push to="/storefront" />
+        history.push('/storefront')
       } else {
-
-        // history.push('/login')
+        //<Redirect push to="/login" />
+        history.push('/login')
       }
     },[])
   return (
-    
     <div>Landing Page</div>
   )
 }
