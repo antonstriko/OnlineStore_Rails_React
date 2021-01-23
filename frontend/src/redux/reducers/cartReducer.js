@@ -1,7 +1,7 @@
-import {ADD_TO_CART, UPDATE_CART_ITEM, UPDATE_CART_SUBTOTAL, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
+import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
 import {Decimal} from 'decimal.js';
 
-const resetCartState = {cartItems: [], subtotal: 0, count: 0, showModal: false}
+const resetCartState = {cartItems: [], subtotal: 0, itemCount: 0, showModal: false}
 const cachedCart = JSON.parse(localStorage.cart || "") 
 const initialState = cachedCart?.items.length ? cachedCart : resetCartState;
 
@@ -12,9 +12,9 @@ const cartReducer = (state = initialState, action) => {
             ...state,
             cartItems: [...state.cartItems, action.payload],
             subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
-            count: state.payload.count + 1
+            itemCount: state.itemCount + 1
           }
-      case INCREMENT_CART_ITEM:
+      case INCREMENT_ITEM_QTY:
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
@@ -25,9 +25,9 @@ const cartReducer = (state = initialState, action) => {
               }
           }),
             subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
-            count: state.count + 1
+            itemCount: state.itemCount + 1
           }
-      case DECREMENT_CART_ITEM:
+      case DECREMENT_ITEM_QTY:
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
@@ -38,14 +38,13 @@ const cartReducer = (state = initialState, action) => {
                 }
             }),
             subtotal: Decimal.sub(state.subtotal, action.payload.price).toFixed(2),
-            count: state.count - 1
+            itemCount: state.itemCount - 1
           }
       case REMOVE_CART_ITEM:
-          let 
           return {
             ...state,
             items: state.cartItems.slice().filter(item => item.product_id !== action.payload.id),
-            count: state.count - action.payload.qty,
+            itemCount: state.itemCount - action.payload.qty,
             subtotal: Decimal.sub(state.subtotal, action.payload.subtotal).toFixed(2)
           }
       case TOGGLE_MODAL:

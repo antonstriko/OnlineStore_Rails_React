@@ -78,9 +78,9 @@ function Cart(props) {
   const classes = useStyles();
 
   const cartItems = useSelector(state => state.cart.items)
-  const subTotal  = useSelector(state => state.cart.subTotal)
+  const subtotal  = useSelector(state => state.cart.subtotal)
+  const itemCount = useSelector(state => state.cart.itemCount)
 
-  let itemCount = cartItems.length
   const handleShoppingCartClose = props.handleShoppingCartClose
   const handleRerouteToCheckout = props.handleRerouteToCheckout
   // const setupCheckout = props.setupCheckout
@@ -115,7 +115,7 @@ function Cart(props) {
                 <tbody>
                   {
                       cartItems.map((item,index) => {
-                          return <CartItem product={item} indexInCart={index} key={item.id} />
+                          return <CartItem product={item} indexInCart={index} key={index} />
                       })
                   }
                 </tbody>
@@ -126,7 +126,7 @@ function Cart(props) {
                 <h4>Number of items: {itemCount} </h4>
               </Box>
               <Box className={classes.totalDetails}>
-                <h3>Cart Total: ${subTotal}</h3>
+                <h3>Cart Total: ${subtotal}</h3>
               </Box>
           </Box>
           <Box className={classes.checkoutBtnContainer}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   BrowserRouter,
   Switch,
@@ -19,13 +19,17 @@ import Checkout from './components/checkout/Checkout'
 
 function App() {
   const loggedIn = localStorage.getItem('token') || null;
+
+  useEffect()
+
   return (
     <div className="wrapper" >
       <BrowserRouter>
         <Switch>
-          <Route exact path="/storefront" component={Storefront}/>
+          <Route exact path="/" component={Storefront}/>
           <Route path="/login" component={LoginForm}/>
           <Route path="/signup" component={SignupForm}/>
+          {/* <Route path="/admin" component={Dashboard}/> */}
         </Switch>
       </BrowserRouter>
     </div>

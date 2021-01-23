@@ -135,6 +135,7 @@ export default function Storefront(props) {
 
       
       useEffect(()=> {
+          if ()
           const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${localStorage.token}`}};
           fetch('http://localhost:3000/api/v1/products', headers)
             .then(resp => resp.json())
