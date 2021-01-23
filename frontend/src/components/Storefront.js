@@ -174,7 +174,7 @@ export default function Storefront(props) {
             </Toolbar>
           </AppBar>
 
-          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose), }} open={open} >
+          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose) }} open={open} >
               <div className={classes.toolbarIcon}>
                   <IconButton onClick={handleDrawerClose}>
                     <ChevronLeftIcon />

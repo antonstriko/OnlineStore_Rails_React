@@ -74,7 +74,7 @@ function ProductCard(props) {
         })
     } else {
         cartItem = {
-            //image_url: props.product.image_url,
+            image_url: props.product.image_url,
             title: props.product.title,
             qty: 1,
             product_id: props.product.id,
@@ -83,8 +83,10 @@ function ProductCard(props) {
         }
         dispatch({
             type: 'ADD_TO_CART', 
-            subTotal: shoppingCartState.subTotal + parseFloat(props.product.price),
-            product: cartItem
+            payload: {
+              subTotal: shoppingCartState.subTotal + props.product.price,
+              product: cartItem
+            }
         })
     }
     // newCartTotal = shoppingCartState.items.map( item => item.subTotal ).reduce( (sum,item) =>{return sum += item}, 0)
@@ -96,7 +98,7 @@ function ProductCard(props) {
     <React.Fragment>
       <Grid item key={props.product.id}>
           <Card className={classes.card}>
-              <CardMedia className={classes.cardMedia} image={props.product.image_url} title={props.product.name} />
+              <CardMedia className={classes.cardMedia} image={props.product.image_url} title={props.product.title} />
               <CardContent className={classes.cardContent}>
                   <Typography className={classes.price}>
                     $ {props.product.price}
@@ -108,7 +110,7 @@ function ProductCard(props) {
                     {props.product.title}
                   </Typography>
                   <Box className={classes.cardActions}>
-                    <Rating name="half-rating-read" value={parseFloat(props.product.customer_rating)} precision={0.5} readOnly />
+                    <Rating name="half-rating-read" value={props.product.rating} precision={0.5} readOnly />
                     {props.product.num_reviews}
                   </Box>
               </CardContent>

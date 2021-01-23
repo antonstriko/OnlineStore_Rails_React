@@ -8,8 +8,8 @@ const resetCartState = {
   count: 0,
   showModal: false
 }
-const cachedCart = localStorage.getItem('cart')
-const initialState = cachedCart ? JSON.parse(localStorage.getItem('cart')) : resetCartState;
+const cachedCart = JSON.parse(localStorage.cart) 
+const initialState = cachedCart.items.length ? JSON.parse(localStorage.cart) : resetCartState;
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -25,7 +25,7 @@ const cartReducer = (state = initialState, action) => {
           return {
             ...state,
             items: state.items.map(item => {
-                if (item.product_id === action.payload.product.product_id) {
+                if (item.product_id === action.payload.product.id) {
                   return action.payload.product
                 } else {
                   return item
