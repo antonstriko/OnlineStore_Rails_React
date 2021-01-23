@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from "react-router-dom";
-
+// import { useDispatch } from 'react-redux';
+// import { Link } from "react-router-dom";
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, makeStyles, Box} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
 
@@ -52,48 +51,8 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductCard(props) {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const shoppingCartState = useSelector(state => state.cart)
+  // const dispatch = useDispatch();
   
-  const addToCart = () => {
-    const productInCart = shoppingCartState.items.find( item => item.product_id === props.product.product_id)
-    let cartItem;
-    // let newCartTotal;
-    if (productInCart) {
-        let updatedQty = productInCart.qty + 1;
-        let updatedProductSubTotal = updatedQty * productInCart.price;
-        cartItem = {
-            ...productInCart,
-            qty: updatedQty,
-            subTotal : parseFloat(updatedProductSubTotal)
-        }
-        dispatch({
-            type: 'UPDATE_CART_ITEM', 
-            subTotal: shoppingCartState.subTotal + productInCart.price,
-            product: cartItem
-        })
-    } else {
-        cartItem = {
-            image_url: props.product.image_url,
-            title: props.product.title,
-            qty: 1,
-            product_id: props.product.id,
-            price: props.product.price,
-            subTotal: props.product.price
-        }
-        dispatch({
-            type: 'ADD_TO_CART', 
-            payload: {
-              subTotal: shoppingCartState.subTotal + props.product.price,
-              product: cartItem
-            }
-        })
-    }
-    // newCartTotal = shoppingCartState.items.map( item => item.subTotal ).reduce( (sum,item) =>{return sum += item}, 0)
-    
-  }
-  // const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <React.Fragment>
       <Grid item key={props.product.id}>
@@ -116,7 +75,7 @@ function ProductCard(props) {
               </CardContent>
               <CardActions className={classes.cardActions}>
                   <Box>{ props.product.in_stock ? 'In-Stock' : 'Unavailable Online'}</Box>
-                  <Button onClick={() => addToCart()} className={classes.addToCartBtn} size='medium' variant="contained" color="primary">
+                  <Button onClick={() => addToCart(props.product)} className={classes.addToCartBtn} size='medium' variant="contained" color="primary">
                     Add to Cart
                   </Button>
               </CardActions>

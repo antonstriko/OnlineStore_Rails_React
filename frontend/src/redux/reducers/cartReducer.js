@@ -1,60 +1,62 @@
-
 import {ADD_TO_CART, UPDATE_CART_ITEM, UPDATE_CART_SUBTOTAL, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
+import {Decimal} from 'decimal.js';
 
-
-const resetCartState = {
-  items: [],
-  subTotal: '0',
-  count: 0,
-  showModal: false
-}
-const cachedCart = JSON.parse(localStorage.cart) 
-const initialState = cachedCart.items.length ? JSON.parse(localStorage.cart) : resetCartState;
+const resetCartState = {cartItems: [], subtotal: 0, count: 0, showModal: false}
+const cachedCart = JSON.parse(localStorage.cart || "") 
+const initialState = cachedCart?.items.length ? cachedCart : resetCartState;
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
       case ADD_TO_CART:
           return {
             ...state,
-            items: [...state.items, action.payload.product],
-            //subTotal: state.subTotal + parseFloat(action.product.subTotal),
-            subTotal: action.payload.subTotal,
-            count: state.payload.count += 1
+            cartItems: [...state.cartItems, action.payload],
+            subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
+            count: state.payload.count + 1
           }
-      case UPDATE_CART_ITEM:
+      case INCREMENT_CART_ITEM:
           return {
             ...state,
-            items: state.items.map(item => {
-                if (item.product_id === action.payload.product.id) {
-                  return action.payload.product
+            cartItems: state.cartItems.map(item => {
+              if (item.product_id === action.payload.id) {
+                return action.payload
+              } else {
+                return item
+              }
+          }),
+            subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
+            count: state.count + 1
+          }
+      case DECREMENT_CART_ITEM:
+          return {
+            ...state,
+            cartItems: state.cartItems.map(item => {
+                if (item.product_id === action.payload.id) {
+                  return action.payload
                 } else {
                   return item
                 }
             }),
-            subTotal: action.payload.subTotal,
-            count: state.payload.count
-          }
-      case UPDATE_CART_SUBTOTAL:
-          return {
-              ...state,
-              subTotal: action.payload
-              // subTotal: state.items.map( item => item.subTotal ).reduce( itemReducer, 0)
+            subtotal: Decimal.sub(state.subtotal, action.payload.price).toFixed(2),
+            count: state.count - 1
           }
       case REMOVE_CART_ITEM:
-            return {
-              ...state,
-              items: state.items.filter(item => item.product_id !== action.payload.product.id),
-              subTotal: action.payload.subTotal
-            }
+          let 
+          return {
+            ...state,
+            items: state.cartItems.slice().filter(item => item.product_id !== action.payload.id),
+            count: state.count - action.payload.qty,
+            subtotal: Decimal.sub(state.subtotal, action.payload.subtotal).toFixed(2)
+          }
       case TOGGLE_MODAL:
-            return {
-              ...state,
-              showModal: !state.showModal
-            }
+          return {
+            ...state,
+            showModal: !state.showModal
+          }
       case RESET_CART:
-            return {
-              resetCartState
-            }
+          return {
+            resetCartState
+          }
       default:
           return state;
 
