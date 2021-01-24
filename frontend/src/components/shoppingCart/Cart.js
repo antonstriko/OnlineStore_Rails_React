@@ -77,7 +77,7 @@ function Cart(props) {
 
   const classes = useStyles();
 
-  const cartItems = useSelector(state => state.cart.items)
+  const cartItems = useSelector(state => state.cart.cartItems)
   const subtotal  = useSelector(state => state.cart.subtotal)
   const itemCount = useSelector(state => state.cart.itemCount)
 
@@ -115,7 +115,7 @@ function Cart(props) {
                 <tbody>
                   {
                       cartItems.map((item,index) => {
-                          return <CartItem product={item} indexInCart={index} key={index} />
+                          return <CartItem cartItem={item} indexInCart={index} key={index} />
                       })
                   }
                 </tbody>

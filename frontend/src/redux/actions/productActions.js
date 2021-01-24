@@ -6,12 +6,12 @@ export const isLoadingProducts = () => {
 }
 
 export const fetchProducts = (data) => {
-  debugger
   return {
       type: 'FETCH_PRODUCTS',
       payload: data
   }
 }
+
 export const changeCurrentProduct = (product) => {
   return {
       type: 'CHANGE_CURRENT_PRODUCT',

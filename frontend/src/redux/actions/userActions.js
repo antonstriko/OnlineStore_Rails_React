@@ -1,6 +1,6 @@
 import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../actionTypes'
 
-export const loginSuccess = () => {
+export const loginSuccess = (user) => {
   return {
       type: LOGIN_SUCCESS,
       payload: user

@@ -120,23 +120,11 @@ export default function Storefront(props) {
                 const handleCartOpen = () => setCartOpen(true);
                 const handleCartClose = () => setCartOpen(false);
 
-      const cart = useSelector(state => state.cart)
+      const cartItemCount = useSelector(state => state.cart.cartItems.length)
       const currentUser = useSelector(state => state.user.currentUser)
-      const products = useSelector(state => state.products.allProducts)
-
-      const handleRerouteToCheckout = () => {
-          console.log('Cart', cart)
-          console.log('currentUser', currentUser)
-          setCartOpen(false)
-          //setupCheckout(currentUser, cart, dispatch)
-          history.push('storefront/checkout')
-      }
-
       let { path, url } = useRouteMatch();
 
-      
       useEffect(()=> {
-          // if ()
           const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${localStorage.token}`}};
           fetch('http://localhost:3000/api/v1/products', headers)
             .then(resp => resp.json())
@@ -145,10 +133,15 @@ export default function Storefront(props) {
             })
       }, [])
 
+      const handleRerouteToCheckout = () => {
+          setCartOpen(false)
+          history.push('storefront/checkout')
+      }
+
       const handleLogout = (event) => {
         localStorage.removeItem('token')
         dispatch(logout())
-        history.push('/login')
+        props.history.push('/login')
       }
 
       return (
@@ -169,7 +162,7 @@ export default function Storefront(props) {
                   Log Out
                 </IconButton>
                 <IconButton color="inherit" onClick={handleCartOpen}>
-                    <Badge badgeContent={cart.count} color="secondary">
+                    <Badge badgeContent={cartItemCount} color="secondary">
                         <ShoppingCartIcon />
                     </Badge>
                 </IconButton>

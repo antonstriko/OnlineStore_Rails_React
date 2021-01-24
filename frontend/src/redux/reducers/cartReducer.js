@@ -2,8 +2,8 @@ import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM,
 import {Decimal} from 'decimal.js';
 
 const resetCartState = {cartItems: [], subtotal: 0, itemCount: 0, showModal: false}
-const cachedCart = JSON.parse(localStorage.cart || "") 
-const initialState = cachedCart?.items.length ? cachedCart : resetCartState;
+const cachedCart = JSON.parse(localStorage.cart || "{}") 
+const initialState = cachedCart?.items ? cachedCart : resetCartState;
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const cartReducer = (state = initialState, action) => {
             subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
             itemCount: state.itemCount + 1
           }
-      case INCREMENT_ITEM_QTY:
+      case INCREMENT_CART_ITEM:
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
@@ -27,7 +27,7 @@ const cartReducer = (state = initialState, action) => {
             subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
             itemCount: state.itemCount + 1
           }
-      case DECREMENT_ITEM_QTY:
+      case DECREMENT_CART_ITEM:
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
