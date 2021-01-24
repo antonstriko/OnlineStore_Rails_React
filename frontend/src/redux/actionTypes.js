@@ -19,17 +19,15 @@ export const SET_PRODUCT_FILTER = 'SET_PRODUCT_FILTER';
 
 // cartReducer -----------------------------------
 export const ADD_TO_CART = 'ADD_TO_CART';
-export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
-// export const INCREMENT_QTY = 'INCREMENT_QTY';
-// export const DECREMENT_QTY = 'DECREMENT_QTY';
-export const UPDATE_CART_SUBTOTAL = 'UPDATE_CART_SUBTOTAL';
+export const INCREMENT_CART_ITEM = 'INCREMENT_CART_ITEM';
+export const DECREMENT_CART_ITEM = 'DECREMENT_CART_ITEM';
 export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const RESET_CART = 'RESET_CART';
 
 // userReducer -----------------------------------
-export const LOGOUT = 'LOGOUT';
-export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+//export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
+export const LOGOUT = 'LOGOUT';

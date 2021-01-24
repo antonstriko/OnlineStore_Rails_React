@@ -14,6 +14,7 @@ import OrdersList from './order/OrdersList';
 import Checkout from './checkout/Checkout';
 
 import { fetchProducts } from '../redux/actions/productActions';
+import { logout } from '../redux/actions/userActions';
 
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
@@ -119,21 +120,10 @@ export default function Storefront(props) {
                 const handleCartOpen = () => setCartOpen(true);
                 const handleCartClose = () => setCartOpen(false);
 
-      const cart = useSelector(state => state.cart)
+      const cartItemCount = useSelector(state => state.cart.itemCount)
       const currentUser = useSelector(state => state.user.currentUser)
-      const products = useSelector(state => state.products.allProducts)
-
-      const handleRerouteToCheckout = () => {
-          console.log('Cart', cart)
-          console.log('currentUser', currentUser)
-          setCartOpen(false)
-          //setupCheckout(currentUser, cart, dispatch)
-          history.push('storefront/checkout')
-      }
-
       let { path, url } = useRouteMatch();
 
-      
       useEffect(()=> {
           const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${localStorage.token}`}};
           fetch('http://localhost:3000/api/v1/products', headers)
@@ -143,10 +133,15 @@ export default function Storefront(props) {
             })
       }, [])
 
-      const logout = (event) => {
+      const handleRerouteToCheckout = () => {
+          setCartOpen(false)
+          history.push('storefront/checkout')
+      }
+
+      const handleLogout = (event) => {
         localStorage.removeItem('token')
-        dispatch({type: 'LOGOUT'})
-        history.push('/login')
+        dispatch(logout())
+        props.history.push('/login')
       }
 
       return (
@@ -163,18 +158,18 @@ export default function Storefront(props) {
                 {/* {(getLocalCurrentUser()) ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
-                <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >
+                <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
                 </IconButton>
                 <IconButton color="inherit" onClick={handleCartOpen}>
-                    <Badge badgeContent={cart.count} color="secondary">
+                    <Badge badgeContent={cartItemCount} color="secondary">
                         <ShoppingCartIcon />
                     </Badge>
                 </IconButton>
             </Toolbar>
           </AppBar>
 
-          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose), }} open={open} >
+          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose) }} open={open} >
               <div className={classes.toolbarIcon}>
                   <IconButton onClick={handleDrawerClose}>
                     <ChevronLeftIcon />
@@ -192,27 +187,27 @@ export default function Storefront(props) {
           </Drawer>
 
           <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
-            <Container maxWidth="lg" className={classes.container}>
-              <Modal open={cartOpen} onClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
-                <Fade in={cartOpen}>
-                  <div className={classes.paper}>
-                    <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
-                  </div>
-                </Fade>
-              </Modal>
-              <Switch> 
-                  <Route exact path={path}>
-                    <ProductListContainer />
-                  </Route>
-                  <Route exact path={`${path}/orders`}>
-                    <OrdersList />
-                  </Route>
-                  <Route exact path={`${path}/checkout`}>
-                    <Checkout />
-                  </Route>
-              </Switch>
-            </Container>
+              <div className={classes.appBarSpacer} />
+              <Container maxWidth="lg" className={classes.container}>
+                <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
+                    <Fade in={cartOpen}>
+                        <div className={classes.paper}>
+                          <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
+                        </div>
+                    </Fade>
+                </Modal>
+                <Switch> 
+                    <Route exact path={path}>
+                        <ProductListContainer />
+                    </Route>
+                    <Route exact path={`${path}/orders`}>
+                        <OrdersList />
+                    </Route>
+                    <Route exact path={`${path}/checkout`}>
+                        <Checkout />
+                    </Route>
+                </Switch>
+              </Container>
           </main>
         </div>
       );

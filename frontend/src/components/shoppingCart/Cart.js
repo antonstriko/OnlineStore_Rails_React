@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {Toolbar, AppBar, Paper, Box, Typography, IconButton, Badge, Grid, Card, Button, Table} from '@material-ui/core';
 
-import CartItem from './CartItem'
+import CartRow from './CartRow'
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 // import { setupCheckout } from "../../_actions/checkoutActions";
 
@@ -77,10 +77,10 @@ function Cart(props) {
 
   const classes = useStyles();
 
-  const cartItems = useSelector(state => state.cart.items)
-  const subTotal  = useSelector(state => state.cart.subTotal)
+  const cartItems = useSelector(state => state.cart.cartItems)
+  const subtotal  = useSelector(state => state.cart.subtotal)
+  const itemCount = useSelector(state => state.cart.itemCount)
 
-  let itemCount = cartItems.length
   const handleShoppingCartClose = props.handleShoppingCartClose
   const handleRerouteToCheckout = props.handleRerouteToCheckout
   // const setupCheckout = props.setupCheckout
@@ -91,13 +91,13 @@ function Cart(props) {
   // }
   return (
     <React.Fragment>
-      <Box flexDirection="column" alignContent="stretch" className={classes.sCart}>
+      <Paper flexDirection="column" alignContent="stretch" className={classes.sCart}>
           <Box container display="flex" color="primary" className={classes.topBar} >
               <Box item className={classes.topBarTitle}>
                 <Typography component="h1" variant="h6">Shopping Cart </Typography>
               </Box>
               <Box item className={classes.topBarClose}>
-                <Button edge="end" color="inherit" onClick={handleShoppingCartClose}> Close </Button>
+                <Button edge="end" color="inherit" onClick={(e)=> props.handleCartClose()}> Close </Button>
               </Box>
           </Box>
           <Box className={classes.tableContainer}>
@@ -114,8 +114,8 @@ function Cart(props) {
                 </thead>
                 <tbody>
                   {
-                      cartItems.map((item,index) => {
-                          return <CartItem product={item} indexInCart={index} key={item.id} />
+                      cartItems.map((cartItem,index) => {
+                          return <CartRow cartItem={cartItem} indexInCart={index} key={cartItem.product_id} />
                       })
                   }
                 </tbody>
@@ -126,7 +126,7 @@ function Cart(props) {
                 <h4>Number of items: {itemCount} </h4>
               </Box>
               <Box className={classes.totalDetails}>
-                <h3>Cart Total: ${subTotal}</h3>
+                <h3>Cart Total: ${subtotal.toFixed(2)}</h3>
               </Box>
           </Box>
           <Box className={classes.checkoutBtnContainer}>
@@ -137,7 +137,7 @@ function Cart(props) {
                   className={classes.checkoutBtn} 
                   onClick={handleRerouteToCheckout}>Checkout</Button>
           </Box>
-      </Box>
+      </Paper>
     </React.Fragment>
   )
 }

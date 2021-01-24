@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react'
-import {
-  Redirect,
-  useHistory
-} from "react-router-dom";
+
 
 export default function LandingPage(props) {
-  // const showHistory = () => console.log(props.history)
-  let history = useHistory();
-  let token = localStorage.token || null;
-  useEffect((history,token)=> {
+  let token = localStorage.token !== null;
+  useEffect(()=> {
       if (token){
-        //<Redirect push to="/storefront" />
-        history.push('/storefront')
+        props.history.push('/storefront')
       } else {
-        //<Redirect push to="/login" />
-        history.push('/login')
+        props.history.push('/login')
       }
     },[])
   return (

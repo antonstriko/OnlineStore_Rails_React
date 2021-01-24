@@ -1,60 +1,60 @@
+import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
 
-import {ADD_TO_CART, UPDATE_CART_ITEM, UPDATE_CART_SUBTOTAL, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
-
-
-const resetCartState = {
-  items: [],
-  subTotal: '0',
-  count: 0,
-  showModal: false
-}
-const cachedCart = localStorage.getItem('cart')
-const initialState = cachedCart ? JSON.parse(localStorage.getItem('cart')) : resetCartState;
+const resetCartState = {cartItems: [], subtotal: 0, itemCount: 0, showModal: false}
+const cachedCart = JSON.parse(localStorage.cart || "{}") 
+const initialState = cachedCart?.items ? cachedCart : resetCartState;
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
       case ADD_TO_CART:
           return {
             ...state,
-            items: [...state.items, action.payload.product],
-            //subTotal: state.subTotal + parseFloat(action.product.subTotal),
-            subTotal: action.payload.subTotal,
-            count: state.payload.count += 1
+            cartItems: [...state.cartItems, action.payload],
+            subtotal: state.subtotal + action.payload.price,
+            itemCount: state.itemCount + 1
           }
-      case UPDATE_CART_ITEM:
+      case INCREMENT_CART_ITEM:
           return {
             ...state,
-            items: state.items.map(item => {
-                if (item.product_id === action.payload.product.product_id) {
-                  return action.payload.product
-                } else {
-                  return item
-                }
+            cartItems: state.cartItems.map(item => {
+              if (item.product_id === action.payload.product_id){
+                return action.payload
+              } else {
+                return item
+              }
             }),
-            subTotal: action.payload.subTotal,
-            count: state.payload.count
+            subtotal: state.subtotal + action.payload.price,
+            itemCount: state.itemCount + 1
           }
-      case UPDATE_CART_SUBTOTAL:
+      case DECREMENT_CART_ITEM:
           return {
-              ...state,
-              subTotal: action.payload
-              // subTotal: state.items.map( item => item.subTotal ).reduce( itemReducer, 0)
+            ...state,
+            cartItems: state.cartItems.map(item => {
+              if (item.product_id === action.payload.product_id){
+                return action.payload
+              } else {
+                return item
+              }
+            }),
+            subtotal: state.subtotal - action.payload.price,
+            itemCount: state.itemCount - 1
           }
       case REMOVE_CART_ITEM:
-            return {
-              ...state,
-              items: state.items.filter(item => item.product_id !== action.payload.product.id),
-              subTotal: action.payload.subTotal
-            }
+          return {
+            ...state,
+            cartItems: state.cartItems.filter(item => item.product_id !== action.payload.product_id),
+            itemCount: state.itemCount - action.payload.qty,
+            subtotal: state.subtotal - action.payload.subtotal
+          }
       case TOGGLE_MODAL:
-            return {
-              ...state,
-              showModal: !state.showModal
-            }
+          return {
+            ...state,
+            showModal: !state.showModal
+          }
       case RESET_CART:
-            return {
-              resetCartState
-            }
+          return {
+            resetCartState
+          }
       default:
           return state;
 
