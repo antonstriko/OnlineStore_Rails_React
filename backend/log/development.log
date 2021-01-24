@@ -7551,3 +7551,80 @@ Processing by Api::V1::ProductsController#index as */*
 Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:13:49 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.2ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:14:44 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.89ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:29:17 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.27ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:31:35 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.09ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:32:16 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.02ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:36:29 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.18ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/products" for ::1 at 2021-01-24 16:51:09 -0600
+Processing by Api::V1::ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/api/v1/products_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.72ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 1.0ms)
+
+

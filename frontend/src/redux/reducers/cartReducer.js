@@ -1,5 +1,4 @@
 import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
-import Decimal from 'decimal.js';
 
 const resetCartState = {cartItems: [], subtotal: 0, itemCount: 0, showModal: false}
 const cachedCart = JSON.parse(localStorage.cart || "{}") 
@@ -11,7 +10,7 @@ const cartReducer = (state = initialState, action) => {
           return {
             ...state,
             cartItems: [...state.cartItems, action.payload],
-            subtotal: state.subtotal + Number(action.payload.price),
+            subtotal: state.subtotal + action.payload.price,
             itemCount: state.itemCount + 1
           }
       case INCREMENT_CART_ITEM:
@@ -24,12 +23,10 @@ const cartReducer = (state = initialState, action) => {
                 return item
               }
             }),
-            subtotal: state.subtotal + Number(action.payload.price),
+            subtotal: state.subtotal + action.payload.price,
             itemCount: state.itemCount + 1
           }
       case DECREMENT_CART_ITEM:
-          let stateSubtotal = new Decimal(state.subtotal);
-          let itemSubtotal = new Decimal(action.payload.price);
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
@@ -39,7 +36,7 @@ const cartReducer = (state = initialState, action) => {
                 return item
               }
             }),
-            subtotal: state.subtotal - Number(action.payload.price),
+            subtotal: state.subtotal - action.payload.price,
             itemCount: state.itemCount - 1
           }
       case REMOVE_CART_ITEM:
@@ -47,7 +44,7 @@ const cartReducer = (state = initialState, action) => {
             ...state,
             cartItems: state.cartItems.filter(item => item.product_id !== action.payload.product_id),
             itemCount: state.itemCount - action.payload.qty,
-            subtotal: state.subtotal - Number(action.payload.subtotal)
+            subtotal: state.subtotal - action.payload.subtotal
           }
       case TOGGLE_MODAL:
           return {

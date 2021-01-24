@@ -10,7 +10,7 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../acti
 
 const initialState = {
     isLoggedIn: false,
-    currentUser: null
+    currentUser: null,
 }
 
 const userReducer = (state = initialState, action) => {

@@ -32,8 +32,6 @@ function CartRow({cartItem}){
     // })
   }
   const handleIncrementCartItem = () => {
-      cartItem.qty++
-      cartItem.subtotal += Number(cartItem.price)
       return dispatch(incrementCartItem(cartItem))
   }
   const handleDecrementCartItem = () => {
@@ -52,7 +50,11 @@ function CartRow({cartItem}){
         </td>
         {/* <td>${cartItem.price * cartItem.qty}</td> */}
         <td>${cartItem.subtotal}</td>
-        <td><button onClick={handleRemoveCartItem}><DeleteTwoToneIcon /></button></td>
+        <td><button 
+              onClick={() => dispatch(removeCartItem(cartItem))}>
+                  <DeleteTwoToneIcon />
+            </button>
+        </td>
       </tr>
     </React.Fragment>
   )

@@ -59,20 +59,10 @@ function ProductCard({product}) {
     const productInCart = cartItems.find( item => item.product_id === product.id)
   
     const handleAddToCart = () => {
-      if (productInCart) {
-        productInCart.qty++
-        productInCart.subtotal += Number(product.price)
+      if (productInCart) { 
         return dispatch(incrementCartItem(productInCart))
       } else {
-        let item = {
-          image_url: product.image_url,
-          title: product.title,
-          qty: 1,
-          product_id: product.id,
-          price: Number(product.price),
-          subtotal: Number(product.price)
-        }
-        return dispatch(addToCart(item))
+        return dispatch(addToCart(product))
       }
     }
 
@@ -97,7 +87,7 @@ function ProductCard({product}) {
                     </Box>
                 </CardContent>
                 <CardActions className={classes.cardActions}>
-                    <Box>{ product.in_stock ? 'In-Stock' : 'Unavailable Online'}</Box>
+                    {/* <Box>{ product.in_stock ? 'In-Stock' : 'Unavailable Online'}</Box> */}
                     <Button onClick={handleAddToCart} className={classes.addToCartBtn} size='medium' variant="contained" color="primary">
                       Add to Cart
                     </Button>

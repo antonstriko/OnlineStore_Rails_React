@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {Toolbar, AppBar, Paper, Box, Typography, IconButton, Badge, Grid, Card, Button, Table} from '@material-ui/core';
 
-import CartItem from './CartRow'
+import CartRow from './CartRow'
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 // import { setupCheckout } from "../../_actions/checkoutActions";
 
@@ -89,10 +89,9 @@ function Cart(props) {
   //   props.handleShoppingCartClose()
   //   props.setupCheckout()
   // }
-  
   return (
     <React.Fragment>
-      <Box flexDirection="column" alignContent="stretch" className={classes.sCart}>
+      <Paper flexDirection="column" alignContent="stretch" className={classes.sCart}>
           <Box container display="flex" color="primary" className={classes.topBar} >
               <Box item className={classes.topBarTitle}>
                 <Typography component="h1" variant="h6">Shopping Cart </Typography>
@@ -116,7 +115,7 @@ function Cart(props) {
                 <tbody>
                   {
                       cartItems.map((cartItem,index) => {
-                          return <CartItem cartItem={cartItem} indexInCart={index} key={cartItem.product_id} />
+                          return <CartRow cartItem={cartItem} indexInCart={index} key={cartItem.product_id} />
                       })
                   }
                 </tbody>
@@ -127,7 +126,7 @@ function Cart(props) {
                 <h4>Number of items: {itemCount} </h4>
               </Box>
               <Box className={classes.totalDetails}>
-                <h3>Cart Total: ${subtotal}</h3>
+                <h3>Cart Total: ${subtotal.toFixed(2)}</h3>
               </Box>
           </Box>
           <Box className={classes.checkoutBtnContainer}>
@@ -138,7 +137,7 @@ function Cart(props) {
                   className={classes.checkoutBtn} 
                   onClick={handleRerouteToCheckout}>Checkout</Button>
           </Box>
-      </Box>
+      </Paper>
     </React.Fragment>
   )
 }
