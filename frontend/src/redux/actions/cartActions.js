@@ -1,39 +1,41 @@
 import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
 
-export const addToCart = (product) => ({
-  type: ADD_TO_CART,
-  payload: {
-        image_url: product.image_url,
-        title: product.title,
-        qty: 1,
-        product_id: product.id,
-        price: product.price,
-        subTotal: product.price
-    }
-})
+export const addToCart = (product) => {
+  return {
+    type: ADD_TO_CART,
+    payload: product
+  }
+}
 
-export const incrementCartItem = (cartItem) => ({
-  type: INCREMENT_CART_ITEM,
-  payload: cartItem
-})
+export const incrementCartItem = (cartItem) => {
+  return {
+    type: INCREMENT_CART_ITEM,
+    payload: cartItem
+  }
+}
 
-export const decrementCartItem = (cartItem) => ({
-  type: DECREMENT_CART_ITEM,
-  payload: cartItem
-})
+export const decrementCartItem = (cartItem) => {
+  return {
+    type: DECREMENT_CART_ITEM,
+    payload: cartItem
+  }
+}
 
-export const removeCartItem = (cartItem) => ({
-  type: REMOVE_CART_ITEM,
-  payload: cartItem
-})
+export const removeCartItem = (cartItem) => {
+  return {
+    type: REMOVE_CART_ITEM,
+    payload: cartItem
+  }
 
-export const toggleModal = () => ({
-  type: TOGGLE_MODAL
-})
+}
 
-export const resetCart = () => ({
-  type: RESET_CART
-})
+export const toggleModal = () => {
+  return {type: TOGGLE_MODAL}
+}
+
+export const resetCart = () => {
+  return {type: RESET_CART}
+}
 
 // items: [],
 // subTotal: '0',

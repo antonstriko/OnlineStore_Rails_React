@@ -60,9 +60,19 @@ function ProductCard({product}) {
   
     const handleAddToCart = () => {
       if (productInCart) {
-        return dispatch(incrementCartItem(product))
+        productInCart.qty++
+        productInCart.subtotal += Number(product.price)
+        return dispatch(incrementCartItem(productInCart))
       } else {
-        return dispatch(addToCart(product))
+        let item = {
+          image_url: product.image_url,
+          title: product.title,
+          qty: 1,
+          product_id: product.id,
+          price: Number(product.price),
+          subtotal: Number(product.price)
+        }
+        return dispatch(addToCart(item))
       }
     }
 

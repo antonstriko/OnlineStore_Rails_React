@@ -120,7 +120,7 @@ export default function Storefront(props) {
                 const handleCartOpen = () => setCartOpen(true);
                 const handleCartClose = () => setCartOpen(false);
 
-      const cartItemCount = useSelector(state => state.cart.cartItems.length)
+      const cartItemCount = useSelector(state => state.cart.itemCount)
       const currentUser = useSelector(state => state.user.currentUser)
       let { path, url } = useRouteMatch();
 
@@ -189,7 +189,7 @@ export default function Storefront(props) {
           <main className={classes.content}>
               <div className={classes.appBarSpacer} />
               <Container maxWidth="lg" className={classes.container}>
-                <Modal open={cartOpen} onClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
+                <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
                     <Fade in={cartOpen}>
                         <div className={classes.paper}>
                           <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>

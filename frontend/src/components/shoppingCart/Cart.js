@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import {Toolbar, AppBar, Paper, Box, Typography, IconButton, Badge, Grid, Card, Button, Table} from '@material-ui/core';
 
-import CartItem from './CartItem'
+import CartItem from './CartRow'
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 // import { setupCheckout } from "../../_actions/checkoutActions";
 
@@ -89,6 +89,7 @@ function Cart(props) {
   //   props.handleShoppingCartClose()
   //   props.setupCheckout()
   // }
+  
   return (
     <React.Fragment>
       <Box flexDirection="column" alignContent="stretch" className={classes.sCart}>
@@ -97,7 +98,7 @@ function Cart(props) {
                 <Typography component="h1" variant="h6">Shopping Cart </Typography>
               </Box>
               <Box item className={classes.topBarClose}>
-                <Button edge="end" color="inherit" onClick={handleShoppingCartClose}> Close </Button>
+                <Button edge="end" color="inherit" onClick={(e)=> props.handleCartClose()}> Close </Button>
               </Box>
           </Box>
           <Box className={classes.tableContainer}>
@@ -114,8 +115,8 @@ function Cart(props) {
                 </thead>
                 <tbody>
                   {
-                      cartItems.map((item,index) => {
-                          return <CartItem cartItem={item} indexInCart={index} key={index} />
+                      cartItems.map((cartItem,index) => {
+                          return <CartItem cartItem={cartItem} indexInCart={index} key={cartItem.product_id} />
                       })
                   }
                 </tbody>

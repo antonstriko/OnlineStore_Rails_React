@@ -1,5 +1,5 @@
 import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
-import {Decimal} from 'decimal.js';
+import Decimal from 'decimal.js';
 
 const resetCartState = {cartItems: [], subtotal: 0, itemCount: 0, showModal: false}
 const cachedCart = JSON.parse(localStorage.cart || "{}") 
@@ -11,41 +11,43 @@ const cartReducer = (state = initialState, action) => {
           return {
             ...state,
             cartItems: [...state.cartItems, action.payload],
-            subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
+            subtotal: state.subtotal + Number(action.payload.price),
             itemCount: state.itemCount + 1
           }
       case INCREMENT_CART_ITEM:
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
-              if (item.product_id === action.payload.id) {
+              if (item.product_id === action.payload.product_id){
                 return action.payload
               } else {
                 return item
               }
-          }),
-            subTotal: Decimal.add(state.subtotal, action.payload.price).toFixed(2),
+            }),
+            subtotal: state.subtotal + Number(action.payload.price),
             itemCount: state.itemCount + 1
           }
       case DECREMENT_CART_ITEM:
+          let stateSubtotal = new Decimal(state.subtotal);
+          let itemSubtotal = new Decimal(action.payload.price);
           return {
             ...state,
             cartItems: state.cartItems.map(item => {
-                if (item.product_id === action.payload.id) {
-                  return action.payload
-                } else {
-                  return item
-                }
+              if (item.product_id === action.payload.product_id){
+                return action.payload
+              } else {
+                return item
+              }
             }),
-            subtotal: Decimal.sub(state.subtotal, action.payload.price).toFixed(2),
+            subtotal: state.subtotal - Number(action.payload.price),
             itemCount: state.itemCount - 1
           }
       case REMOVE_CART_ITEM:
           return {
             ...state,
-            items: state.cartItems.slice().filter(item => item.product_id !== action.payload.id),
+            cartItems: state.cartItems.filter(item => item.product_id !== action.payload.product_id),
             itemCount: state.itemCount - action.payload.qty,
-            subtotal: Decimal.sub(state.subtotal, action.payload.subtotal).toFixed(2)
+            subtotal: state.subtotal - Number(action.payload.subtotal)
           }
       case TOGGLE_MODAL:
           return {

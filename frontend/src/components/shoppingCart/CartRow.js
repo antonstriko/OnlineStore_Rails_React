@@ -9,9 +9,11 @@ import {addToCart, incrementCartItem, decrementCartItem, removeCartItem} from '.
 
 function CartRow({cartItem}){
   const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart)
 
-  const handleRemoveCartItem = () => dispatch(removeCartItem(cartItem))
-  
+  const handleRemoveCartItem = () => {
+    return dispatch(removeCartItem(cartItem))
+  }
   const handleQuantityChange = (e) => {
     console.log('handleQuantityChange in cart event fired')
 
@@ -29,19 +31,28 @@ function CartRow({cartItem}){
     //     product: updatedCartItem
     // })
   }
-
+  const handleIncrementCartItem = () => {
+      cartItem.qty++
+      cartItem.subtotal += Number(cartItem.price)
+      return dispatch(incrementCartItem(cartItem))
+  }
+  const handleDecrementCartItem = () => {
+      cartItem.qty--
+      cartItem.subtotal -= Number(cartItem.price)
+      return dispatch(decrementCartItem(cartItem))
+  }
   return (
     <React.Fragment>
       <tr className="items-in-cart">
-        {cartItem.image_url ? <td><img width={75} height={75} src={cartItem.image_url} alt={"producIimage"}></img></td> : <td></td>}
+        {cartItem.image_url ? <td><img width={75} height={75} src={cartItem.image_url} alt={"producImage"}></img></td> : <td></td>}
         <td>{cartItem.title}</td>
         <td>${cartItem.price}</td>
         <td>
-          <input value={cartItem.qty || 1} type="number" min="1" max="20" onChange={handleQuantityChange} />
+          <input value={cartItem.qty} type="number" min="1" max="20" onChange={handleQuantityChange} />
         </td>
-        {/* <td>${cartItem.price * cartItem.quantity}</td> */}
+        {/* <td>${cartItem.price * cartItem.qty}</td> */}
         <td>${cartItem.subtotal}</td>
-        <td><DeleteTwoToneIcon /></td>
+        <td><button onClick={handleRemoveCartItem}><DeleteTwoToneIcon /></button></td>
       </tr>
     </React.Fragment>
   )
