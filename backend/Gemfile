@@ -18,12 +18,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
 gem 'active_model_serializers', '~> 0.10.7'
-gem 'faker'
+
 gem 'rack-cors'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # gem 'net-http'
-gem 'faraday'
+# gem 'faraday'
 # gem 'uri'
 
 # gem 'openssl', git: 'https://github.com/ruby/openssl'
@@ -44,6 +44,7 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'faker'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

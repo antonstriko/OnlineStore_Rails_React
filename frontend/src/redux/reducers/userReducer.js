@@ -5,11 +5,13 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../acti
 //     firstname: '',
 //     lastname: '',
 //     email: '',
+//     address: null,
 //     isStoreManager: false
 // }
 
 const initialState = {
     isLoggedIn: false,
+    isStoreManager: false,
     currentUser: null,
 }
 
@@ -18,7 +20,8 @@ const userReducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:{
             return {
                 isLoggedIn: true,
-                currentUser: action.user
+                isStoreManager: action.payload.isStoreManager,
+                currentUser: action.payload.user
             }
         }
         case LOGIN_FAILURE: {
@@ -27,7 +30,9 @@ const userReducer = (state = initialState, action) => {
         case UPDATE_CURRENT_USER:{
             return {
                 ...state,
-                currentUser: action.user
+                isLoggedIn: true,
+                isStoreManager: action.payload.isStoreManager,
+                currentUser: action.payload.user
             }
         }
         case LOGOUT: {

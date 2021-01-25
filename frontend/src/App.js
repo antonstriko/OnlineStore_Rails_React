@@ -5,9 +5,10 @@ import Storefront from './components/Storefront'
 import SignupForm from './components/SignupForm'
 import LoginForm from './components/LoginForm'
 import LandingPage from './components/LandingPage'
+import AdminDashboard from './components/dashboard/AdminDashboard'
 
 function App() {
-  const loggedIn = localStorage.token || null;
+
   return (
     <Router>
       <div className="wrapper" >
@@ -16,7 +17,7 @@ function App() {
               <Route path="/storefront" component={Storefront}/>
               <Route path="/login" component={LoginForm}/>
               <Route path="/signup" component={SignupForm}/>
-              {/* <Route path="/admin" component={AdminDashboard}/> */}
+              <Route path="/admin" component={AdminDashboard}/>
           </Switch>
       </div>
     </Router>

@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::API
-  # before_action :authorized
+  # before_action :logged_in?
 
   def encode_token(payload)
     # should store secret in env variable
-    JWT.encode(payload, 'my_s3cr3t')
+    JWT.encode(payload, 'my_s3cr3t','HS256' )
+    # JWT.encode(payload, ENV["SECRET_KEY_BASE"])
   end
 
   def auth_header
@@ -15,23 +16,18 @@ class ApplicationController < ActionController::API
     if auth_header
       token = auth_header.split(' ')[1]
       # header: { 'Authorization': 'Bearer <token>' }
-      begin
-        JWT.decode(token, 'my_s3cr3t') #, true, algorithm: 'HS256')
-      rescue JWT::DecodeError
-        nil
-      end
+      JWT.decode(token, 'my_s3cr3t', true, { algorithm: 'HS256' }) #, true, algorithm: 'HS256')
     end
   end
 
   def current_user
-    if decoded_token
-      user_id = decoded_token[0]['user_id']
-      @user = User.find_by(id: user_id)
-    end
+      user_id = decoded_token && decoded_token[0] ? decoded_token[0]['user_id'] : nil
+      @user = user_id ? User.find_by(id: user_id) : nil
+      @user
   end
 
   def logged_in?
-    !current_user
+    current_user
   end
 
   def authorized

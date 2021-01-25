@@ -1,10 +1,10 @@
 class Api::V1::ProductsController < ApplicationController
-    # skip_before_action :authorized, only: [:create]
+    # skip_before_action :logged_in?, only: [:index, :show]
 
     def index
         @products = Product.all
         #render json: { product: ProductSerializer.new(@products)}
-        render json: @products, except: [:created_at, :updated_at] , include: [:reviews]
+        render json: @products, except: [:created_at, :updated_at] #, include: [:reviews]
     end
 
     def show

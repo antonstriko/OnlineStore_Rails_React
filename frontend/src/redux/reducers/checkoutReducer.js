@@ -7,14 +7,16 @@ const initialState = {
         cvv: '',
         expDate: ''
     },
-    orderItems: null,
+    itemCount: 0,
+    orderItems: [],
+    subtotal: 0,
+    salesTaxRate: '0.0825',
+    salesTax: 0,
     total: 0,
-    count: 0,
+    
     address: {
-        firstname: '',
-        lastname: '',
         street: '',
-        address2: '',
+        street2: '',
         city: '',
         state: '',
         zip: '',

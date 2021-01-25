@@ -26,7 +26,7 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const RESET_CART = 'RESET_CART';
 
 // userReducer -----------------------------------
-//export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const SIGNUP = 'SIGNUP';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
