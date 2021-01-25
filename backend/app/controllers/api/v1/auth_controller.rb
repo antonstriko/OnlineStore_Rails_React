@@ -16,12 +16,11 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def profile
-    ah = request.headers['Authorization']
-    if ah
-      token = auth_header.split(' ')[1]
-      # header: { 'Authorization': 'Bearer <token>' }
-      JWT.decode(token, 'my_s3cr3t', true, 'HS256') #, true, algorithm: 'HS256')
-      user_id = decoded_token ? decoded_token[0]['user_id'] : nil
+    auth_h = request.headers[:Authorization]
+    if auth_h
+      token = auth_h.split(' ')[1]
+      decoded_token = JWT.decode(token, 'my_s3cr3t')
+      user_id = decoded_token[0]['user_id']
       @user = User.find_by(id: user_id)
       render json: @user #, except: [:created_at, :updated_at], include: [:favorites, :orders, :reviews]
     else

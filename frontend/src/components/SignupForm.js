@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import {CssBaseline, Avatar, Button, Container, makeStyles, TextField, Link, Typography, Grid, FormControlLabel} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+import { loginSuccess } from '../redux/actions/userActions'
 
     const useStyles = makeStyles((theme) => ({
       paper: {
@@ -44,13 +45,12 @@ function SignupForm() {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      fetch('http://localhost:3000/login', requestOptions)
+      fetch('http://localhost:3000/api/v1/users', requestOptions)
       .then(resp => resp.json())
       .then(data => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('token', data.token);
-          localStorage.setItem('user', data.user.id);
-          dispatch({type:'LOGIN', user: data.user})
+          localStorage.setItem('user', data.user?.id);
+          dispatch(loginSuccess(data.user))
           history.push('/storefront')
       });
     }

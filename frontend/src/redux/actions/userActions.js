@@ -1,4 +1,20 @@
-import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../actionTypes'
+import {SIGNUP, LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../actionTypes'
+
+export const signup = (user) => {
+  return {
+      type: SIGNUP,
+      payload: {
+        isLoggedIn: true,
+        isStoreManager: user.isStoreManager,
+        user: {
+          id: user.id,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email
+        }
+      }
+  }
+}
 
 export const loginSuccess = (user) => {
   return {
