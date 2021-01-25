@@ -3,21 +3,50 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../acti
 export const loginSuccess = (user) => {
   return {
       type: LOGIN_SUCCESS,
-      payload: user
+      payload: {
+        isLoggedIn: true,
+        isStoreManager: user.isStoreManager,
+        user: {
+          id: user.id,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email
+        }
+      }
   }
 }
 
 export const loginFailure = () => {
-  debugger
   return {
       type: LOGIN_FAILURE
   }
 }
 export const updateCurrentUser = (user) => {
-  return {
+  if (user) {
+      // address: {
+      //   street: user?.address_street,
+      //   city:user?.address_city,
+      //   state:user?.address_state,
+      //   zip:user?.address_zip
+      // }
+    // }
+    // user.address = user.address && Object.keys(user.address).length > 1 ? currentAddress : null
+    // localStorage.setItem('user', user.id)
+    return {
       type: UPDATE_CURRENT_USER,
-      payload: user
-  }
+      payload: {
+        isLoggenIn: true,
+        isStoreManager: user.isStoreManager,
+        user: {
+            id: user.id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email
+          }
+      }
+    }
+  } 
+    return null;
 }
 
 export const logout = () => {
@@ -25,3 +54,12 @@ export const logout = () => {
       type: LOGOUT
   }
 }
+// // actions/fetchAstronauts.js
+// export function fetchAstronauts() {
+//   return (dispatch) => {
+//     dispatch({ type: 'START_ADDING_ASTRONAUTS_REQUEST' });
+//     fetch('http://api.open-notify.org/astros.json')
+//       .then(response => response.json())
+//       .then(astronauts => dispatch({ type: 'ADD_ASTRONAUTS', astronauts }));
+//   };
+// }

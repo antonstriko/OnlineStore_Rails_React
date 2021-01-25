@@ -1,6 +1,6 @@
 //import React from 'react'
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import {CssBaseline, Avatar, Button, Container, makeStyles, TextField, Link, Typography, Grid, FormControlLabel} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -48,8 +48,8 @@ function SignupForm() {
       .then(resp => resp.json())
       .then(data => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('token', JSON.stringify(data.token));
-          localStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', data.user.id);
           dispatch({type:'LOGIN', user: data.user})
           history.push('/storefront')
       });

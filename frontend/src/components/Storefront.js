@@ -32,7 +32,7 @@ import { logout } from '../redux/actions/userActions';
         ...theme.mixins.toolbar,
       },
       appBar: {
-        background: '#ff8f00',
+        background: 'green',
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
           easing: theme.transitions.easing.sharp,
@@ -40,7 +40,7 @@ import { logout } from '../redux/actions/userActions';
         }),
       },
       appBarShift: {
-        background: '#ff9100',
+        background: 'green',
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -112,7 +112,7 @@ export default function Storefront(props) {
       let history = useHistory();
       const dispatch = useDispatch();
       const classes = useStyles();
-                const [open, setOpen] = React.useState(true);
+                const [open, setOpen] = React.useState(false);
                 const handleDrawerOpen = () => setOpen(true);
                 const handleDrawerClose = () => setOpen(false);
                 
@@ -125,8 +125,9 @@ export default function Storefront(props) {
       let { path, url } = useRouteMatch();
 
       useEffect(()=> {
-          const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${localStorage.token}`}};
-          fetch('http://localhost:3000/api/v1/products', headers)
+        // let token = localStorage.token !== null;
+        //   const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${token}`}};
+          fetch('http://localhost:3000/api/v1/products')
             .then(resp => resp.json())
             .then(data => {
               dispatch(fetchProducts(data))

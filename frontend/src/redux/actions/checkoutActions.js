@@ -1,7 +1,11 @@
 // import {SETUP_CHECKOUT, ADD_ADDRESS, ADD_PAYMENT, CLEAR_CHECKOUT, ADD_NEW_ORDER} from '../types'
 import { useHistory } from "react-router-dom";
 
-
+const sumItems = cartItems => {
+  let itemCount = cartItems.reduce((total, item) => total + item.qty, 0);
+  let total = cartItems.reduce((total, item) => total + parseFloat(item.price) * item.qty, 0).toFixed(2);
+  return { itemCount, total }
+}
 
 export const setupCheckout = (currentUser, shoppingCart, dispatch) => {
   console.log('Checkout btn has been clicked')
@@ -23,24 +27,6 @@ export const setupCheckout = (currentUser, shoppingCart, dispatch) => {
   });
   // history.push('dashboard/checkout')
 };
-
-// export const setupCheckout = (shoppingCartItems, currentUser) => (dispatch, getState) => {
-//   console.log('Checkout btn has been clicked')
-
-//   const shoppingCart = getState().shoppingCart
-//   // const currentUser = getState().user.currentUser
-//   //const history = useHistory();
-//   dispatch({
-//     type: SETUP_CHECKOUT,
-//     user_id: currentUser.id,
-//     firstname:currentUser.firstname,
-//     lastname:currentUser.lastname,
-//     orderItems: shoppingCartItems,
-//     total: shoppingCart.subTotal,
-//     count: shoppingCart.count
-//   });
-//   // history.push('dashboard/checkout')
-// };
 
 export const createOrder = (order) => (dispatch) => {
     fetch("http://localhost:3000/orders", {

@@ -78,10 +78,10 @@ export function MainListItems() {
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
-          <ListItemText primary="Dashboard" />
+          <ListItemText primary="Admin Dashboard" />
         </ListItem>
       </NavLink>
-      <NavLink to="/dashboard/orders" className={classes.navList}>
+      <NavLink to="/storefront/orders" className={classes.navList}>
         <ListItem button>
           <ListItemIcon>
             <ListAltIcon />
@@ -89,7 +89,7 @@ export function MainListItems() {
           <ListItemText primary="Orders" />
         </ListItem>
       </NavLink>
-      {/* <NavLink to="/dashboard/profile" className={classes.navList}>
+      {/* <NavLink to="/storefront/profile" className={classes.navList}>
         <ListItem button>
           <ListItemIcon>
             <AccountBoxIcon />
@@ -127,7 +127,7 @@ export function SecondaryListItems() {
     } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Price'){
       dispatch({type: 'SORT_PRODUCTS', sortChar: 'price'})
     } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Rating'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'customer_rating'})
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'rating'})
     } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Available Online'){
       dispatch({type: 'SORT_PRODUCTS', sortChar: 'in_stock'})
     }

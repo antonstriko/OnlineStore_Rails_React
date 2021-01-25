@@ -1,10 +1,10 @@
 class Api::V1::UsersController < ApplicationController
-    # skip_before_action :authorized, only: [:create]
+    # skip_before_action :logged_in?, only: [:create, :show]
 
     def create
       @user = User.create(user_params)
       if @user.valid?
-        @token = JWT.encode({user_id: @user.id}, 'my_s3cr3t')
+        @token = JWT.encode({user_id: @user.id}, 'my_s3cr3t', 'HS256')
         render json: { user: @user, token: @token }, status: :created
       else
         render json: { error: 'failed to create user' }, status: :not_acceptable
@@ -15,9 +15,15 @@ class Api::V1::UsersController < ApplicationController
       @user = User.find(params[:id])
       render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews]
     end
+
+    def profile
+      @user = AuthorizeApiRequest.call(user)
+      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews]
+    end
     
     # PATCH/PUT /users/1
     def update
+      set_user
       if @user.update(user_params)
         render json: @user
       else
@@ -36,6 +42,6 @@ class Api::V1::UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:email, :password, :firstname, :lastname, :isStoreManager)
+        params.require(:user).permit(:email, :password, :firstname, :lastname, :isStoreManager, :address_street, :address_street2, :address_city, :address_state, :address_zip, :address_country)
       end
 end

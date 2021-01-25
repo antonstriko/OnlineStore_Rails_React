@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container, makeStyles} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import { loginSuccess } from '../redux/actions/userActions'
 
 
 
@@ -43,7 +44,7 @@ function LoginForm() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user:{ email, password }})
+      body: JSON.stringify({user: { email, password }})
     };
 
     const handleSubmit = (e) => {
@@ -54,8 +55,8 @@ function LoginForm() {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           console.log(data)
           localStorage.setItem('token', data.token);
-          //localStorage.setItem('user', data.user);
-          dispatch({type:'LOGIN', user: data.user})
+          localStorage.setItem('user', data.user.id);
+          dispatch(loginSuccess(data.user))
           history.push('/storefront')
       });
     }
@@ -88,7 +89,7 @@ function LoginForm() {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="http://localhost:3001/api/v1/signup" variant="body2">
+                    <Link href="http://localhost:3001/signup" variant="body2">
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>
