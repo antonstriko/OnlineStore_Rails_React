@@ -22,29 +22,11 @@ function ProductList(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  let products = props.products
-  // // let [products, setProducts] = useState(prods)
-  // const prodSortChar = useSelector(state => state.products.sortTerm)
-  // const searchBar = useSelector(state => state.products.searchBarInput)
-
-  // if (prodSortChar === 'price'){
-  //   products.sort((a, b) => (a.price > b.price) ? 1 : -1)
-  // } else if (prodSortChar === 'customer_rating'){
-  //   products.sort((a, b) => (a.customer_rating > b.customer_rating) ? 1 : -1)
-  // } else if (prodSortChar === 'in_stock'){
-  //   products = products.filter(prod => prod.in_stock)
-  // } else if (prodSortChar === ''){
-  //   products.sort((a, b) => (a.id > b.id) ? 1 : -1)
-  // }
-  // if (searchBar !== ''){
-  //   products = products.filter(prod => prod.title.toLowerCase().includes(searchBar))
-  // }
-
   return (
     <React.Fragment>
       <Grid container className={classes.pList} spacing={2}>
         {
-          products.map(item => <ProductCard product={item} key={item.id} />)
+          props.products.map(item => <ProductCard product={item} key={item.id} />)
         }
       </Grid>
     </React.Fragment>

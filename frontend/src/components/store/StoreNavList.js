@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import {ListItem, ListItemIcon, ListItemText, ListSubheader, InputBase} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -13,8 +14,6 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
-
-import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,7 +72,7 @@ export function MainListItems() {
 
   return (
     <div>
-      <NavLink to="/dashboard" className={classes.navList}>
+      <NavLink to="/storefront" className={classes.navList}>
         <ListItem button>
           <ListItemIcon>
             <DashboardIcon />

@@ -1,112 +1,115 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
-import {BrowserRouter as Router, Switch, Route, useHistory, useParams, useRouteMatch} from "react-router-dom";
+import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
+import axios from 'axios';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
 import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
 
-import { MainListItems, SecondaryListItems } from './DrawerNavList';
-import ProductListContainer from './product/ProductListContainer'
-import Cart from './shoppingCart/Cart'
-import OrdersList from './order/OrdersList';
-import Checkout from './checkout/Checkout';
+import { MainListItems, SecondaryListItems } from './StoreNavList';
+import ProductListContainer from '../product/ProductListContainer'
+import Cart from '../shoppingCart/Cart'
+import OrdersList from '../order/OrdersList';
+import Checkout from '../checkout/Checkout';
 
-import { fetchProducts } from '../redux/actions/productActions';
-import { logout } from '../redux/actions/userActions';
+import { addFetchedProducts } from '../../redux/actions/productActions';
+import { logout } from '../../redux/actions/userActions';
+
 
     const drawerWidth = 240;
-    const useStyles = makeStyles((theme) => ({
-      root: {
-        display: 'flex'
-      },
-      toolbar: {
-        paddingRight: 24, // keep right padding when drawer closed
-      },
-      toolbarIcon: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        ...theme.mixins.toolbar,
-      },
-      appBar: {
-        background: 'green',
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-      },
-      appBarShift: {
-        background: 'green',
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-      menuButton: {
-        marginRight: 36,
-      },
-      menuButtonHidden: {
-        display: 'none',
-      },
-      title: {
-        flexGrow: 1,
-      },
-      drawerPaper: {
-        position: 'relative',
-        whiteSpace: 'nowrap',
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-      drawerPaperClose: {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
+    const useStyles = makeStyles((theme) => {
+      return ({
+        root: {
+          display: 'flex'
         },
-      },
-      appBarSpacer: theme.mixins.toolbar,
-      content: {
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-      },
-      container: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4),
-      },
-      modal: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center'
-      },
-      paper: {
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        // padding: theme.spacing(2, 4, 3),
-      },
-      navList: {
-        color: 'black',
-        textDecoration: 'none'
-      },
-      logoutButton: {
-        fontSize: 18
-      }
-    }));
+        toolbar: {
+          paddingRight: 24,
+        },
+        toolbarIcon: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          padding: '0 8px',
+          ...theme.mixins.toolbar,
+        },
+        appBar: {
+          background: 'green',
+          zIndex: theme.zIndex.drawer + 1,
+          transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+        },
+        appBarShift: {
+          background: 'green',
+          marginLeft: drawerWidth,
+          width: `calc(100% - ${drawerWidth}px)`,
+          transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+        },
+        menuButton: {
+          marginRight: 36,
+        },
+        menuButtonHidden: {
+          display: 'none',
+        },
+        title: {
+          flexGrow: 1,
+        },
+        drawerPaper: {
+          position: 'relative',
+          whiteSpace: 'nowrap',
+          width: drawerWidth,
+          transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+        },
+        drawerPaperClose: {
+          overflowX: 'hidden',
+          transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+          width: theme.spacing(7),
+          [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(9),
+          },
+        },
+        appBarSpacer: theme.mixins.toolbar,
+        content: {
+          flexGrow: 1,
+          height: '100vh',
+          overflow: 'auto',
+        },
+        container: {
+          paddingTop: theme.spacing(4),
+          paddingBottom: theme.spacing(4),
+        },
+        modal: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        },
+        paper: {
+          backgroundColor: theme.palette.background.paper,
+          border: '2px solid #000',
+          boxShadow: theme.shadows[5],
+        },
+        navList: {
+          color: 'black',
+          textDecoration: 'none'
+        },
+        logoutButton: {
+          fontSize: 18
+        }
+      });
+    });
 
 export default function Storefront(props) {
       let history = useHistory();
@@ -124,14 +127,33 @@ export default function Storefront(props) {
       const currentUser = useSelector(state => state.user.currentUser)
       let { path, url } = useRouteMatch();
 
+      const productUrl = 'http://localhost:3000/api/v1/products'
+      
+      function fetchProducts() {
+        return (dispatch) => {
+          dispatch({ type: 'START_ADDING_ASTRONAUTS_REQUEST' });
+          fetch('http://localhost:3000/api/v1/products')
+            .then(resp => resp.json())
+            .then(products => dispatch(addFetchedProducts));
+        };
+      }
+
       useEffect(()=> {
         // let token = localStorage.token !== null;
         //   const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${token}`}};
-          fetch('http://localhost:3000/api/v1/products')
-            .then(resp => resp.json())
-            .then(data => {
-              dispatch(fetchProducts(data))
-            })
+          // fetch('http://localhost:3000/api/v1/products')
+          //   .then(resp => resp.json())
+          //   .then(data => {
+          //     dispatch(fetchProducts(data))
+          //   })
+            
+            // async function pullProducts() {
+            //     const result = await axios(productUrl);
+            //     dispatch(fetchProducts(result))
+            // }
+            
+            // pullProducts()
+            fetchProducts()
       }, [])
 
       const handleRerouteToCheckout = () => {
@@ -145,6 +167,7 @@ export default function Storefront(props) {
         props.history.push('/login')
       }
 
+      const adLink = '/admin'
       return (
         <div className={clsx(classes.root)}  >
           <CssBaseline />
@@ -155,10 +178,13 @@ export default function Storefront(props) {
                   <MenuIcon />
                 </IconButton>
 
+                
+
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Hardware Store </Typography>
                 {/* {(getLocalCurrentUser()) ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
+                <Link to={adLink}>Admin Dashboard</Link>
                 <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
                 </IconButton>
@@ -211,20 +237,5 @@ export default function Storefront(props) {
               </Container>
           </main>
         </div>
-      );
+      )
 }
- 
-
-// {/* Chart */}
-// <Grid item xs={12} md={8} lg={9}>
-// <Paper className={fixedHeightPaper}>
-//     <Chart />
-// </Paper>
-// </Grid>
-
-// {/* Recent Deposits */}
-// <Grid item xs={12} md={4} lg={3}>
-// <Paper className={fixedHeightPaper}>
-//     <Deposits />
-// </Paper>
-// </Grid>
