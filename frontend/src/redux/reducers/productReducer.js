@@ -16,7 +16,7 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
-        case 'FETCH_PRODUCTS':
+        case 'ADD_FETCHED_PRODUCTS':
             return {
                 ...state,
                 allProducts: action.payload,
@@ -31,14 +31,12 @@ const productReducer = (state = initialState, action) => {
         case 'SET_PRODUCT_SORT':
             return {
                 ...state,
-                sortTerm: action.payload.sort,
-                filteredProducts: action.payload.filteredProducts
+                sortTerm: action.payload.sort
             }
         case 'SET_PRODUCT_FILTER':
             return {
                 ...state,
-                filterTerm: action.payload.filter,
-                filteredProducts: action.payload.filteredProducts
+                filterTerm: action.payload.filter
             }
         case 'UPDATE_FILTERED_PRODUCTS':
             return {

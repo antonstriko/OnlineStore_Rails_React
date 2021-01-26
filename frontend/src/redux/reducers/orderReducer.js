@@ -3,7 +3,9 @@ const initialState = {
     currentOrder: {
         user_id: '',
         orderItems: [],
-        total: '0',
+        subtotal: 0,
+        taxRate: '0.0825',
+        total: 0,
         item_count: 0,
         shipped: false,
         shipped_date: null,
@@ -18,7 +20,7 @@ const initialState = {
 const orderReducer = (state = initialState, action) => {
     switch (action.type) {
 
-    case 'GET_ORDERS':
+    case 'ADD_FETCHED_ORDERS':
         return {
             ...state,
             allOrders: action.orders

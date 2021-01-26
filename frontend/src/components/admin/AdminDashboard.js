@@ -7,14 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
 import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
 
-import { MainListItems, SecondaryListItems } from './DrawerNavList';
-import ProductListContainer from './product/ProductListContainer'
-import Cart from './shoppingCart/Cart'
-import OrdersList from './order/OrdersList';
-import Checkout from './checkout/Checkout';
+import AdminMenu from './AdminMenu'
+import OrdersList from '../order/OrdersList';
 
-import { fetchProducts } from '../redux/actions/productActions';
-import { logout } from '../redux/actions/userActions';
+import { fetchProducts } from '../../redux/actions/productActions';
+import { logout } from '../../redux/actions/userActions';
 
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
@@ -108,36 +105,19 @@ import { logout } from '../redux/actions/userActions';
       }
     }));
 
-export default function Storefront(props) {
+export default function AdminDashboard(props) {
       let history = useHistory();
       const dispatch = useDispatch();
       const classes = useStyles();
                 const [open, setOpen] = React.useState(false);
                 const handleDrawerOpen = () => setOpen(true);
                 const handleDrawerClose = () => setOpen(false);
-                
-                const [cartOpen, setCartOpen] = React.useState(false);
-                const handleCartOpen = () => setCartOpen(true);
-                const handleCartClose = () => setCartOpen(false);
-
-      const cartItemCount = useSelector(state => state.cart.itemCount)
+              
       const currentUser = useSelector(state => state.user.currentUser)
       let { path, url } = useRouteMatch();
 
-      useEffect(()=> {
-        // let token = localStorage.token !== null;
-        //   const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${token}`}};
-          fetch('http://localhost:3000/api/v1/products')
-            .then(resp => resp.json())
-            .then(data => {
-              dispatch(fetchProducts(data))
-            })
-      }, [])
+      const getProducts
 
-      const handleRerouteToCheckout = () => {
-          setCartOpen(false)
-          history.push('storefront/checkout')
-      }
 
       const handleLogout = (event) => {
         localStorage.removeItem('token')
@@ -155,76 +135,46 @@ export default function Storefront(props) {
                   <MenuIcon />
                 </IconButton>
 
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Hardware Store </Typography>
-                {/* {(getLocalCurrentUser()) ? 
-                  <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
-                  <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backcountry Store </Typography>
                 <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
-                </IconButton>
-                <IconButton color="inherit" onClick={handleCartOpen}>
-                    <Badge badgeContent={cartItemCount} color="secondary">
-                        <ShoppingCartIcon />
-                    </Badge>
                 </IconButton>
             </Toolbar>
           </AppBar>
 
-          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose) }} open={open} >
-              <div className={classes.toolbarIcon}>
-                  <IconButton onClick={handleDrawerClose}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-              </div>
-              <Divider />
-              <List>
-                <MainListItems />
-              </List>
-              <Divider />
-              <List>
-                <SecondaryListItems />
-              </List>
-              <Divider />
-          </Drawer>
+          <AdminMenu />
 
           <main className={classes.content}>
               <div className={classes.appBarSpacer} />
               <Container maxWidth="lg" className={classes.container}>
-                <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
-                    <Fade in={cartOpen}>
-                        <div className={classes.paper}>
-                          <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
-                        </div>
-                    </Fade>
-                </Modal>
                 <Switch> 
                     <Route exact path={path}>
-                        <ProductListContainer />
-                    </Route>
-                    <Route exact path={`${path}/orders`}>
                         <OrdersList />
                     </Route>
-                    <Route exact path={`${path}/checkout`}>
-                        <Checkout />
+                    <Route exact path={`${path}/orders`}>
+                        <OrdersDataTable />
                     </Route>
+                    {/* <Route exact path={`${path}/products`}>
+                        <ProductsDataTable />
+                    </Route> */}
                 </Switch>
               </Container>
           </main>
         </div>
       );
 }
- 
 
-// {/* Chart */}
-// <Grid item xs={12} md={8} lg={9}>
-// <Paper className={fixedHeightPaper}>
-//     <Chart />
-// </Paper>
-// </Grid>
 
-// {/* Recent Deposits */}
-// <Grid item xs={12} md={4} lg={3}>
-// <Paper className={fixedHeightPaper}>
-//     <Deposits />
-// </Paper>
-// </Grid>
+      // <Drawer
+      //   variant="permanent"
+      //   classes={{
+      //     paper: classes.drawerPaper,
+      //   }}
+      // >
+      //   <AppMenu />
+      // </Drawer>
+      // <main className={classes.content}>
+      //   <Container maxWidth="lg" className={classes.container}>
+      //     <Typography>I'm the content</Typography>
+      //   </Container>
+      // </main>

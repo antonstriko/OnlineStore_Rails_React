@@ -7,15 +7,17 @@ export const CLEAR_CHECKOUT = 'CLEAR_CHECKOUT';
 // orderReducer -----------------------------------
 export const GET_ORDERS = 'GET_ORDERS';
 export const ADD_NEW_ORDER = 'ADD_NEW_ORDER';
-export const SET_ORDER_FILTER = 'SET_ORDER_FILTER';
 export const SET_ORDER_SORT = 'SET_ORDER_SORT';
+export const SET_ORDER_FILTER = 'SET_ORDER_FILTER';
+export const UPDATE_FILTERED_ORDERS = 'UPDATE_FILTERED_ORDERS';
 
 // productReducer -----------------------------------
 export const IS_LOADING_PRODUCTS = 'IS_LOADING_PRODUCTS'
-export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const ADD_FETCHED_PRODUCTS = 'ADD_FETCHED_PRODUCTS';
 export const CHANGE_CURRENT_PRODUCT = 'CHANGE_CURRENT_PRODUCT';
 export const SET_PRODUCT_SORT = 'SET_PRODUCT_SORT';
 export const SET_PRODUCT_FILTER = 'SET_PRODUCT_FILTER';
+export const UPDATE_FILTERED_PRODUCTS = 'UPDATE_FILTERED_PRODUCTS';
 
 // cartReducer -----------------------------------
 export const ADD_TO_CART = 'ADD_TO_CART';

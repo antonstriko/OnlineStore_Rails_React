@@ -9,6 +9,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
     "decimal.js": "^10.2.1",
+    "mui-datatables": "^3.7.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^7.2.2",

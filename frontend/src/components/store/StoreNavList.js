@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import {ListItem, ListItemIcon, ListItemText, ListSubheader, InputBase} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -14,8 +15,22 @@ import RssFeedIcon from '@material-ui/icons/RssFeed';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
-import { NavLink } from 'react-router-dom';
-
+const useStyles = makeStyles(theme =>
+  createStyles({
+    adminMenu: {
+      width: '100%',
+    },
+    navList: {
+      width: drawerWidth,
+    },
+    menuItem: {
+      width: drawerWidth,
+    },
+    menuItemIcon: {
+      color: '#97c05c',
+    },
+  }),
+)
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -73,7 +88,7 @@ export function MainListItems() {
 
   return (
     <div>
-      <NavLink to="/dashboard" className={classes.navList}>
+      <NavLink to="/storefront" className={classes.navList}>
         <ListItem button>
           <ListItemIcon>
             <DashboardIcon />
