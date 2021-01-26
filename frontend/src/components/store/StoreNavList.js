@@ -15,22 +15,6 @@ import RssFeedIcon from '@material-ui/icons/RssFeed';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    adminMenu: {
-      width: '100%',
-    },
-    navList: {
-      width: drawerWidth,
-    },
-    menuItem: {
-      width: drawerWidth,
-    },
-    menuItemIcon: {
-      color: '#97c05c',
-    },
-  }),
-)
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

@@ -1,4 +1,5 @@
 import React from 'react'
+import {useHistory} from "react-router-dom";
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 
 import List from '@material-ui/core/List'
@@ -19,18 +20,18 @@ import IconLibraryBooks from '@material-ui/icons/LibraryBooks'
 export default function AdminMenu(){
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
-
+  const history = useHistory()
   function handleClick() {
     setOpen(!open)
   }
 
   return (
     <List component="nav" className={classes.adminMenu} disablePadding>
-      <ListItem button className={classes.menuItem}>
+      <ListItem button onClick={()=> {history.push('/storefront')}} className={classes.menuItem}>
         <ListItemIcon className={classes.menuItemIcon}>
           <IconDashboard />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary="StoreFront" />
       </ListItem>
 
       <ListItem button className={classes.menuItem}>
@@ -77,8 +78,7 @@ export default function AdminMenu(){
 
 const drawerWidth = 240
 
-const useStyles = makeStyles(theme =>
-  createStyles({
+const useStyles = makeStyles({
     adminMenu: {
       width: '100%',
     },
@@ -91,5 +91,4 @@ const useStyles = makeStyles(theme =>
     menuItemIcon: {
       color: '#97c05c',
     },
-  }),
-)
+  })

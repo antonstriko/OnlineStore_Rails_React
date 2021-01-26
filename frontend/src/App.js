@@ -17,7 +17,7 @@ function App() {
               <Route exact path="/" component={LandingPage}/>
               <Route path="/storefront" component={Storefront}/>
               <Route path="/user_profile" component={UserProfile}/>
-              <Route path="/admin_dashboard" component={AdminDashboard}/>
+              <Route path="/admin" component={AdminDashboard}/>
               <Route path="/login" component={LoginForm}/>
               <Route path="/signup" component={SignupForm}/>
           </Switch>

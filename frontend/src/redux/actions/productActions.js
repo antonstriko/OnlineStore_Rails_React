@@ -1,4 +1,4 @@
-import {IS_LOADING_PRODUCTS, ADD_FETCHED_PRODUCTS, SET_PRODUCT_SORT, SET_PRODUCT_FILTER, UPDATE_FILTERED_PRODUCTS} from '../actionTypes'
+import {IS_LOADING_PRODUCTS, ADD_FETCHED_PRODUCTS, CHANGE_SELECTED_PRODUCT, SET_PRODUCT_SORT, SET_PRODUCT_FILTER, UPDATE_FILTERED_PRODUCTS} from '../actionTypes'
 
 export const isLoadingProducts = () => {
   return {
@@ -14,9 +14,16 @@ export const fetchProducts = (data) => {
   }
 }
 
-export const changeCurrentProduct = (product) => {
+export const addFetchedProducts = (data) => {
   return {
-      type: CHANGE_CURRENT_PRODUCT,
+      type: ADD_FETCHED_PRODUCTS,
+      payload: data
+  }
+}
+
+export const changeSelectedProduct = (product) => {
+  return {
+      type: CHANGE_SELECTED_PRODUCT,
       payload: product
   }
 }

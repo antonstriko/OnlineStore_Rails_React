@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 
 function OrdersDataTable(props) {
@@ -44,7 +43,7 @@ function OrdersDataTable(props) {
 
     return (
       <MUIDataTable
-        title={"ACME Employee list"}
+        title={"Orders List"}
         data={data}
         columns={columns}
         options={options}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
-import {BrowserRouter as Router, Switch, Route, useHistory, useParams, useRouteMatch} from "react-router-dom";
+import {Switch, Route, useHistory, useParams, useRouteMatch} from "react-router-dom";
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,9 +8,10 @@ import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu a
 import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
 
 import AdminMenu from './AdminMenu'
+import OrdersDataTable from './OrdersDataTable'
 import OrdersList from '../order/OrdersList';
 
-import { fetchProducts } from '../../redux/actions/productActions';
+// import { fetchProducts } from '../../redux/actions/productActions';
 import { logout } from '../../redux/actions/userActions';
 
     const drawerWidth = 240;
@@ -109,15 +110,12 @@ export default function AdminDashboard(props) {
       let history = useHistory();
       const dispatch = useDispatch();
       const classes = useStyles();
-                const [open, setOpen] = React.useState(false);
+                const [open, setOpen] = React.useState(true);
                 const handleDrawerOpen = () => setOpen(true);
                 const handleDrawerClose = () => setOpen(false);
               
       const currentUser = useSelector(state => state.user.currentUser)
       let { path, url } = useRouteMatch();
-
-      const getProducts
-
 
       const handleLogout = (event) => {
         localStorage.removeItem('token')
@@ -135,7 +133,7 @@ export default function AdminDashboard(props) {
                   <MenuIcon />
                 </IconButton>
 
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backcountry Store </Typography>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backcountry Store - Store Manager Dashboard</Typography>
                 <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
                 </IconButton>
@@ -149,10 +147,10 @@ export default function AdminDashboard(props) {
               <Container maxWidth="lg" className={classes.container}>
                 <Switch> 
                     <Route exact path={path}>
-                        <OrdersList />
+                        <OrdersDataTable />
                     </Route>
                     <Route exact path={`${path}/orders`}>
-                        <OrdersDataTable />
+                        <OrdersList />
                     </Route>
                     {/* <Route exact path={`${path}/products`}>
                         <ProductsDataTable />

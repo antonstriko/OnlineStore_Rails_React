@@ -10,9 +10,15 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../acti
 // }
 
 const initialState = {
-    isLoggedIn: false,
-    isStoreManager: false,
-    currentUser: null,
+    isLoggedIn: true,
+    isStoreManager: true,
+    currentUser: {
+            id: 1,
+            firstname: 'Eric',
+            lastname: 'Uberman',
+            email: 'euberman@gmail.com',
+            isStoreManager: false
+        }
 }
 
 const userReducer = (state = initialState, action) => {
