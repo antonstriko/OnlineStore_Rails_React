@@ -10847,3 +10847,988 @@ Migrating to AddTitleToOrderItems (20210127000420)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveDescriptionFromProducts (20210127023237)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.2ms)[0m  [1m[35mALTER TABLE "products" DROP COLUMN "description"[0m
+  ↳ db/migrate/20210127023237_remove_description_from_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127023237"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddDateToOrders (20210127030630)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mALTER TABLE "order" ADD "date" character varying[0m
+  ↳ db/migrate/20210127030630_add_date_to_orders.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddDateToOrders (20210127030630)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "orders" ADD "date" character varying[0m
+  ↳ db/migrate/20210127030630_add_date_to_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127030630"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (39.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (31.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (177.8ms)[0m  [1m[35mCREATE DATABASE "rails-backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (70.5ms)[0m  [1m[35mCREATE DATABASE "rails-backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210121175633)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "firstname" character varying, "lastname" character varying, "isStoreManager" boolean DEFAULT FALSE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121175633_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121175633"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210121180226)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "brand" character varying, "product_id" character varying, "department" character varying, "title" character varying, "description" character varying, "image_url" character varying, "rating" integer, "num_reviews" integer, "in_stock" boolean, "stock" integer, "price" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121180226_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180226"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateReviews (20210121180359)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "user_id" bigint, "product_id" bigint, "content" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_user_id" ON "reviews"  ("user_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180359"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrders (20210121180731)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "total" character varying, "item_count" integer, "isShipped" boolean DEFAULT FALSE, "paid" boolean DEFAULT FALSE, "payment" character varying, "address_street" character varying, "address_city" character varying, "address_state" character varying, "address_zip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180731"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderItems (20210121180928)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint, "product_id" bigint, "qty" integer, "price" character varying, "subtotal" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_order_id" ON "order_items"  ("order_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_product_id" ON "order_items"  ("product_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180928"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20210125171407)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "user_id" bigint, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_54567c0f67"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_product_id" ON "favorites"  ("product_id")[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210125171407"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddNameToOrders (20210126233941)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "orders" ADD "name" character varying[0m
+  ↳ db/migrate/20210126233941_add_name_to_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210126233941"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddTitleToOrderItems (20210127000420)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "order_items" ADD "title" character varying[0m
+  ↳ db/migrate/20210127000420_add_title_to_order_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "order_items" ADD "image_url" character varying[0m
+  ↳ db/migrate/20210127000420_add_title_to_order_items.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127000420"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemoveDescriptionFromProducts (20210127023237)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "products" DROP COLUMN "description"[0m
+  ↳ db/migrate/20210127023237_remove_description_from_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127023237"]]
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddDateToOrders (20210127030630)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "orders" ADD "date" character varying[0m
+  ↳ db/migrate/20210127030630_add_date_to_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127030630"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 04:10:13.229243"], ["updated_at", "2021-01-27 04:10:13.229243"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1819278"], ["department", "bags"], ["title", "Nike Advance crossbody bag in neon pink"], ["image_url", "http://images.asos-media.com/products/nike-advance-crossbody-bag-in-neon-pink/21682632-1-neonpink"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 52], ["price", "30.0"], ["created_at", "2021-01-27 04:10:35.313859"], ["updated_at", "2021-01-27 04:10:35.313859"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864198"], ["department", "bags"], ["title", "The North Face Vault backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-black/22290213-1-tnfblkhrtnfblu"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 11], ["price", "59.0"], ["created_at", "2021-01-27 04:10:35.316385"], ["updated_at", "2021-01-27 04:10:35.316385"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818634"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-yellow/21674050-1-summitgold"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 5], ["price", "38.0"], ["created_at", "2021-01-27 04:10:35.317902"], ["updated_at", "2021-01-27 04:10:35.317902"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873389"], ["department", "bags"], ["title", "Nike Training Elemental logo backpack in black"], ["image_url", "http://images.asos-media.com/products/nike-training-elemental-logo-backpack-in-black/22429198-1-black"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 90], ["price", "47.25"], ["created_at", "2021-01-27 04:10:35.319350"], ["updated_at", "2021-01-27 04:10:35.319350"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818631"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in purple"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-purple/21674041-1-peakpurple"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 47], ["price", "38.0"], ["created_at", "2021-01-27 04:10:35.320820"], ["updated_at", "2021-01-27 04:10:35.320820"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864168"], ["department", "bags"], ["title", "The North Face Recon backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-recon-backpack-in-black/22290219-1-tnfblack"], ["rating", 0], ["num_reviews", 84], ["in_stock", true], ["stock", 77], ["price", "84.15"], ["created_at", "2021-01-27 04:10:35.322315"], ["updated_at", "2021-01-27 04:10:35.322315"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789660"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-brown/21315685-1-utilitybrowntnfbla"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 77], ["price", "69.0"], ["created_at", "2021-01-27 04:10:35.323842"], ["updated_at", "2021-01-27 04:10:35.323842"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789665"], ["department", "bags"], ["title", "The North Face Explore fanny pack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-yellow/21315755-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 75], ["price", "30.0"], ["created_at", "2021-01-27 04:10:35.325375"], ["updated_at", "2021-01-27 04:10:35.325375"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789667"], ["department", "bags"], ["title", "The North Face Explore fanny pack in green"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-green/21315762-1-evergreentnfblack"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 79], ["price", "30.0"], ["created_at", "2021-01-27 04:10:35.326900"], ["updated_at", "2021-01-27 04:10:35.326900"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864089"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-brown/22289490-1-utiltybntnfblk"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 68], ["price", "38.0"], ["created_at", "2021-01-27 04:10:35.328222"], ["updated_at", "2021-01-27 04:10:35.328222"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864199"], ["department", "bags"], ["title", "The North Face Vault backpack in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-brown/22290189-1-timbrtntnfnavy"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 46], ["price", "59.0"], ["created_at", "2021-01-27 04:10:35.329592"], ["updated_at", "2021-01-27 04:10:35.329592"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864190"], ["department", "bags"], ["title", "The North Face Jester backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-gray/22290217-1-zncgdkhrprsnor"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 23], ["price", "55.2"], ["created_at", "2021-01-27 04:10:35.330975"], ["updated_at", "2021-01-27 04:10:35.330975"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864192"], ["department", "bags"], ["title", "The North Face Jester backpack in navy"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-navy/22290221-1-avtrnvylhrtnfw"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 60], ["price", "69.0"], ["created_at", "2021-01-27 04:10:35.332390"], ["updated_at", "2021-01-27 04:10:35.332390"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680647"], ["department", "bags"], ["title", "The North Face Base Camp travel canister large wash bag in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-canister-large-wash-bag-in-yellow/14930109-1-summitgoldtnfblac"], ["rating", 0], ["num_reviews", 33], ["in_stock", true], ["stock", 57], ["price", "33.0"], ["created_at", "2021-01-27 04:10:35.333660"], ["updated_at", "2021-01-27 04:10:35.333660"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864087"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in orange"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-orange/22289486-1-flaretnfblack"], ["rating", 0], ["num_reviews", 32], ["in_stock", true], ["stock", 99], ["price", "32.3"], ["created_at", "2021-01-27 04:10:35.334940"], ["updated_at", "2021-01-27 04:10:35.334940"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873337"], ["department", "bags"], ["title", "Nike Training logo holdall in black"], ["image_url", "http://images.asos-media.com/products/nike-training-logo-holdall-in-black/22429205-1-black"], ["rating", 0], ["num_reviews", 63], ["in_stock", true], ["stock", 19], ["price", "63.0"], ["created_at", "2021-01-27 04:10:35.336165"], ["updated_at", "2021-01-27 04:10:35.336165"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873307"], ["department", "bags"], ["title", "Nike Training logo side bag in black"], ["image_url", "http://images.asos-media.com/products/nike-training-logo-side-bag-in-black/22429202-1-black"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 94], ["price", "25.6"], ["created_at", "2021-01-27 04:10:35.337382"], ["updated_at", "2021-01-27 04:10:35.337382"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818637"], ["department", "bags"], ["title", "The North Face Bozer fanny pack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-bozer-fanny-pack-in-yellow/21674067-1-summitgold"], ["rating", 0], ["num_reviews", 32], ["in_stock", true], ["stock", 98], ["price", "32.0"], ["created_at", "2021-01-27 04:10:35.338675"], ["updated_at", "2021-01-27 04:10:35.338675"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864195"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/22290209-1-mdgydkhrtnfblk"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 3], ["price", "47.2"], ["created_at", "2021-01-27 04:10:35.340127"], ["updated_at", "2021-01-27 04:10:35.340127"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864188"], ["department", "bags"], ["title", "The North Face Cotton Tote bag in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-cotton-tote-bag-in-gray/22290204-1-asphgyfxdplntpt"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 35], ["price", "25.0"], ["created_at", "2021-01-27 04:10:35.341427"], ["updated_at", "2021-01-27 04:10:35.341427"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789661"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-yellow/21315692-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 39], ["price", "69.0"], ["created_at", "2021-01-27 04:10:35.342779"], ["updated_at", "2021-01-27 04:10:35.342779"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789666"], ["department", "bags"], ["title", "The North Face Explore fanny pack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-black/21315749-1-tnfblacktnfwhite"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 71], ["price", "30.0"], ["created_at", "2021-01-27 04:10:35.344029"], ["updated_at", "2021-01-27 04:10:35.344029"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789669"], ["department", "bags"], ["title", "The North Face Bozer II fanny pack in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-bozer-ii-fanny-pack-in-brown/21315764-1-utilitybrowntnfbla"], ["rating", 0], ["num_reviews", 29], ["in_stock", true], ["stock", 5], ["price", "29.0"], ["created_at", "2021-01-27 04:10:35.345296"], ["updated_at", "2021-01-27 04:10:35.345296"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864177"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Navy"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-navy/22290216-1-avtrnavymeldgy"], ["rating", 0], ["num_reviews", 75], ["in_stock", true], ["stock", 85], ["price", "75.65"], ["created_at", "2021-01-27 04:10:35.346509"], ["updated_at", "2021-01-27 04:10:35.346509"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864172"], ["department", "bags"], ["title", "The North Face Borealis backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-gray/22290211-1-aspgrslvrflctv"], ["rating", 0], ["num_reviews", 89], ["in_stock", true], ["stock", 88], ["price", "89.0"], ["created_at", "2021-01-27 04:10:35.347811"], ["updated_at", "2021-01-27 04:10:35.347811"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789671"], ["department", "bags"], ["title", "The North Face Surge Backpack In Black"], ["image_url", "http://images.asos-media.com/products/the-north-face-surge-backpack-in-black/21315760-1-tnfblack"], ["rating", 0], ["num_reviews", 109], ["in_stock", true], ["stock", 66], ["price", "109.65"], ["created_at", "2021-01-27 04:10:35.349090"], ["updated_at", "2021-01-27 04:10:35.349090"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680375"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-black/14927823-1-tnfblackasphaltgr"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 87], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.350213"], ["updated_at", "2021-01-27 04:10:35.350213"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789673"], ["department", "bags"], ["title", "The North Face Jester backpack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-yellow/21315758-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 36], ["price", "55.2"], ["created_at", "2021-01-27 04:10:35.351291"], ["updated_at", "2021-01-27 04:10:35.351291"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793265"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in green"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-green/21356585-1-newtaupegrnutilit"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 65], ["price", "80.0"], ["created_at", "2021-01-27 04:10:35.352459"], ["updated_at", "2021-01-27 04:10:35.352459"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793248"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in blue"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-blue/21356589-1-aviatornavytnfwhi"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 69], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.353538"], ["updated_at", "2021-01-27 04:10:35.353538"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793272"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in red"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-red/21356855-1-flareripstoptnfbl"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 35], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.354601"], ["updated_at", "2021-01-27 04:10:35.354601"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793269"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-gray/21356876-1-asphltgrylightningy"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 94], ["price", "80.0"], ["created_at", "2021-01-27 04:10:35.355974"], ["updated_at", "2021-01-27 04:10:35.355974"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793680"], ["department", "bags"], ["title", "The North Face Base Camp extra small duffel bag in blue"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-extra-small-duffel-bag-in-blue/21361266-1-clearlakebluetnf"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 62], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.357039"], ["updated_at", "2021-01-27 04:10:35.357039"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793690"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag in orange"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-in-orange/21361282-1-flaretnfblack"], ["rating", 0], ["num_reviews", 96], ["in_stock", true], ["stock", 71], ["price", "96.0"], ["created_at", "2021-01-27 04:10:35.358162"], ["updated_at", "2021-01-27 04:10:35.358162"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794848"], ["department", "bags"], ["title", "The North Face Explore BLT small fanny pack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-blt-small-fanny-pack-in-black/21372664-1-tnfblacktnfwhite"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 91], ["price", "55.5"], ["created_at", "2021-01-27 04:10:35.359409"], ["updated_at", "2021-01-27 04:10:35.359409"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794832"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-black/21372666-1-tnfblack"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 71], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.360539"], ["updated_at", "2021-01-27 04:10:35.360539"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794835"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in gray/yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-gray-yellow/21372685-1-asphaltgreysummit"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 75], ["price", "100.0"], ["created_at", "2021-01-27 04:10:35.361592"], ["updated_at", "2021-01-27 04:10:35.361592"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794925"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21373255-1-zincgrydrkhthrpersi"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 78], ["price", "80.0"], ["created_at", "2021-01-27 04:10:35.362754"], ["updated_at", "2021-01-27 04:10:35.362754"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794929"], ["department", "bags"], ["title", "The North Face Vault backpack in khaki camo"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-khaki-camo/21373637-1-hawthrnkhkdckcmptnw"], ["rating", 0], ["num_reviews", 87], ["in_stock", true], ["stock", 19], ["price", "87.2"], ["created_at", "2021-01-27 04:10:35.363810"], ["updated_at", "2021-01-27 04:10:35.363810"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1674180"], ["department", "bags"], ["title", "Nike Training black gym drawstring bag"], ["image_url", "http://images.asos-media.com/products/nike-training-black-gym-drawstring-bag/14852203-1-black"], ["rating", 0], ["num_reviews", 16], ["in_stock", true], ["stock", 57], ["price", "16.0"], ["created_at", "2021-01-27 04:10:35.364861"], ["updated_at", "2021-01-27 04:10:35.364861"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1687936"], ["department", "bags"], ["title", "Nike Hayward 2.0 backpack in navy"], ["image_url", "http://images.asos-media.com/products/nike-hayward-20-backpack-in-navy/20055112-1-navy"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 77], ["price", "55.0"], ["created_at", "2021-01-27 04:10:35.366007"], ["updated_at", "2021-01-27 04:10:35.366007"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680939"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag 50L in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-50l-in-yellow/14932599-1-summitgoldtnfblac"], ["rating", 0], ["num_reviews", 120], ["in_stock", true], ["stock", 2], ["price", "120.0"], ["created_at", "2021-01-27 04:10:35.367054"], ["updated_at", "2021-01-27 04:10:35.367054"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789654"], ["department", "bags"], ["title", "The North Face Cotton brown logo tote bag in natural"], ["image_url", "http://images.asos-media.com/products/the-north-face-cotton-brown-logo-tote-bag-in-natural/21315680-1-weimaranerbrnlargelo"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 85], ["price", "25.0"], ["created_at", "2021-01-27 04:10:35.368117"], ["updated_at", "2021-01-27 04:10:35.368117"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789651"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21315683-1-newtaupegrnutility"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 49], ["price", "47.2"], ["created_at", "2021-01-27 04:10:35.369272"], ["updated_at", "2021-01-27 04:10:35.369272"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789653"], ["department", "bags"], ["title", "The North Face Vault backpack in camo"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-camo/21315688-1-hawthrnkhkdckcmptnwt"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 53], ["price", "59.0"], ["created_at", "2021-01-27 04:10:35.370318"], ["updated_at", "2021-01-27 04:10:35.370318"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789672"], ["department", "bags"], ["title", "The North Face Jester backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-black/21315747-1-tnfblack"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 17], ["price", "69.0"], ["created_at", "2021-01-27 04:10:35.371410"], ["updated_at", "2021-01-27 04:10:35.371410"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789658"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Green"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-green/21315682-1-zincgrydarkheathreve"], ["rating", 0], ["num_reviews", 71], ["in_stock", true], ["stock", 88], ["price", "71.2"], ["created_at", "2021-01-27 04:10:35.372600"], ["updated_at", "2021-01-27 04:10:35.372600"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789657"], ["department", "bags"], ["title", "The North Face Borealis backpack in dark gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-dark-gray/21315690-1-zincgreydarkhthrtnfb"], ["rating", 0], ["num_reviews", 71], ["in_stock", true], ["stock", 15], ["price", "71.2"], ["created_at", "2021-01-27 04:10:35.373678"], ["updated_at", "2021-01-27 04:10:35.373678"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (38.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (31.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails-backend_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (61.8ms)[0m  [1m[35mCREATE DATABASE "rails-backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (74.0ms)[0m  [1m[35mCREATE DATABASE "rails-backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210121175633)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "firstname" character varying, "lastname" character varying, "isStoreManager" boolean DEFAULT FALSE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121175633_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121175633"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210121180226)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "brand" character varying, "product_id" character varying, "department" character varying, "title" character varying, "description" character varying, "image_url" character varying, "rating" integer, "num_reviews" integer, "in_stock" boolean, "stock" integer, "price" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210121180226_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180226"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateReviews (20210121180359)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "user_id" bigint, "product_id" bigint, "content" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_bedd9094d4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_user_id" ON "reviews"  ("user_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_product_id" ON "reviews"  ("product_id")[0m
+  ↳ db/migrate/20210121180359_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180359"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrders (20210121180731)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "total" character varying, "item_count" integer, "isShipped" boolean DEFAULT FALSE, "paid" boolean DEFAULT FALSE, "payment" character varying, "address_street" character varying, "address_city" character varying, "address_state" character varying, "address_zip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20210121180731_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180731"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateOrderItems (20210121180928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint, "product_id" bigint, "qty" integer, "price" character varying, "subtotal" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_order_id" ON "order_items"  ("order_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_order_items_on_product_id" ON "order_items"  ("product_id")[0m
+  ↳ db/migrate/20210121180928_create_order_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210121180928"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20210125171407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "user_id" bigint, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_54567c0f67"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_product_id" ON "favorites"  ("product_id")[0m
+  ↳ db/migrate/20210125171407_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210125171407"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddTitleToOrderItems (20210127000420)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "order_items" ADD "title" character varying[0m
+  ↳ db/migrate/20210127000420_add_title_to_order_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "order_items" ADD "image_url" character varying[0m
+  ↳ db/migrate/20210127000420_add_title_to_order_items.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127000420"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RemoveDescriptionFromProducts (20210127023237)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "products" DROP COLUMN "description"[0m
+  ↳ db/migrate/20210127023237_remove_description_from_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127023237"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddDateToOrders (20210127030630)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "orders" ADD "date" character varying[0m
+  ↳ db/migrate/20210127030630_add_date_to_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210127030630"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-27 04:13:42.050356"], ["updated_at", "2021-01-27 04:13:42.050356"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8766416121955047885)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1819278"], ["department", "bags"], ["title", "Nike Advance crossbody bag in neon pink"], ["image_url", "http://images.asos-media.com/products/nike-advance-crossbody-bag-in-neon-pink/21682632-1-neonpink"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 63], ["price", "30.0"], ["created_at", "2021-01-27 04:14:21.605514"], ["updated_at", "2021-01-27 04:14:21.605514"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864198"], ["department", "bags"], ["title", "The North Face Vault backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-black/22290213-1-tnfblkhrtnfblu"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 95], ["price", "59.0"], ["created_at", "2021-01-27 04:14:21.608127"], ["updated_at", "2021-01-27 04:14:21.608127"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818634"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-yellow/21674050-1-summitgold"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 51], ["price", "38.0"], ["created_at", "2021-01-27 04:14:21.609727"], ["updated_at", "2021-01-27 04:14:21.609727"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873389"], ["department", "bags"], ["title", "Nike Training Elemental logo backpack in black"], ["image_url", "http://images.asos-media.com/products/nike-training-elemental-logo-backpack-in-black/22429198-1-black"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 4], ["price", "47.25"], ["created_at", "2021-01-27 04:14:21.611396"], ["updated_at", "2021-01-27 04:14:21.611396"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818631"], ["department", "bags"], ["title", "The North Face Base Camp Small travel cannister in purple"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-travel-cannister-in-purple/21674041-1-peakpurple"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 62], ["price", "38.0"], ["created_at", "2021-01-27 04:14:21.613084"], ["updated_at", "2021-01-27 04:14:21.613084"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864168"], ["department", "bags"], ["title", "The North Face Recon backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-recon-backpack-in-black/22290219-1-tnfblack"], ["rating", 0], ["num_reviews", 84], ["in_stock", true], ["stock", 66], ["price", "84.15"], ["created_at", "2021-01-27 04:14:21.614673"], ["updated_at", "2021-01-27 04:14:21.614673"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789660"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-brown/21315685-1-utilitybrowntnfbla"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 56], ["price", "69.0"], ["created_at", "2021-01-27 04:14:21.616263"], ["updated_at", "2021-01-27 04:14:21.616263"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789665"], ["department", "bags"], ["title", "The North Face Explore fanny pack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-yellow/21315755-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 70], ["price", "30.0"], ["created_at", "2021-01-27 04:14:21.617824"], ["updated_at", "2021-01-27 04:14:21.617824"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789667"], ["department", "bags"], ["title", "The North Face Explore fanny pack in green"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-green/21315762-1-evergreentnfblack"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 32], ["price", "30.0"], ["created_at", "2021-01-27 04:14:21.619331"], ["updated_at", "2021-01-27 04:14:21.619331"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864089"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-brown/22289490-1-utiltybntnfblk"], ["rating", 0], ["num_reviews", 38], ["in_stock", true], ["stock", 99], ["price", "38.0"], ["created_at", "2021-01-27 04:14:21.620893"], ["updated_at", "2021-01-27 04:14:21.620893"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864199"], ["department", "bags"], ["title", "The North Face Vault backpack in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-brown/22290189-1-timbrtntnfnavy"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 33], ["price", "59.0"], ["created_at", "2021-01-27 04:14:21.622369"], ["updated_at", "2021-01-27 04:14:21.622369"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864190"], ["department", "bags"], ["title", "The North Face Jester backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-gray/22290217-1-zncgdkhrprsnor"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 57], ["price", "55.2"], ["created_at", "2021-01-27 04:14:21.623880"], ["updated_at", "2021-01-27 04:14:21.623880"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864192"], ["department", "bags"], ["title", "The North Face Jester backpack in navy"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-navy/22290221-1-avtrnvylhrtnfw"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 17], ["price", "69.0"], ["created_at", "2021-01-27 04:14:21.625284"], ["updated_at", "2021-01-27 04:14:21.625284"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680647"], ["department", "bags"], ["title", "The North Face Base Camp travel canister large wash bag in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-canister-large-wash-bag-in-yellow/14930109-1-summitgoldtnfblac"], ["rating", 0], ["num_reviews", 33], ["in_stock", true], ["stock", 23], ["price", "33.0"], ["created_at", "2021-01-27 04:14:21.626714"], ["updated_at", "2021-01-27 04:14:21.626714"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864087"], ["department", "bags"], ["title", "The North Face Base Camp travel cannister in orange"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-travel-cannister-in-orange/22289486-1-flaretnfblack"], ["rating", 0], ["num_reviews", 32], ["in_stock", true], ["stock", 9], ["price", "32.3"], ["created_at", "2021-01-27 04:14:21.628258"], ["updated_at", "2021-01-27 04:14:21.628258"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873337"], ["department", "bags"], ["title", "Nike Training logo holdall in black"], ["image_url", "http://images.asos-media.com/products/nike-training-logo-holdall-in-black/22429205-1-black"], ["rating", 0], ["num_reviews", 63], ["in_stock", true], ["stock", 69], ["price", "63.0"], ["created_at", "2021-01-27 04:14:21.629666"], ["updated_at", "2021-01-27 04:14:21.629666"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1873307"], ["department", "bags"], ["title", "Nike Training logo side bag in black"], ["image_url", "http://images.asos-media.com/products/nike-training-logo-side-bag-in-black/22429202-1-black"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 91], ["price", "25.6"], ["created_at", "2021-01-27 04:14:21.631083"], ["updated_at", "2021-01-27 04:14:21.631083"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1818637"], ["department", "bags"], ["title", "The North Face Bozer fanny pack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-bozer-fanny-pack-in-yellow/21674067-1-summitgold"], ["rating", 0], ["num_reviews", 32], ["in_stock", true], ["stock", 24], ["price", "32.0"], ["created_at", "2021-01-27 04:14:21.632507"], ["updated_at", "2021-01-27 04:14:21.632507"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864195"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/22290209-1-mdgydkhrtnfblk"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 79], ["price", "47.2"], ["created_at", "2021-01-27 04:14:21.633831"], ["updated_at", "2021-01-27 04:14:21.633831"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864188"], ["department", "bags"], ["title", "The North Face Cotton Tote bag in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-cotton-tote-bag-in-gray/22290204-1-asphgyfxdplntpt"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 84], ["price", "25.0"], ["created_at", "2021-01-27 04:14:21.635250"], ["updated_at", "2021-01-27 04:14:21.635250"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789661"], ["department", "bags"], ["title", "The North Face Explore Utility tote bag in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-utility-tote-bag-in-yellow/21315692-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 18], ["price", "69.0"], ["created_at", "2021-01-27 04:14:21.636611"], ["updated_at", "2021-01-27 04:14:21.636611"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789666"], ["department", "bags"], ["title", "The North Face Explore fanny pack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-fanny-pack-in-black/21315749-1-tnfblacktnfwhite"], ["rating", 0], ["num_reviews", 30], ["in_stock", true], ["stock", 10], ["price", "30.0"], ["created_at", "2021-01-27 04:14:21.637807"], ["updated_at", "2021-01-27 04:14:21.637807"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789669"], ["department", "bags"], ["title", "The North Face Bozer II fanny pack in brown"], ["image_url", "http://images.asos-media.com/products/the-north-face-bozer-ii-fanny-pack-in-brown/21315764-1-utilitybrowntnfbla"], ["rating", 0], ["num_reviews", 29], ["in_stock", true], ["stock", 89], ["price", "29.0"], ["created_at", "2021-01-27 04:14:21.639674"], ["updated_at", "2021-01-27 04:14:21.639674"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864177"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Navy"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-navy/22290216-1-avtrnavymeldgy"], ["rating", 0], ["num_reviews", 75], ["in_stock", true], ["stock", 13], ["price", "75.65"], ["created_at", "2021-01-27 04:14:21.641327"], ["updated_at", "2021-01-27 04:14:21.641327"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1864172"], ["department", "bags"], ["title", "The North Face Borealis backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-gray/22290211-1-aspgrslvrflctv"], ["rating", 0], ["num_reviews", 89], ["in_stock", true], ["stock", 65], ["price", "89.0"], ["created_at", "2021-01-27 04:14:21.642672"], ["updated_at", "2021-01-27 04:14:21.642672"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789671"], ["department", "bags"], ["title", "The North Face Surge Backpack In Black"], ["image_url", "http://images.asos-media.com/products/the-north-face-surge-backpack-in-black/21315760-1-tnfblack"], ["rating", 0], ["num_reviews", 109], ["in_stock", true], ["stock", 48], ["price", "109.65"], ["created_at", "2021-01-27 04:14:21.644002"], ["updated_at", "2021-01-27 04:14:21.644002"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680375"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-black/14927823-1-tnfblackasphaltgr"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 59], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.645237"], ["updated_at", "2021-01-27 04:14:21.645237"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789673"], ["department", "bags"], ["title", "The North Face Jester backpack in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-yellow/21315758-1-summitgoldtnfblack"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 30], ["price", "55.2"], ["created_at", "2021-01-27 04:14:21.646451"], ["updated_at", "2021-01-27 04:14:21.646451"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793265"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in green"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-green/21356585-1-newtaupegrnutilit"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 88], ["price", "80.0"], ["created_at", "2021-01-27 04:14:21.647764"], ["updated_at", "2021-01-27 04:14:21.647764"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793248"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in blue"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-blue/21356589-1-aviatornavytnfwhi"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 83], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.649062"], ["updated_at", "2021-01-27 04:14:21.649062"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793272"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in red"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-red/21356855-1-flareripstoptnfbl"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 65], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.650277"], ["updated_at", "2021-01-27 04:14:21.650277"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793269"], ["department", "bags"], ["title", "The North Face Borealis Classic backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-classic-backpack-in-gray/21356876-1-asphltgrylightningy"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 41], ["price", "80.0"], ["created_at", "2021-01-27 04:14:21.651685"], ["updated_at", "2021-01-27 04:14:21.651685"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793680"], ["department", "bags"], ["title", "The North Face Base Camp extra small duffel bag in blue"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-extra-small-duffel-bag-in-blue/21361266-1-clearlakebluetnf"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 44], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.652859"], ["updated_at", "2021-01-27 04:14:21.652859"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1793690"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag in orange"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-in-orange/21361282-1-flaretnfblack"], ["rating", 0], ["num_reviews", 96], ["in_stock", true], ["stock", 45], ["price", "96.0"], ["created_at", "2021-01-27 04:14:21.653975"], ["updated_at", "2021-01-27 04:14:21.653975"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794848"], ["department", "bags"], ["title", "The North Face Explore BLT small fanny pack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-explore-blt-small-fanny-pack-in-black/21372664-1-tnfblacktnfwhite"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 47], ["price", "55.5"], ["created_at", "2021-01-27 04:14:21.655052"], ["updated_at", "2021-01-27 04:14:21.655052"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794832"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-black/21372666-1-tnfblack"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 57], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.656498"], ["updated_at", "2021-01-27 04:14:21.656498"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794835"], ["department", "bags"], ["title", "The North Face Base Camp tote bag in gray/yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-tote-bag-in-gray-yellow/21372685-1-asphaltgreysummit"], ["rating", 0], ["num_reviews", 100], ["in_stock", true], ["stock", 25], ["price", "100.0"], ["created_at", "2021-01-27 04:14:21.657624"], ["updated_at", "2021-01-27 04:14:21.657624"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794925"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21373255-1-zincgrydrkhthrpersi"], ["rating", 0], ["num_reviews", 80], ["in_stock", true], ["stock", 87], ["price", "80.0"], ["created_at", "2021-01-27 04:14:21.658725"], ["updated_at", "2021-01-27 04:14:21.658725"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1794929"], ["department", "bags"], ["title", "The North Face Vault backpack in khaki camo"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-khaki-camo/21373637-1-hawthrnkhkdckcmptnw"], ["rating", 0], ["num_reviews", 87], ["in_stock", true], ["stock", 79], ["price", "87.2"], ["created_at", "2021-01-27 04:14:21.659882"], ["updated_at", "2021-01-27 04:14:21.659882"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike Training"], ["product_id", "1674180"], ["department", "bags"], ["title", "Nike Training black gym drawstring bag"], ["image_url", "http://images.asos-media.com/products/nike-training-black-gym-drawstring-bag/14852203-1-black"], ["rating", 0], ["num_reviews", 16], ["in_stock", true], ["stock", 12], ["price", "16.0"], ["created_at", "2021-01-27 04:14:21.660999"], ["updated_at", "2021-01-27 04:14:21.660999"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "Nike"], ["product_id", "1687936"], ["department", "bags"], ["title", "Nike Hayward 2.0 backpack in navy"], ["image_url", "http://images.asos-media.com/products/nike-hayward-20-backpack-in-navy/20055112-1-navy"], ["rating", 0], ["num_reviews", 55], ["in_stock", true], ["stock", 45], ["price", "55.0"], ["created_at", "2021-01-27 04:14:21.662201"], ["updated_at", "2021-01-27 04:14:21.662201"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1680939"], ["department", "bags"], ["title", "The North Face Base Camp small duffel bag 50L in yellow"], ["image_url", "http://images.asos-media.com/products/the-north-face-base-camp-small-duffel-bag-50l-in-yellow/14932599-1-summitgoldtnfblac"], ["rating", 0], ["num_reviews", 120], ["in_stock", true], ["stock", 13], ["price", "120.0"], ["created_at", "2021-01-27 04:14:21.663286"], ["updated_at", "2021-01-27 04:14:21.663286"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789654"], ["department", "bags"], ["title", "The North Face Cotton brown logo tote bag in natural"], ["image_url", "http://images.asos-media.com/products/the-north-face-cotton-brown-logo-tote-bag-in-natural/21315680-1-weimaranerbrnlargelo"], ["rating", 0], ["num_reviews", 25], ["in_stock", true], ["stock", 1], ["price", "25.0"], ["created_at", "2021-01-27 04:14:21.664391"], ["updated_at", "2021-01-27 04:14:21.664391"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789651"], ["department", "bags"], ["title", "The North Face Vault backpack in gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-gray/21315683-1-newtaupegrnutility"], ["rating", 0], ["num_reviews", 47], ["in_stock", true], ["stock", 25], ["price", "47.2"], ["created_at", "2021-01-27 04:14:21.665569"], ["updated_at", "2021-01-27 04:14:21.665569"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789653"], ["department", "bags"], ["title", "The North Face Vault backpack in camo"], ["image_url", "http://images.asos-media.com/products/the-north-face-vault-backpack-in-camo/21315688-1-hawthrnkhkdckcmptnwt"], ["rating", 0], ["num_reviews", 59], ["in_stock", true], ["stock", 40], ["price", "59.0"], ["created_at", "2021-01-27 04:14:21.666677"], ["updated_at", "2021-01-27 04:14:21.666677"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789672"], ["department", "bags"], ["title", "The North Face Jester backpack in black"], ["image_url", "http://images.asos-media.com/products/the-north-face-jester-backpack-in-black/21315747-1-tnfblack"], ["rating", 0], ["num_reviews", 69], ["in_stock", true], ["stock", 71], ["price", "69.0"], ["created_at", "2021-01-27 04:14:21.667812"], ["updated_at", "2021-01-27 04:14:21.667812"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789658"], ["department", "bags"], ["title", "The North Face Borealis Backpack in Green"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-green/21315682-1-zincgrydarkheathreve"], ["rating", 0], ["num_reviews", 71], ["in_stock", true], ["stock", 62], ["price", "71.2"], ["created_at", "2021-01-27 04:14:21.668928"], ["updated_at", "2021-01-27 04:14:21.668928"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("brand", "product_id", "department", "title", "image_url", "rating", "num_reviews", "in_stock", "stock", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["brand", "The North Face"], ["product_id", "1789657"], ["department", "bags"], ["title", "The North Face Borealis backpack in dark gray"], ["image_url", "http://images.asos-media.com/products/the-north-face-borealis-backpack-in-dark-gray/21315690-1-zincgreydarkhthrtnfb"], ["rating", 0], ["num_reviews", 71], ["in_stock", true], ["stock", 48], ["price", "71.2"], ["created_at", "2021-01-27 04:14:21.670001"], ["updated_at", "2021-01-27 04:14:21.670001"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]

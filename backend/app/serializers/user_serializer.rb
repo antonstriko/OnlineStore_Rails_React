@@ -1,3 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :firstname, :lastname, :isStoreManager #, :address_street, :address_city, :address_state, :address_zip
+  attributes :id, :email, :firstname, :lastname, :isStoreManager
+
+  has_many :orders
+  has_many :favorites
+  has_many :reviews
 end

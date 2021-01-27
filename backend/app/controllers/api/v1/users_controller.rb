@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     def create
       @user = User.create(user_params)
       if @user.valid?
-        @token = JWT.encode({user_id: @user.id}, 'my_s3cr3t', 'HS256')
+        @token = JWT.encode({user_id: @user.id}, 'my_s3cr3t')
         render json: { user: @user, token: @token }, status: :created
       else
         render json: { error: 'failed to create user' }, status: :not_acceptable
@@ -13,12 +13,12 @@ class Api::V1::UsersController < ApplicationController
   
     def show
       @user = User.find(params[:id])
-      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews]
+      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
     end
 
     def profile
       @user = AuthorizeApiRequest.call(user)
-      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews]
+      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
     end
     
     # PATCH/PUT /users/1
@@ -42,6 +42,6 @@ class Api::V1::UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:email, :password, :firstname, :lastname, :isStoreManager, :address_street, :address_street2, :address_city, :address_state, :address_zip, :address_country)
+        params.require(:user).permit(:email, :password, :firstname, :lastname, :isStoreManager)
       end
 end

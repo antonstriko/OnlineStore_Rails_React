@@ -13,6 +13,7 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
+import clearCheckout from '../../redux/actions/checkoutActions'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -86,9 +87,6 @@ export default function Checkout() {
 
   useEffect(() => {
     if (activeStep === steps.length){
-      let nameString = [currentCheckout.address.firstname, currentCheckout.address.lastname].join(' ')
-      let paymentString = `VISA ⠀•••• ${currentCheckout.payment.cardNumber.split("-")[3]}`
-
       fetch('http://localhost:3000/orders', {
           method: 'POST',
           headers: {
@@ -96,11 +94,11 @@ export default function Checkout() {
           },
           body: JSON.stringify({
             user_id: currentUser.id,
-            name: [currentCheckout.address.firstname, currentCheckout.address.lastname].join(' '),
+            name: `${currentCheckout.address.firstname} ${currentCheckout.address.lastname}`,
             total: cart.subtotal,
             item_count: cart.itemCount,
             paid: true,
-            payment: paymentString,
+            payment: `VISA ⠀•••• ${currentCheckout.payment.cardNumber.split("-")[3]}`,
             address_street: currentCheckout.address.street,
             address_city: currentCheckout.address.city,
             address_state: currentCheckout.address.state,
@@ -108,27 +106,22 @@ export default function Checkout() {
           })
       })
       .then(res => res.json())
-      .then(data => {
+      .then(order => {
             cart.cartItems.forEach(cartItem => {
                 fetch('http://localhost:3000/order_items', {
                   method: 'POST',
-                  headers: {
-                    "Content-type": "application/json"
-                  },
+                  headers: {"Content-type": "application/json"},
                   body: JSON.stringify({
-                    order_id: data.id,
+                    title: cartItem.title,
+                    order_id: order.id,
                     product_id: cartItem.product_id,
                     qty: cartItem.qty,
+                    price: cartItem.price,
                     subtotal: cartItem.subtotal
                   })
                 })
             })
-            dispatch({type: 'EMPTY_CART', cart: {
-                items: [],
-                subTotal: 0.00,
-                count: 0,
-                showModal: false
-            }})
+            dispatch(clearCheckout)
       })
     }
   }, [activeStep])

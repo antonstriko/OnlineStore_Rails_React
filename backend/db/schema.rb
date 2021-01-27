@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_000420) do
+ActiveRecord::Schema.define(version: 2021_01_27_030630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_000420) do
     t.string "address_zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "date"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2021_01_27_000420) do
     t.string "product_id"
     t.string "department"
     t.string "title"
-    t.string "description"
     t.string "image_url"
     t.integer "rating"
     t.integer "num_reviews"
