@@ -1,13 +1,13 @@
 class Api::V1::ReviewsController < ApplicationController
   def index
-      reviews = Review.all
-      render json: reviews, except: [:created_at, :updated_at], include: [:user, :product]
+    @reviews = Review.all
+    render json: @reviews
   end
 
   def show
       @review = Review.find_by(id: params[:id])
-      if user
-          render json: { review: ReviewSerializer.new(@review) }
+      if @review
+          render json: @review
       else
           render json: { message: 'Item not found' }
       end
@@ -20,9 +20,9 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def update
-      review = Review.find_by(params[:id])
-      review.update_attributes(review_params)
-      render json: review
+    @review = Review.find_by(params[:id])
+    @review.update_attributes(review_params)
+      render json: @review
   end
 
   def destroy
@@ -32,6 +32,6 @@ class Api::V1::ReviewsController < ApplicationController
   private
 
   def review_params
-      params.require(:review).permit(:id, :content, :user_id, :product_id)
+      params.require(:review).permit(:id, :user_id, :product_id, :rating)
   end
 end

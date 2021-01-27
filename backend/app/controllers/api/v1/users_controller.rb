@@ -13,17 +13,18 @@ class Api::V1::UsersController < ApplicationController
   
     def show
       @user = User.find(params[:id])
-      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
+      render json: @user, include: [:orders, :reviews, :favorites]
     end
 
     def profile
+      # @user = User.find(params[:id])
       @user = AuthorizeApiRequest.call(user)
       render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
     end
     
     # PATCH/PUT /users/1
     def update
-      set_user
+      @user = User.find(params[:id])
       if @user.update(user_params)
         render json: @user
       else

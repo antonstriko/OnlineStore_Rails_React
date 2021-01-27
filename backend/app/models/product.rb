@@ -7,9 +7,13 @@ class Product < ApplicationRecord
 
   def avg_rating
     count = self.reviews_count
-    ratingSum = self.reviews.sum(:rating)
-    avg = ratingSum / count
-    avg
+    if (count > 0)
+      ratingSum = self.reviews.sum(:rating)
+      avg = ratingSum / count
+      return avg
+    else
+      return 0
+    end
   end
 
   def reviews_count
@@ -23,7 +27,7 @@ class Product < ApplicationRecord
   # Get the average rating of all reviews for a product
   def calculate_average
     return 0 unless reviews.size.positive?
-    avg = reviews.average(:rating) #.to_f.round(2) # * 100
+    avg = self.reviews.average(:rating) #.to_f.round(2) # * 100
     update_column(:rating, avg)
   end
 end

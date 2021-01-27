@@ -51,107 +51,110 @@
 #   ]
 #   prng = Random.new
 #   products_data.each_with_index do |product, index|
-#     Product.create!(brand: product["brandName"], product_id: product["productCode"], department: product["groupId"], title: product["name"], image_url: product["imageUrl"], rating: prng.rand(), num_reviews: product["price"]["current"]["value"], price: product["price"]["current"]["value"], in_stock: true, stock: prng.rand(100))
+#     Product.create!(brand: product["brandName"], product_id: product["productCode"], department: product["groupId"], title: product["name"], image_url: product["imageUrl"], rating: 0, num_reviews: 0, price: product["price"]["current"]["value"], in_stock: true, stock: prng.rand(100))
 #   end
+
+
   prng = Random.new
   products = Product.all
-  ## *****************************************************************************************************
-  ## Users
-  ## *****************************************************************************************************
-  User.create!(email:'demo@gmail.com', password:'1234', firstname:'Zack',lastname:'Jordan', isStoreManager: false)
-  14.times do |i|
-    User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  end
-  User.create!(email:'euberman@gmail.com', password:'1234',firstname:'Eric',lastname:'Uberman',isStoreManager: true)
-  
-  # user1 = User.create!(email:'demo@gmail.com', password:'1234', firstname:'Zack',lastname:'Jordan', isStoreManager: false)
-  # user2 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user3 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user4 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user5 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user6 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user7 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user8 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user9 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user10 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user11 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user12 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user13 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user14 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # user15 = User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
-  # store_manager = User.create!(email:'euberman@gmail.com', password:'1234',firstname:'Eric',lastname:'Uberman',isStoreManager: true)
-  24.times do |i|
-    total = products[i].price + products[i+1].price
-    order = Order.create!(
-      user_id:"#{prng.rand(2...15)}", 
-      total:"#{total}", 
-      item_count:2, 
-      isShipped: true,
-      paid: true,
-      payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
-      address_street:"#{Faker::Address.street_address}", 
-      address_city:"#{Faker::Address.city}", 
-      address_state:"#{Faker::Address.state_abbr}", 
-      address_zip: "#{Faker::Address.zip}",
-      date: "#{Faker::Date.between_except(from: 1.year.ago, to: 3.day.ago)}"
-    )
-    OrderItem.create!(order_id: "#{i}", product_id:"#{i}" , qty:1 , price:"#{products[i].price}" , subtotal:"#{products[i].price}")
-    OrderItem.create!(order_id:"#{i}" , product_id:"#{i+1}" , qty:1 , price:"#{products[i+1].price}" , subtotal:"#{products[i+1].price}")
-  end
 
-  4.times do |i|
-    product1 = products[prng.rand(2...15)]
-    product2 = products[prng.rand(2...15)]
-    total = product1.price + product2.price
-    order = Order.create!(
-      user_id: 1, 
-      total:"#{total}", 
-      item_count:2, 
-      isShipped: true,
-      paid: true,
-      payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
-      address_street:"#{Faker::Address.street_address}", 
-      address_city:"#{Faker::Address.city}", 
-      address_state:"#{Faker::Address.state_abbr}", 
-      address_zip: "#{Faker::Address.zip}",
-      date: "#{Faker::Date.between_except(from: 1.year.ago, to: 3.day.ago)}"
-    )
-    OrderItem.create!(order_id: "#{order.id}", product_id:"#{product1.id}" , qty:1 , price:"#{product1.price}" , subtotal:"#{product1.price}")
-    OrderItem.create!(order_id:"#{order.id}" , product_id:"#{product2.id}" , qty:1 , price:"#{product2.price}" , subtotal:"#{product2.price}")
-  end
+  # User.create!(email:'euberman@gmail.com', password:'1234',firstname:'Eric',lastname:'Uberman',isStoreManager: true)
+  # User.create!(email:'demo@gmail.com', password:'1234', firstname:'Zack',lastname:'Jordan', isStoreManager: false)
+  # 14.times do |i|
+  #   User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
+  # end
+
   
-  4.times do |i|
-    product1 = products[prng.rand(2...15)]
-    product2 = products[prng.rand(2...15)]
-    total = product1.price + product2.price
-    order = Order.create!(
-      user_id: 1, 
-      total:"#{total}", 
-      item_count:2, 
-      isShipped: true,
-      paid: true,
-      payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
-      address_street:"#{Faker::Address.street_address}", 
-      address_city:"#{Faker::Address.city}", 
-      address_state:"#{Faker::Address.state_abbr}", 
-      address_zip: "#{Faker::Address.zip}",
-      date: "#{Faker::Date.between_except(from: 3.day.ago, to: 2.days.from_now)}"
-    )
-    OrderItem.create!(order_id: order.id, product_id:"#{product1.id}" , qty:1 , price:"#{product1.price}" , subtotal:"#{product1.price}")
-    OrderItem.create!(order_id: order.id , product_id:"#{product2.id}" , qty:1 , price:"#{product2.price}" , subtotal:"#{product2.price}")
-  end
+  # 24.times do |i|
+  #   product1 = products[prng.rand(1...24)]
+  #   product2 = products[prng.rand(25...47)]
+  #   total = product1.price + product2.price
+  #   order = Order.create!(
+  #     user_id:"#{prng.rand(3...16)}", 
+  #     total: total, 
+  #     item_count:2, 
+  #     isShipped: true,
+  #     paid: true,
+  #     payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
+  #     address_street:"#{Faker::Address.street_address}", 
+  #     address_city:"#{Faker::Address.city}", 
+  #     address_state:"#{Faker::Address.state_abbr}", 
+  #     address_zip: "#{Faker::Address.zip}",
+  #     date: "#{Faker::Date.between(from: 1.year.ago, to: 3.day.ago)}"
+  #   )
+  #   OrderItem.create!(order_id: order.id, product_id: product1.id, qty: 1, price: product1.price, subtotal: product1.price)
+  #   OrderItem.create!(order_id: order.id, product_id: product2.id, qty: 1, price: product2.price, subtotal: product2.price)
+  # end
+
+  # 4.times do |i|
+  #   product1 = products[prng.rand(1...24)]
+  #   product2 = products[prng.rand(25...47)]
+  #   total = product1.price + product2.price
+  #   order = Order.create!(
+  #     user_id: 2, 
+  #     total: total, 
+  #     item_count:2, 
+  #     isShipped: true,
+  #     paid: true,
+  #     payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
+  #     address_street:"#{Faker::Address.street_address}", 
+  #     address_city:"#{Faker::Address.city}", 
+  #     address_state:"#{Faker::Address.state_abbr}", 
+  #     address_zip: "#{Faker::Address.zip}",
+  #     date: "#{Faker::Date.between(from: 1.year.ago, to: 3.day.ago)}"
+  #   )
+  #   OrderItem.create!(order_id: order.id, product_id: product1.id, qty:1 , price: product1.price, subtotal: product1.price)
+  #   OrderItem.create!(order_id: order.id, product_id: product2.id, qty:1 , price: product2.price, subtotal: product2.price)
+  # end
   
-  users = Users.all
-  150.times do |i|
-    product = products[prng.rand(2...15)]
-    user = users[prng.rand(2...15)]
-    Review.create!(user_id: user.id, product_id: product.id, content:'', rating: "#{prng.rand(3...5)}" )
-    Favorite.create!(user_id:, product_id:)
+  # 4.times do |i|
+  #   product1 = products[prng.rand(1...24)]
+  #   product2 = products[prng.rand(25...47)]
+  #   total = product1.price + product2.price
+  #   order = Order.create!(
+  #     user_id: 2, 
+  #     total: total, 
+  #     item_count:2, 
+  #     isShipped: false,
+  #     paid: true,
+  #     payment:"#{Faker::Stripe.valid_card(card_type: "visa_debit")}", 
+  #     address_street:"#{Faker::Address.street_address}", 
+  #     address_city:"#{Faker::Address.city}", 
+  #     address_state:"#{Faker::Address.state_abbr}", 
+  #     address_zip: "#{Faker::Address.zip}",
+  #     date: "#{Faker::Date.between(from: 3.day.ago, to: 2.days.from_now)}"
+  #   )
+  #   OrderItem.create!(order_id: order.id, product_id: product1.id, qty:1 , price: product1.price, subtotal: product1.price)
+  #   OrderItem.create!(order_id: order.id, product_id: product2.id, qty:1 , price: product2.price, subtotal: product2.price)
+  # end
+  
+
+  15.times do |i|
+    y = i + 1
+    product1 = products[prng.rand(1...10)]
+    product2 = products[prng.rand(11...20)]
+    product3 = products[prng.rand(21...30)]
+    product4 = products[prng.rand(31...40)]
+    product5 = products[prng.rand(41...47)]
+    Review.create!(user_id: y, product_id: product1.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: y, product_id: product2.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: y, product_id: product3.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: y, product_id: product4.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: y, product_id: product5.id, rating: "#{prng.rand(3...5)}" )
   end
-  150.times do |i|
-    product = products[prng.rand(2...15)]
-    user = users[prng.rand(2...15)]
-    
+ 
+  15.times do |i|
+     y = i + 1
+    product1 = products[prng.rand(1...10)]
+    product2 = products[prng.rand(11...20)]
+    product3 = products[prng.rand(21...30)]
+    product4 = products[prng.rand(31...40)]
+    product5 = products[prng.rand(41...47)]
+    Favorite.create!(user_id: y, product_id: product1.id)
+    Favorite.create!(user_id: y, product_id: product2.id)
+    Favorite.create!(user_id: y, product_id: product3.id)
+    Favorite.create!(user_id: y, product_id: product4.id)
+    Favorite.create!(user_id: y, product_id: product5.id)
   end
   
  

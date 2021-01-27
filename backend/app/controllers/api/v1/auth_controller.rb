@@ -22,7 +22,7 @@ class Api::V1::AuthController < ApplicationController
     @user = User.find_by(id: user_id)
 
     if @user
-      render json: @user #, except: [:created_at, :updated_at], include: [:favorites, :orders, :reviews]
+      render json: @user
     else
       render json: { message: 'Invalid username or password' }
     end    
