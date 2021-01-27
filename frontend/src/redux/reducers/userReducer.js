@@ -1,13 +1,5 @@
 import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../actionTypes'
 
-// currentUser: {
-//     id: '',
-//     firstname: '',
-//     lastname: '',
-//     email: '',
-//     address: null,
-//     isStoreManager: false
-// }
 
 const initialState = {
     isLoggedIn: true,
@@ -16,8 +8,7 @@ const initialState = {
             id: 1,
             firstname: 'Eric',
             lastname: 'Uberman',
-            email: 'euberman@gmail.com',
-            isStoreManager: false
+            email: 'euberman@gmail.com'
         }
 }
 
