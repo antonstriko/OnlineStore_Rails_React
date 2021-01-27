@@ -20,7 +20,7 @@ class AuthorizeApiRequest
     end
   
     def decoded_token
-      @decoded_token ||= JWT.decode(http_auth_header, 'my_s3cr3t', true, { algorithm: 'HS256' })
+      @decoded_token ||= JWT.decode(http_auth_header, 'my_s3cr3t')
     end
   
     def http_auth_header
