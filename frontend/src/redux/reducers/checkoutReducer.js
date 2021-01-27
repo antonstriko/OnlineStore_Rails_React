@@ -1,4 +1,7 @@
-import {ADD_ADDRESS, ADD_PAYMENT, CLEAR_CHECKOUT} from '../actionTypes'
+import {SETUP_CHECKOUT, 
+    ADD_ADDRESS, 
+    ADD_PAYMENT, 
+    RESET_CHECKOUT} from '../actionTypes'
 
 const initialState = {
     user_id: '',
@@ -24,9 +27,17 @@ const initialState = {
 
 const checkoutReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_ADDRESS:{
-            console.log('address', action.address)
-            //console.log('currentAddress', action.currentAddress)
+        case SETUP_CHECKOUT: {
+            return {
+                ...state,
+                address: {
+                    ...state.address,
+                    firstname: action.payload.firstname,
+                    lastname: action.payload.lastname
+                } 
+            }
+        }
+        case ADD_ADDRESS: {
             return {
                 ...state,
                 address: {
@@ -39,7 +50,7 @@ const checkoutReducer = (state = initialState, action) => {
                 } 
             }
         }
-        case ADD_PAYMENT:{
+        case ADD_PAYMENT: {
             return {
                 ...state,
                 payment: {
@@ -49,9 +60,9 @@ const checkoutReducer = (state = initialState, action) => {
                 } 
             }
         }
-        case CLEAR_CHECKOUT:{
+        case RESET_CHECKOUT: {
             return {
-                ...initialState
+                initialState
             }
         }
         default:

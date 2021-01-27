@@ -13,7 +13,7 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
-import clearCheckout from '../../redux/actions/checkoutActions'
+import {resetCheckout} from '../../redux/actions/checkoutActions'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Shipping Details', 'Payment Details', 'Review Your Order'];
 
 function getStepContent(step) {
   switch (step) {
@@ -121,7 +121,7 @@ export default function Checkout() {
                   })
                 })
             })
-            dispatch(clearCheckout)
+            dispatch(resetCheckout())
       })
     }
   }, [activeStep])

@@ -1,4 +1,9 @@
-import {ADD_TO_CART, INCREMENT_CART_ITEM, DECREMENT_CART_ITEM, REMOVE_CART_ITEM, TOGGLE_MODAL, RESET_CART} from '../actionTypes'
+import {ADD_TO_CART, 
+  INCREMENT_CART_ITEM, 
+  DECREMENT_CART_ITEM, 
+  REMOVE_CART_ITEM, 
+  TOGGLE_MODAL, 
+  RESET_CART} from '../actionTypes'
 
 export const addToCart = (product) => {
   return {

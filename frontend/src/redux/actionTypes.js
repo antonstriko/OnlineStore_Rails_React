@@ -2,22 +2,25 @@
 export const SETUP_CHECKOUT = 'SETUP_CHECKOUT';
 export const ADD_ADDRESS = 'ADD_ADDRESS';
 export const ADD_PAYMENT = 'ADD_PAYMENT';
-export const CLEAR_CHECKOUT = 'CLEAR_CHECKOUT';
+export const RESET_CHECKOUT = 'RESET_CHECKOUT';
 
 // orderReducer -----------------------------------
+export const LOADING_ORDERS = 'LOADING_ORDERS';
 export const ADD_FETCHED_ORDERS = 'ADD_FETCHED_ORDERS';
 export const ADD_NEW_ORDER = 'ADD_NEW_ORDER';
 export const SET_ORDER_SORT = 'SET_ORDER_SORT';
 export const SET_ORDER_FILTER = 'SET_ORDER_FILTER';
 export const UPDATE_FILTERED_ORDERS = 'UPDATE_FILTERED_ORDERS';
+export const CHANGE_SELECTED_ORDER = 'CHANGE_SELECTED_ORDER';
 
 // productReducer -----------------------------------
-export const IS_LOADING_PRODUCTS = 'IS_LOADING_PRODUCTS'
+export const LOADING_PRODUCTS = 'LOADING_PRODUCTS'
 export const ADD_FETCHED_PRODUCTS = 'ADD_FETCHED_PRODUCTS';
-export const CHANGE_SELECTED_PRODUCT = 'CHANGE_SELECTED_PRODUCT';
+export const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
 export const SET_PRODUCT_SORT = 'SET_PRODUCT_SORT';
 export const SET_PRODUCT_FILTER = 'SET_PRODUCT_FILTER';
 export const UPDATE_FILTERED_PRODUCTS = 'UPDATE_FILTERED_PRODUCTS';
+export const CHANGE_SELECTED_PRODUCT = 'CHANGE_SELECTED_PRODUCT';
 
 // cartReducer -----------------------------------
 export const ADD_TO_CART = 'ADD_TO_CART';
