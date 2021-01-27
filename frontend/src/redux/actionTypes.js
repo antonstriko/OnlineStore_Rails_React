@@ -5,7 +5,7 @@ export const ADD_PAYMENT = 'ADD_PAYMENT';
 export const CLEAR_CHECKOUT = 'CLEAR_CHECKOUT';
 
 // orderReducer -----------------------------------
-export const GET_ORDERS = 'GET_ORDERS';
+export const ADD_FETCHED_ORDERS = 'ADD_FETCHED_ORDERS';
 export const ADD_NEW_ORDER = 'ADD_NEW_ORDER';
 export const SET_ORDER_SORT = 'SET_ORDER_SORT';
 export const SET_ORDER_FILTER = 'SET_ORDER_FILTER';

@@ -4,9 +4,9 @@ import { loginSuccess } from '../redux/actions/userActions';
 
 
 export default function LandingPage(props) {
-  let token = localStorage.token !== undefined;
   const dispatch = useDispatch()
 
+  let token = localStorage.token;
   const headers = {headers: {'Authorization': `Bearer ${token}`}};
   const loadCurrentUserProfile = () => {
     if (token !== undefined && headers) {
@@ -21,7 +21,7 @@ export default function LandingPage(props) {
   }
 
   useEffect(()=> {
-      if (token){
+      if (token && token !== 'undefined'){
         props.history.push('/storefront')
         loadCurrentUserProfile()
       } else {

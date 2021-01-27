@@ -1,41 +1,46 @@
+import {ADD_FETCHED_ORDERS, ADD_NEW_ORDER, DECREMENT_CART_ITEM} from '../actionTypes'
+
 const initialState = {
+    isLoading: false,
     allOrders: [],
-    currentOrder: {
+    selectedOrder: {
         user_id: '',
-        orderItems: [],
-        subtotal: 0,
-        taxRate: '0.0825',
-        total: 0,
+        name: '', 
         item_count: 0,
-        shipped: false,
-        shipped_date: null,
+        orderItems: [],
+        total: 0,
+
         paid: false,
+        payment: '',
+
+        shipped: false,
+        shipped_date: '',
         address_street: '',
         address_city: '',
         address_state: '',
-        address_zip: '',
+        address_zip: ''
     }
 }
 
 const orderReducer = (state = initialState, action) => {
     switch (action.type) {
 
-    case 'ADD_FETCHED_ORDERS':
+    case ADD_FETCHED_ORDERS:
         return {
             ...state,
-            allOrders: action.orders
+            allOrders: action.payload
         }
 
-    case 'ADD_NEW_ORDER':
+    case ADD_NEW_ORDER:
         return {
             ...state,
-            allOrders: [...state.allOrders, action.order]
+            allOrders: [...state.allOrders, action.payload]
         }
 
-    case 'ADD_TO_CURRENT_ORDER':
+    case CHANGE_SELECTED_PRODUCT:
         return {
             ...state,
-            currentOrder: action.order
+            selectedOrder: action.payload
         }
   
     default:

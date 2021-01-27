@@ -139,13 +139,13 @@ export default function Storefront(props) {
       }
 
       useEffect(()=> {
-        // let token = localStorage.token !== null;
+        // let token = localStorage.token !== 'undefined' ? localStorage.token : '';
         //   const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${token}`}};
-          // fetch('http://localhost:3000/api/v1/products')
-          //   .then(resp => resp.json())
-          //   .then(data => {
-          //     dispatch(fetchProducts(data))
-          //   })
+          fetch('http://localhost:3000/api/v1/products')
+            .then(resp => resp.json())
+            .then(data => {
+              dispatch(addFetchedProducts(data))
+            })
             
             // async function pullProducts() {
             //     const result = await axios(productUrl);
@@ -180,7 +180,7 @@ export default function Storefront(props) {
 
                 
 
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Hardware Store </Typography>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backwoods Gear Store </Typography>
                 {/* {(getLocalCurrentUser()) ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}

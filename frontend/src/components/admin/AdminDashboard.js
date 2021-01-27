@@ -30,7 +30,7 @@ import { logout } from '../../redux/actions/userActions';
         ...theme.mixins.toolbar,
       },
       appBar: {
-        background: 'green',
+        background: 'grey',
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
           easing: theme.transitions.easing.sharp,
@@ -64,17 +64,17 @@ import { logout } from '../../redux/actions/userActions';
           duration: theme.transitions.duration.enteringScreen,
         }),
       },
-      drawerPaperClose: {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      },
+      // drawerPaperClose: {
+      //   overflowX: 'hidden',
+      //   transition: theme.transitions.create('width', {
+      //     easing: theme.transitions.easing.sharp,
+      //     duration: theme.transitions.duration.leavingScreen,
+      //   }),
+      //   width: theme.spacing(7),
+      //   [theme.breakpoints.up('sm')]: {
+      //     width: theme.spacing(9),
+      //   },
+      // },
       appBarSpacer: theme.mixins.toolbar,
       content: {
         flexGrow: 1,

@@ -43,8 +43,6 @@ export default function AddressForm() {
         ...address,
         [e.target.name] : e.target.value
       });
-      // console.log('address', address)
-      // console.log('currentAddress', currentAddress)
   }
 
   return (

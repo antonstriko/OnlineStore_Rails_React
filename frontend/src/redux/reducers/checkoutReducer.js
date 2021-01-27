@@ -1,71 +1,55 @@
+import {ADD_ADDRESS, ADD_PAYMENT, CLEAR_CHECKOUT} from '../actionTypes'
+
 const initialState = {
-    shipped: false,
     user_id: '',
-    payment: {
-        cardName: '',
-        cardNumber: '',
-        cvv: '',
-        expDate: ''
-    },
-    itemCount: 0,
-    orderItems: [],
     subtotal: 0,
     salesTaxRate: '0.0825',
     salesTax: 0,
     total: 0,
-    
+    payment: {
+        cardNumber: '',
+        cvv: '',
+        expDate: ''
+    },
     address: {
+        firstName: '',
+        lastname: '',
         street: '',
-        street2: '',
         city: '',
         state: '',
         zip: '',
         country: 'US'
-  } 
+    }
 }
 
 const checkoutReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SETUP_CHECKOUT':{
-            return {
-                ...state,
-                user_id:action.cartData.user_id,
-                orderItems: action.cartData.orderItems,
-                total: action.cartData.total,
-                count: action.cartData.count,
-                address: {
-                    ...state.address,
-                    firstname: action.cartData.firstname,
-                    lastname: action.cartData.lastname,
-                    country: 'US'
-                } 
-            }
-        }
-        case 'ADD_ADDRESS':{
+        case ADD_ADDRESS:{
             console.log('address', action.address)
             //console.log('currentAddress', action.currentAddress)
             return {
                 ...state,
                 address: {
-                    ...state.address,
-                    firstname: action.address.firstname,
-                    lastname: action.address.lastname,
-                    address1: action.address.address1,
-                    address2: action.address.address2,
-                    city: action.address.city,
-                    state: action.address.state,
-                    zip: action.address.zip,
-                    country: 'US'
+                    firstname: action.payload.firstname,
+                    lastname: action.payload.lastname,
+                    street: action.payload.street,
+                    city: action.payload.city,
+                    state: action.payload.state,
+                    zip: action.payload.zip
                 } 
             }
         }
-        case 'ADD_PAYMENT':{
+        case ADD_PAYMENT:{
             return {
                 ...state,
-                payment: action.payment
+                payment: {
+                    cardNumber: '',
+                    cvv: '',
+                    expDate: ''
+                } 
             }
         }
-        case 'CLEAR_CHECKOUT':{
+        case CLEAR_CHECKOUT:{
             return {
                 ...initialState
             }

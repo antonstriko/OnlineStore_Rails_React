@@ -72,7 +72,7 @@ export default function Checkout() {
 
   const [activeStep, setActiveStep] = React.useState(0);
 
-  const currentCartItems = useSelector(state => state.shoppingCart.items)
+  const cart = useSelector(state => state.cart)
   const currentUser = useSelector(state => state.user.currentUser)
   const currentCheckout = useSelector(state => state.checkout)
 
@@ -88,7 +88,6 @@ export default function Checkout() {
     if (activeStep === steps.length){
       let nameString = [currentCheckout.address.firstname, currentCheckout.address.lastname].join(' ')
       let paymentString = `VISA ⠀•••• ${currentCheckout.payment.cardNumber.split("-")[3]}`
-      let addressString = [currentCheckout.address.address1, currentCheckout.address.city, currentCheckout.address.state, currentCheckout.address.zip, currentCheckout.address.country].join(', ')
 
       fetch('http://localhost:3000/orders', {
           method: 'POST',
@@ -97,14 +96,20 @@ export default function Checkout() {
           },
           body: JSON.stringify({
             user_id: currentUser.id,
+            name: [currentCheckout.address.firstname, currentCheckout.address.lastname].join(' '),
+            total: cart.subtotal,
+            item_count: cart.itemCount,
+            paid: true,
             payment: paymentString,
-            address: addressString,
-            shipped: false
+            address_street: currentCheckout.address.street,
+            address_city: currentCheckout.address.city,
+            address_state: currentCheckout.address.state,
+            address_zip: currentCheckout.address.zip
           })
       })
       .then(res => res.json())
       .then(data => {
-            currentCartItems.forEach(product => {
+            cart.cartItems.forEach(cartItem => {
                 fetch('http://localhost:3000/order_items', {
                   method: 'POST',
                   headers: {
@@ -112,7 +117,9 @@ export default function Checkout() {
                   },
                   body: JSON.stringify({
                     order_id: data.id,
-                    product_id: product.product_id
+                    product_id: cartItem.product_id,
+                    qty: cartItem.qty,
+                    subtotal: cartItem.subtotal
                   })
                 })
             })
