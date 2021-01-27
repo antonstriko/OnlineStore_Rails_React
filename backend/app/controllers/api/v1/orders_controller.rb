@@ -1,13 +1,13 @@
 class Api::V1::OrdersController < ApplicationController
     def index
         @orders = Order.all
-        render json: @orders
+        render json: @orders, except: [:created_at, :updated_at], include:[:order_items, :user]
     end
 
     def show
         @order = Order.find_by(id: params[:id])
         if @order
-            render json: @order
+            render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
         else
             render json: { message: 'Order not found' }
         end
@@ -16,7 +16,7 @@ class Api::V1::OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
         @order.save
-        render json: @order
+        render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
     end
 
     # def update
@@ -30,7 +30,7 @@ class Api::V1::OrdersController < ApplicationController
         @order.update(order_params)
         @order.save()
         if @order
-            render json: @order
+            render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
         else
             render json: { message: 'Order not found/updated' }
         end

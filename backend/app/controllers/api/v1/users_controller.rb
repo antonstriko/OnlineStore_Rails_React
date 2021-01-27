@@ -1,6 +1,9 @@
 class Api::V1::UsersController < ApplicationController
     # skip_before_action :logged_in?, only: [:create, :show]
-
+    def index
+      @users = User.all
+      render json: @users, except: [:created_at, :updated_at]
+    end
     def create
       @user = User.create(user_params)
       if @user.valid?
@@ -13,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
   
     def show
       @user = User.find(params[:id])
-      render json: @user, include: [:orders, :reviews, :favorites]
+      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
     end
 
     def profile
@@ -26,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
-        render json: @user
+        render json: @user, except: [:created_at, :updated_at]
       else
         render json: @user.errors, status: :unprocessable_entity
       end
