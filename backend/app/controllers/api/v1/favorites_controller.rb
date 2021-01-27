@@ -6,10 +6,10 @@ class Api::V1::FavoritesController < ApplicationController
 
   def show
       @favorite = Favorite.find_by(id: params[:id])
-      if user
+      if @favorite
           render json: @favorite, except: [:created_at, :updated_at]
       else
-          render json: { message: 'Item not found' }
+          render json: { message: 'favorite not found' }
       end
   end
 

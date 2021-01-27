@@ -3,7 +3,7 @@ class OrderSerializer < ActiveModel::Serializer
 
   def order_items 
     self.object.order_items.map do |order_item|
-      {id: order_item.id
+      {id: order_item.id,
       title: order_item.title,
       product_id: order_item.product_id,
       qty: order_item.qty,
@@ -12,9 +12,7 @@ class OrderSerializer < ActiveModel::Serializer
     end 
   end
   def user 
-    self.object.order_items.map do |user|
-      {name: "#{self.object.user.firstname} #{self.object.user.lastname}", email: self.object.user.email}
-    end 
+    {name: "#{self.object.user.firstname} #{self.object.user.lastname}", email: self.object.user.email} 
   end 
     
 end

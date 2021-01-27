@@ -7,7 +7,7 @@ class Api::V1::OrderItemsController < ApplicationController
   def show
       @order_item = OrderItem.find_by(id: params[:id])
       if @order_item
-          render json: @order_item, except: [:created_at, :updated_at]
+          render json: @order_item, except: [:created_at, :updated_at], include: [:product]
       else
           render json: { message: 'Item not found' }
       end
@@ -22,7 +22,7 @@ class Api::V1::OrderItemsController < ApplicationController
   def update
       @order_item = OrderItem.find_by(params[:id])
       @order_item.update_attributes(order_item_params)
-      render json: @order_item, except: [:created_at, :updated_at]
+      render json: @order_item, except: [:created_at, :updated_at], include: [:product]
   end
 
   def destroy
