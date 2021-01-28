@@ -8,8 +8,8 @@ import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu a
 import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
 
 import AdminMenu from './AdminMenu'
-import OrdersDataTable from './OrdersDataTable'
-import OrdersList from '../order/OrdersList';
+import AdminOrderList from './AdminOrderList'
+import AdminProductList from './AdminProductList';
 
 // import { fetchProducts } from '../../redux/actions/productActions';
 import { logout } from '../../redux/actions/userActions';
@@ -64,19 +64,22 @@ import { logout } from '../../redux/actions/userActions';
           duration: theme.transitions.duration.enteringScreen,
         }),
       },
-      // drawerPaperClose: {
-      //   overflowX: 'hidden',
-      //   transition: theme.transitions.create('width', {
-      //     easing: theme.transitions.easing.sharp,
-      //     duration: theme.transitions.duration.leavingScreen,
-      //   }),
-      //   width: theme.spacing(7),
-      //   [theme.breakpoints.up('sm')]: {
-      //     width: theme.spacing(9),
-      //   },
-      // },
+      drawerPaperClose: {
+        overflowX: 'hidden',
+        transition: theme.transitions.create('width', {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: theme.spacing(7),
+        [theme.breakpoints.up('sm')]: {
+          width: theme.spacing(9),
+        },
+      },
       appBarSpacer: theme.mixins.toolbar,
       content: {
+        paddingTop: 60,
+        display: 'flex',
+        flexDirection: 'row',
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
@@ -127,7 +130,7 @@ export default function AdminDashboard(props) {
         <div className={clsx(classes.root)}  >
           <CssBaseline />
 
-          <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+          <AppBar position="absolute" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
                 <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)} >
                   <MenuIcon />
@@ -140,21 +143,17 @@ export default function AdminDashboard(props) {
             </Toolbar>
           </AppBar>
 
-          <AdminMenu />
-
           <main className={classes.content}>
               <div className={classes.appBarSpacer} />
+              <AdminMenu />
               <Container maxWidth="lg" className={classes.container}>
                 <Switch> 
                     <Route exact path={path}>
-                        <OrdersDataTable />
+                        <AdminOrderList />
                     </Route>
-                    <Route exact path={`${path}/orders`}>
-                        <OrdersList />
+                    <Route exact path={`${path}/products`}>
+                        <AdminProductList />
                     </Route>
-                    {/* <Route exact path={`${path}/products`}>
-                        <ProductsDataTable />
-                    </Route> */}
                 </Switch>
               </Container>
           </main>

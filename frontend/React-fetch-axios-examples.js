@@ -1,16 +1,26 @@
+
+async function asyncFunc() {
+  try {
+    // fetch data from a url endpoint
+    const data = await axios.get("/some_url_endpoint");
+    return data;
+  } catch(error) {
+    console.log("error", error);
+    // appropriately handle the error
+  }
+}
+
+
+
+
 // ***********************************************************************************
 //      https://www.educative.io/edpresso/how-to-make-an-axios-post-request
 // ***********************************************************************************
-axios.post('https:sample-endpoint.com/user', {
-        Name: 'Fred',
-        Age: '23'
-      })
+    axios.post('https:sample-endpoint.com/user', order)
       .then(function (response) {
         console.log(response);
       })
-
-
-      const res = await axios.post('https:sample-endpoint.com/data')
+    const res = await axios.post('https:sample-endpoint.com/data')
 
 // ***********************************************************************************
 //      https://www.educative.io/edpresso/how-to-make-an-axios-post-request
@@ -31,8 +41,26 @@ axios.post('https:sample-endpoint.com/user', {
 //      
 // ***********************************************************************************
 
-axios.post(url[, data[, config]])
+    export function fetchArticleDetails() {
+      return async function(dispatch) {
+        const { data } = await axios.get("https://api.myjson.com/bins/19dtxc");
+        dispatch(setArticleDetails(data));
+      };
+    }
 
+    export function fetchUserProfile() {
+      return async function(dispatch) {
+        const { data } = await axios.get("https://api.myjson.com/bins/19dtxc");
+        dispatch(setUserProfile(data));
+      };
+    }
+
+    export function recommendArticle (id,  amountOfRecommends) {
+      return  function (dispatch) {
+        return axios.post("https://api.myjson.com/bins/19dtxc, {
+           amountOfRecommends
+      });
+    })
 
 // ***********************************************************************************
 //      

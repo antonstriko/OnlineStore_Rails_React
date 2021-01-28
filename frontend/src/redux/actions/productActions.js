@@ -1,16 +1,15 @@
-import {IS_LOADING_PRODUCTS, ADD_FETCHED_PRODUCTS, CHANGE_SELECTED_PRODUCT, SET_PRODUCT_SORT, SET_PRODUCT_FILTER, UPDATE_FILTERED_PRODUCTS} from '../actionTypes'
+import {LOADING_PRODUCTS, 
+  ADD_FETCHED_PRODUCTS, 
+  ADD_NEW_PRODUCT,
+  SET_PRODUCT_SORT, 
+  SET_PRODUCT_FILTER, 
+  UPDATE_FILTERED_PRODUCTS,
+  CHANGE_SELECTED_PRODUCT} from '../actionTypes'
+
 
 export const isLoadingProducts = () => {
   return {
-      type: IS_LOADING_PRODUCTS,
-      payload: true
-  }
-}
-
-export const fetchProducts = (data) => {
-  return {
-      type: ADD_FETCHED_PRODUCTS,
-      payload: data
+      type: LOADING_PRODUCTS
   }
 }
 
@@ -21,10 +20,10 @@ export const addFetchedProducts = (data) => {
   }
 }
 
-export const changeSelectedProduct = (product) => {
+export const addNewProduct = (data) => {
   return {
-      type: CHANGE_SELECTED_PRODUCT,
-      payload: product
+      type: ADD_NEW_PRODUCT,
+      payload: data
   }
 }
 
@@ -46,5 +45,18 @@ export const updateFilteredProducts = (filteredProducts) => {
   return {
       type: UPDATE_FILTERED_PRODUCTS,
       payload: filteredProducts
+  }
+}
+
+export const changeSelectedProduct = (product) => {
+  return {
+      type: CHANGE_SELECTED_PRODUCT,
+      payload: product
+  }
+}
+export const setSearchInput = (data) => {
+  return {
+      type: SET_PRODUCT_FILTER,
+      payload: data
   }
 }

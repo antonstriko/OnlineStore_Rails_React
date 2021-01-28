@@ -1,6 +1,14 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :product_id, :rating
+  attributes :id, :user_id, :user_name, :product_id, :product_title, :rating, :product
 
-  belongs_to :product
-  belongs_to :user
+  def user_name
+    name = "#{self.object.user.firstname} #{self.object.user.lastname}"
+    name
+  end
+
+  def product_title
+    title = "#{self.object.product.title}"
+    title
+  end
+  
 end

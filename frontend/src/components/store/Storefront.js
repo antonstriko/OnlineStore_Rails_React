@@ -1,20 +1,21 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
-import axios from 'axios';
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
-import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
+import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, Buton } from '@material-ui/core';
 
-import { MainListItems, SecondaryListItems } from './StoreNavList';
+import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
-import Cart from '../shoppingCart/Cart'
-import OrdersList from '../order/OrdersList';
+import CartCopy from '../shoppingCart/CartCopy'
 import Checkout from '../checkout/Checkout';
+import OrderDataGrid from '../order/OrderDataGrid';
 
-import { addFetchedProducts } from '../../redux/actions/productActions';
+import { fetchProducts } from '../../redux/actions/asyncProductActions';
+import { fetchOrders } from '../../redux/actions/asyncOrderActions';
+
 import { logout } from '../../redux/actions/userActions';
 
 
@@ -112,62 +113,40 @@ import { logout } from '../../redux/actions/userActions';
     });
 
 export default function Storefront(props) {
-      let history = useHistory();
-      const dispatch = useDispatch();
-      const classes = useStyles();
-                const [open, setOpen] = React.useState(false);
-                const handleDrawerOpen = () => setOpen(true);
-                const handleDrawerClose = () => setOpen(false);
-                
-                const [cartOpen, setCartOpen] = React.useState(false);
-                const handleCartOpen = () => setCartOpen(true);
-                const handleCartClose = () => setCartOpen(false);
+  // Sidebar Menu
+  const [open, setOpen] = React.useState(false);
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
+  // ShoppingCart
+  const [cartOpen, setCartOpen] = React.useState(false);
+  const handleCartOpen = () => setCartOpen(true);
+  const handleCartClose = () => setCartOpen(false);
 
-      const cartItemCount = useSelector(state => state.cart.itemCount)
-      const currentUser = useSelector(state => state.user.currentUser)
-      let { path, url } = useRouteMatch();
+    let history = useHistory();
+    const dispatch = useDispatch();
+    const classes = useStyles();
+    const [orders, setOrders] = useState([])
 
-      const productUrl = 'http://localhost:3000/api/v1/products'
-      
-      function fetchProducts() {
-        return (dispatch) => {
-          dispatch({ type: 'START_ADDING_ASTRONAUTS_REQUEST' });
-          fetch('http://localhost:3000/api/v1/products')
-            .then(resp => resp.json())
-            .then(products => dispatch(addFetchedProducts));
-        };
-      }
+    const cartItemCount = useSelector(state => state.cart.itemCount)
+    const currentUser = useSelector(state => state.user.currentUser)
+    let { path, url } = useRouteMatch();
 
-      useEffect(()=> {
-        // let token = localStorage.token !== 'undefined' ? localStorage.token : '';
-        //   const headers = {headers: {'Content-type':'application/json', 'Authorization': `Bearer ${token}`}};
-          fetch('http://localhost:3000/api/v1/products')
-            .then(resp => resp.json())
-            .then(data => {
-              dispatch(addFetchedProducts(data))
-            })
-            
-            // async function pullProducts() {
-            //     const result = await axios(productUrl);
-            //     dispatch(fetchProducts(result))
-            // }
-            
-            // pullProducts()
-            fetchProducts()
-      }, [])
+    useEffect(()=> {
+        dispatch(fetchProducts())
+        dispatch(fetchOrders())
+    }, [])
+    const handleRerouteToCheckout = () => {
+        setCartOpen(false)
+        history.push('/checkout')
+    }
+    const handleLogout = (event) => {
+      localStorage.removeItem('token')
+      dispatch(logout())
+      props.history.push('/login')
+    }
+    const adLink = '/admin'
 
-      const handleRerouteToCheckout = () => {
-          setCartOpen(false)
-          history.push('storefront/checkout')
-      }
 
-      const handleLogout = (event) => {
-        localStorage.removeItem('token')
-        dispatch(logout())
-        props.history.push('/login')
-      }
-
-      const adLink = '/admin'
       return (
         <div className={clsx(classes.root)}  >
           <CssBaseline />
@@ -178,14 +157,12 @@ export default function Storefront(props) {
                   <MenuIcon />
                 </IconButton>
 
-                
-
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backwoods Gear Store </Typography>
                 {/* {(getLocalCurrentUser()) ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
-                <Link to={adLink}>Admin Dashboard</Link>
-                <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={handleLogout} >
+                <button>Store Manager</button>
+                <IconButton edge="start" color="inherit" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
                 </IconButton>
                 <IconButton color="inherit" onClick={handleCartOpen}>
@@ -206,11 +183,6 @@ export default function Storefront(props) {
               <List>
                 <MainListItems />
               </List>
-              <Divider />
-              <List>
-                <SecondaryListItems />
-              </List>
-              <Divider />
           </Drawer>
 
           <main className={classes.content}>
@@ -219,7 +191,7 @@ export default function Storefront(props) {
                 <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
                     <Fade in={cartOpen}>
                         <div className={classes.paper}>
-                          <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
+                          <CartCopy handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
                         </div>
                     </Fade>
                 </Modal>
@@ -228,7 +200,7 @@ export default function Storefront(props) {
                         <ProductListContainer />
                     </Route>
                     <Route exact path={`${path}/orders`}>
-                        <OrdersList />
+                        <OrderDataGrid />
                     </Route>
                     <Route exact path={`${path}/checkout`}>
                         <Checkout />
@@ -236,6 +208,7 @@ export default function Storefront(props) {
                 </Switch>
               </Container>
           </main>
+          {/* <FloatCart /> */}
         </div>
       )
 }

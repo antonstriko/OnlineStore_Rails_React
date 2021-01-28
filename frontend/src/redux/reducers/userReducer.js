@@ -3,12 +3,12 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../acti
 
 const initialState = {
     isLoggedIn: true,
-    isStoreManager: true,
+    isStoreManager: false,
     currentUser: {
-            id: 1,
-            firstname: 'Eric',
-            lastname: 'Uberman',
-            email: 'euberman@gmail.com'
+            id: 2,
+            firstname: 'Zack',
+            lastname: 'Jordan',
+            email: 'demo@gmail.com'
         }
 }
 

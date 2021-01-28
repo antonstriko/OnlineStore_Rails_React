@@ -14,7 +14,8 @@ function App() {
     <Router>
       <div className="wrapper" >
           <Switch>
-              <Route exact path="/" component={LandingPage}/>
+              <Route exact path="/" component={LoginForm}/>
+              <Route path="/landingPage" component={LandingPage}/>
               <Route path="/storefront" component={Storefront}/>
               <Route path="/user_profile" component={UserProfile}/>
               <Route path="/admin" component={AdminDashboard}/>
