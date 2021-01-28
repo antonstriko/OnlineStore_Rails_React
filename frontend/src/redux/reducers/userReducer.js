@@ -1,9 +1,10 @@
-import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT} from '../actionTypes'
+import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
 
 
 const initialState = {
     isLoggedIn: true,
     isStoreManager: false,
+    allUsers: [],
     currentUser: {
             id: 2,
             firstname: 'Zack',
@@ -18,7 +19,13 @@ const userReducer = (state = initialState, action) => {
             return {
                 isLoggedIn: true,
                 isStoreManager: action.payload.isStoreManager,
-                currentUser: action.payload.user
+                currentUser: action.payload.currentUser
+            }
+        }
+        case ADD_FETCHED_USERS:{
+            return {
+                ...state,
+                allUsers : action.payload
             }
         }
         case LOGIN_FAILURE: {

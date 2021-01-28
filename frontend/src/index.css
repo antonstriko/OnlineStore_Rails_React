@@ -36,9 +36,14 @@ medium-grey {
 }
 /* LOADERS */
 body {
-  min-height: 32em;
   background: gainsboro;
 }
+backgroundPic {
+  background: url(http://localhost:3001/backgroundPhoto.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 /* 
 --body-bg-color: #e5f4f9;
 --body-color-light: #8b939c;

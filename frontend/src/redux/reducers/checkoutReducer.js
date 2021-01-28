@@ -43,10 +43,10 @@ const checkoutReducer = (state = initialState, action) => {
                 address: {
                     firstname: action.payload.firstname,
                     lastname: action.payload.lastname,
-                    street: action.payload.street,
-                    city: action.payload.city,
-                    state: action.payload.state,
-                    zip: action.payload.zip
+                    street: '',
+                    city: '',
+                    state: '',
+                    zip: ''
                 } 
             }
         }

@@ -9,7 +9,7 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 
 import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
-import CartCopy from '../shoppingCart/CartCopy'
+import CartCopy from '../shoppingCart/Cart'
 import Checkout from '../checkout/Checkout';
 import OrderDataGrid from '../order/OrderDataGrid';
 
@@ -87,6 +87,7 @@ import { logout } from '../../redux/actions/userActions';
           height: '100vh',
           overflow: 'auto',
         },
+
         container: {
           paddingTop: theme.spacing(4),
           paddingBottom: theme.spacing(4),
@@ -136,8 +137,8 @@ export default function Storefront(props) {
         dispatch(fetchOrders())
     }, [])
     const handleRerouteToCheckout = () => {
-        setCartOpen(false)
-        history.push('/checkout')
+        handleCartClose()
+        history.push('storefront/checkout')
     }
     const handleLogout = (event) => {
       localStorage.removeItem('token')
@@ -161,7 +162,6 @@ export default function Storefront(props) {
                 {/* {(getLocalCurrentUser()) ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
-                <button>Store Manager</button>
                 <IconButton edge="start" color="inherit" className={classes.logoutButton} onClick={handleLogout} >
                   Log Out
                 </IconButton>
@@ -198,6 +198,9 @@ export default function Storefront(props) {
                 <Switch> 
                     <Route exact path={path}>
                         <ProductListContainer />
+                    </Route>
+                    <Route exact path={`${path}/orders`}>
+                        <OrderDataGrid />
                     </Route>
                     <Route exact path={`${path}/orders`}>
                         <OrderDataGrid />

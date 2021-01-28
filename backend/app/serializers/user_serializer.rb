@@ -3,7 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
   def favorites 
     object.favorites.map do |fav|
-      { product_id: fav.product_id}
+      { product_id: fav.id}
     end 
   end 
 

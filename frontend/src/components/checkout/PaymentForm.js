@@ -6,23 +6,19 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function PaymentForm() {
+export default function PaymentForm({paymentData,setPaymentData, addressData}) {
   const dispatch = useDispatch()
 
   const currentPayment = useSelector(state => state.checkout.payment)
-  let [payment, setPayment] = useState(currentPayment)
 
-  useEffect(()=> {
-    dispatch({type:'ADD_PAYMENT', payment: payment})
-  }, [payment])
 
   const handleChange = (e) => {
-      setPayment({
-        ...payment,
+    setPaymentData({
+        ...paymentData,
         [e.target.name] : e.target.value
       });
   }
-
+  const defaultName = addressData.firstname + ' ' + addressData.lastname;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -30,7 +26,7 @@ export default function PaymentForm() {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" name="cardName" label="Name on card" fullWidth autoComplete="cc-name" value={payment.cardName} onChange={(e) => handleChange(e)}/>
+          <TextField required id="cardName" name="cardName" label="Name on card" fullWidth autoComplete="cc-name" defaultValue={defaultName} value={paymentData.cardName} onChange={(e) => handleChange(e)}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -39,13 +35,13 @@ export default function PaymentForm() {
             name="cardNumber"
             label="Card number"
             fullWidth
-            value={payment.cardNumber}
+            value={paymentData.cardNumber}
             autoComplete="cc-number"
             onChange={(e) => handleChange(e)}
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" name="expDate" label="Expiry date" fullWidth value={payment.expDate} autoComplete="cc-exp" onChange={(e) => handleChange(e)}/>
+          <TextField required id="expDate" name="expDate" label="Expiry date" fullWidth value={paymentData.expDate} autoComplete="cc-exp" onChange={(e) => handleChange(e)}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -55,7 +51,7 @@ export default function PaymentForm() {
             label="CVV"
             helperText="Last three digits on signature strip"
             fullWidth
-            value={payment.cvv}
+            value={paymentData.cvv}
             autoComplete="cc-csc"
             onChange={(e) => handleChange(e)}
           />

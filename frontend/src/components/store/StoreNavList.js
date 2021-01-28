@@ -9,7 +9,7 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import LayersIcon from '@material-ui/icons/Layers';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-// import BusinessIcon from '@material-ui/icons/Business';
+import BusinessIcon from '@material-ui/icons/Business';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import SearchIcon from '@material-ui/icons/Search';
@@ -69,6 +69,8 @@ const useStyles = makeStyles((theme) => ({
 
 export function MainListItems() {
   const classes = useStyles();
+  const currentUser = useSelector(state => state.user)
+
 
   return (
     <div>
@@ -96,6 +98,15 @@ export function MainListItems() {
           <ListItemText primary="Favorites" />
         </ListItem>
       </NavLink>
+      {currentUser.isStoreManager && <NavLink to="/admin" className={classes.navList}>
+        <ListItem button>
+          <ListItemIcon>
+            <BusinessIcon />
+          </ListItemIcon>
+          <ListItemText primary="Store Dashboard" />
+        </ListItem>
+      </NavLink> }
+      
     </div>
   );
 }

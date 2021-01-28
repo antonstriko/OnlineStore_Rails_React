@@ -7,21 +7,24 @@ import { DataGrid } from '@material-ui/data-grid';
 function AdminCustomerList() {
 
     const currentUser = useSelector(state => state.user.currentUser)
-
+    const allUsers = useSelector(state => state.user.allUsers)
     // const [customerOrders, setCustomerOrders] = useState()
 
-    const data = allOrders.filter(order => order.user_id === currentUser.id)
+    const data = allOrders.filter(item => order.user_id === currentUser.id)
     //const data = filteredOrders.map(order => )
   const columns = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'user_name', headerName: 'Customer', width: 200 },
-    { field: 'item_count', headerName: 'Items',type: 'number', width: 200 },
-    { field: 'total', headerName: 'Total', type: 'number', width: 200 }
+    { field: 'id', headerName: 'ID', width: 80 },
+    { field: 'email', headerName: 'Customer', width: 180 },
+    { field: 'firstname', headerName: 'First Name', width: 180 },
+    { field: 'lastname', headerName: 'Last Name', width: 180 },
+    { field: 'reviews_count', headerName: 'Reviews', width: 75 },
+    { field: 'favorites_count', headerName: 'Favorites', width: 75 },
+    
   ];
 
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={data} columns={columns} pageSize={5} checkboxSelection />
+      <DataGrid rows={allUsers} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );
 }

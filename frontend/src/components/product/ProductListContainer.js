@@ -15,38 +15,45 @@ export default function ProductListContainer(props){
 
   let searchBar = useSelector(state => state.products.searchBarInput)
   let [searchBarInput, setSearchBarInput] = useState(searchBar)
-  let data;
-  if (searchBarInput && searchBarInput !== '') {
-    data = allProducts.filter(product => product.title.includes(searchBarInput))
-  } else {
-    data = allProducts
-  }
-    
+  // if (searchBarInput && searchBarInput !== '') {
+  //   data = allProducts.filter(product => product.title.includes(searchBarInput))
+  // } else {
+  //   data = allProducts
+  // }
+  const data = allProducts.slice()
 
-  const handleSort = (e) => {
-    e.preventDefault()
-    if (e.target.innerText === 'All Products'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: ''})
-    } else if (e.target.innerText === 'Price'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'price'})
-    } else if (e.target.innerText === 'Rating'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'customer_rating'})
-    } else if (e.target.innerText === 'Available Online'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'in_stock'})
+  const comparePrice = (a, b) => {
+    const x = parseFloat(a.price);
+    const y = parseFloat(b.price);
+  
+    let comparisonPrice = 0;
+    if (x > y) {
+      comparisonPrice = 1;
+    } else if (x < y) {
+      comparisonPrice = -1;
     }
+    return comparisonPrice;
   }
-  const handleSortAlt = (e) => {
-    e.preventDefault()
-    if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'All Products'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: ''})
-    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Price'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'price'})
-    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Rating'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'rating'})
-    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Available Online'){
-      dispatch({type: 'SORT_PRODUCTS', sortChar: 'in_stock'})
+
+  const compareTitle = (a, b) => {
+    const x = a.title.toLowerCase();
+    const y = b.title.toLowerCase();
+  
+    let comparison = 0;
+    if (x > y) {
+      comparison = 1;
+    } else if (x < y) {
+      comparison = -1;
     }
+    return comparison;
   }
+
+  if (sortTerm == 'price'){
+    data.sort(comparePrice);
+  } else if (sortTerm == 'title'){
+    data.sort(compareTitle);
+  } 
+    
   const handleChange = (e) => {
     e.preventDefault()
     setSearchBarInput(e.target.value)

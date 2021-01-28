@@ -34,13 +34,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
+export default function Review({paymentData, addressData}) {
   const classes = useStyles();
 
   const dispatch = useDispatch();
 
   const currentCheckout = useSelector(state => state.checkout)
-  const [checkout, setCheckout] = useState(currentCheckout)
+  const cart = useSelector(state => state.cart)
 
   const currentUser = useSelector(state=> state.user.currentUser)
 
@@ -51,16 +51,16 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {checkout.orderItems.map((product) => (
+        {cart.cartItems.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.title} />
-            <Typography variant="body2">{product.price}</Typography>
+            <Typography variant="body2">{product.subtotal}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            ${checkout.total}
+            ${cart.subtotal}
           </Typography>
         </ListItem>
       </List>
@@ -69,8 +69,8 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>{checkout.address.firstname + ' ' + checkout.address.lastname}</Typography>
-          <Typography gutterBottom>{checkout.address.address1 + ', ' + checkout.address.city + ', ' + checkout.address.state + ', ' + checkout.address.zip + ', ' + checkout.address.country}</Typography>
+          <Typography gutterBottom>{addressData.firstname + ' ' + addressData.lastname}</Typography>
+          <Typography gutterBottom>{addressData.street + ', ' + addressData.city + ', ' + addressData.state + ', ' + addressData.zip }</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
@@ -82,7 +82,7 @@ export default function Review() {
                 <Typography gutterBottom>Card Name:</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography gutterBottom>{checkout.payment.cardName}</Typography>
+                <Typography gutterBottom>{addressData.firstname + ' ' + addressData.lastname}</Typography>
               </Grid>
             </React.Fragment>
             <React.Fragment >
@@ -90,7 +90,7 @@ export default function Review() {
                 <Typography gutterBottom>Card Number:</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography gutterBottom>{checkout.payment.cardNumber}</Typography>
+                <Typography gutterBottom>{paymentData.cardNumber}</Typography>
               </Grid>
             </React.Fragment>
             <React.Fragment >
@@ -98,7 +98,7 @@ export default function Review() {
                 <Typography gutterBottom>Card Expiration Date:</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography gutterBottom>{checkout.payment.expDate}</Typography>
+                <Typography gutterBottom>{paymentData.expDate}</Typography>
               </Grid>
             </React.Fragment>
             <React.Fragment >
@@ -106,7 +106,7 @@ export default function Review() {
                 <Typography gutterBottom>Card CVV</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography gutterBottom>{checkout.payment.cvv}</Typography>
+                <Typography gutterBottom>{paymentData.cvv}</Typography>
               </Grid>
             </React.Fragment>
           </Grid>

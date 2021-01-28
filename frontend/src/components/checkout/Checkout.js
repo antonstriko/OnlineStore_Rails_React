@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -54,14 +55,14 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Shipping Details', 'Payment Details', 'Review Your Order'];
 
-function getStepContent(step) {
+function getStepContent(step, paymentData, setPaymentData, addressData, setAddressData){
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm addressData={addressData} setAddressData={setAddressData}/>;
     case 1:
-      return <PaymentForm />;
+      return <PaymentForm paymentData={paymentData} setPaymentData={setPaymentData} addressData={addressData}/>;
     case 2:
-      return <Review />;
+      return <Review addressData={addressData} paymentData={paymentData}/>;
     default:
       throw new Error('Unknown step');
   }
@@ -76,6 +77,36 @@ export default function Checkout() {
   const cart = useSelector(state => state.cart)
   const currentUser = useSelector(state => state.user.currentUser)
   const currentCheckout = useSelector(state => state.checkout)
+
+  const [paymentData, setPaymentData] = useState({
+        name: '',
+        cardNumber: '',
+        cvv: '',
+        expDate: ''
+  })
+  const [addressData, setAddressData] = useState({
+    fistname: '',
+    lastname: '',
+    street: '',
+    street2: '',
+    city: '',
+    state: '',
+    zip: ''
+  })
+// const steps = ['Shipping Details', 'Payment Details', 'Review Your Order'];
+
+  // const getStepContent = (step, paymentData, setPaymentData, addressData, setAddressData) => {
+  //   switch (step) {
+  //     case 0:
+  //       return <AddressForm addressData={addressData} setAddressData={setAddressData}/>;
+  //     case 1:
+  //       return <PaymentForm paymentData={paymentData} setPaymentData={setPaymentData} addressData={addressData}/>;
+  //     case 2:
+  //       return <Review addressData={addressData} paymentData={paymentData}/>;
+  //     default:
+  //       throw new Error('Unknown step');
+  //   }
+  // }
 
   const handleNext = () => {
       setActiveStep(activeStep + 1);
@@ -94,15 +125,14 @@ export default function Checkout() {
           },
           body: JSON.stringify({
             user_id: currentUser.id,
-            name: `${currentCheckout.address.firstname} ${currentCheckout.address.lastname}`,
             total: cart.subtotal,
             item_count: cart.itemCount,
             paid: true,
-            payment: `VISA ⠀•••• ${currentCheckout.payment.cardNumber.split("-")[3]}`,
-            address_street: currentCheckout.address.street,
-            address_city: currentCheckout.address.city,
-            address_state: currentCheckout.address.state,
-            address_zip: currentCheckout.address.zip
+            payment: `VISA ⠀•••• ${paymentData.cardNumber.split("-")[3]}`,
+            address_street: addressData.street,
+            address_city: addressData.city,
+            address_state: addressData.state,
+            address_zip: addressData.zip
           })
       })
       .then(res => res.json())
@@ -153,7 +183,7 @@ export default function Checkout() {
                       </React.Fragment>
                   ) : (
                       <React.Fragment>
-                          {getStepContent(activeStep)}
+                          {getStepContent(activeStep, paymentData, setPaymentData, addressData, setAddressData)}
                           <div className={classes.buttons}>
                               {activeStep !== 0 && (<Button onClick={handleBack} className={classes.button}> Back </Button>)}
                               <Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>
