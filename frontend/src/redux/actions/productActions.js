@@ -6,6 +6,7 @@ import {LOADING_PRODUCTS,
   UPDATE_FILTERED_PRODUCTS,
   CHANGE_SELECTED_PRODUCT} from '../actionTypes'
 
+
 export const isLoadingProducts = () => {
   return {
       type: LOADING_PRODUCTS
@@ -51,5 +52,11 @@ export const changeSelectedProduct = (product) => {
   return {
       type: CHANGE_SELECTED_PRODUCT,
       payload: product
+  }
+}
+export const setSearchInput = (data) => {
+  return {
+      type: SET_PRODUCT_FILTER,
+      payload: data
   }
 }

@@ -57,7 +57,7 @@ function LoginForm() {
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', data.user.id);
           dispatch(loginSuccess(data.user))
-          history.push('/storefront')
+          history.push('/landingPage')
       });
     }
 

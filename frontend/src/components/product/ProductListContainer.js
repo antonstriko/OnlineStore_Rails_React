@@ -6,50 +6,61 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 import ProductList from './ProductList'
 import ProductSearchBar from './ProductSearchBar'
 
-// import { setupCheckout } from '../../redux/actions/checkoutActions';
-import { fetchProducts } from '../../redux/actions/productActions';
-import axios from "axios";
-
 export default function ProductListContainer(props){
+  const [searchInput, setSearchInput] = useState('')
+  const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm} = useSelector(state => state.products)
+
+
   const dispatch = useDispatch();
-  const token = localStorage.getItem('token');
 
-  const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm, searchInput} = useSelector(state => state.products)
-  /* instead of sending filtered products to redux store
-  add this to productListContainer:
-  const products = useSelector(state=> state.products.all)
-  const [filter, setFilter] = useState()
-  const [sortTerm, setSortTerm] = useState()
-  let filteredProducts;
-  switch(filter) {
-    case 'category': return filteredProducts = products.filter(p=> p.category === filter)
+  let searchBar = useSelector(state => state.products.searchBarInput)
+  let [searchBarInput, setSearchBarInput] = useState(searchBar)
+  let data;
+  if (searchBarInput && searchBarInput !== '') {
+    data = allProducts.filter(product => product.title.includes(searchBarInput))
+  } else {
+    data = allProducts
+  }
+    
+
+  const handleSort = (e) => {
+    e.preventDefault()
+    if (e.target.innerText === 'All Products'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: ''})
+    } else if (e.target.innerText === 'Price'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'price'})
+    } else if (e.target.innerText === 'Rating'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'customer_rating'})
+    } else if (e.target.innerText === 'Available Online'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'in_stock'})
     }
-  }            
-  */
-
-    // // let [products, setProducts] = useState(prods)
-  // const prodSortChar = useSelector(state => state.products.sortTerm)
-  // const searchBar = useSelector(state => state.products.searchBarInput)
-
-  // if (prodSortChar === 'price'){
-  //   products.sort((a, b) => (a.price > b.price) ? 1 : -1)
-  // } else if (prodSortChar === 'customer_rating'){
-  //   products.sort((a, b) => (a.customer_rating > b.customer_rating) ? 1 : -1)
-  // } else if (prodSortChar === 'in_stock'){
-  //   products = products.filter(prod => prod.in_stock)
-  // } else if (prodSortChar === ''){
-  //   products.sort((a, b) => (a.id > b.id) ? 1 : -1)
-  // }
-  // if (searchBar !== ''){
-  //   products = products.filter(prod => prod.title.toLowerCase().includes(searchBar))
-  // }
-
+  }
+  const handleSortAlt = (e) => {
+    e.preventDefault()
+    if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'All Products'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: ''})
+    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Price'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'price'})
+    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Rating'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'rating'})
+    } else if (e.target.parentElement.parentElement.parentElement.querySelector("#search-target").firstElementChild.innerText === 'Available Online'){
+      dispatch({type: 'SORT_PRODUCTS', sortChar: 'in_stock'})
+    }
+  }
+  const handleChange = (e) => {
+    e.preventDefault()
+    setSearchBarInput(e.target.value)
+    // dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.value})
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.firstElementChild.lastElementChild.value.toLowerCase()})
+  }
   
-
   return (
     <React.Fragment>
-      <ProductSearchBar />
-      <ProductList products={allProducts}/>
+      <ProductSearchBar setSearchInput={setSearchInput}/>
+      <ProductList products={data} isLoading={isLoading}/>
     </React.Fragment>
   )
 }

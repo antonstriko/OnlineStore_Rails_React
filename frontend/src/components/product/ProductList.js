@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {makeStyles, Grid} from '@material-ui/core';
 
 import ProductCard from './ProductCard'
+import Loading from '../Loading'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,14 +22,15 @@ const useStyles = makeStyles((theme) => ({
 function ProductList(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const products = props.products.map(item => <ProductCard product={item} key={item.id} />)
+  const isLoading = props.isLoading
+
+  
 
   return (
     <React.Fragment>
-      <Grid container className={classes.pList} spacing={2}>
-        {
-          props.products.map(item => <ProductCard product={item} key={item.id} />)
-        }
-      </Grid>
+      { isLoading && <Loading /> }
+      { !isLoading && <Grid container className={classes.pList} spacing={2}> {products} </Grid> }
     </React.Fragment>
   );
 }

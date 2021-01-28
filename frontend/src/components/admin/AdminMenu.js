@@ -34,18 +34,18 @@ export default function AdminMenu(){
         <ListItemText primary="StoreFront" />
       </ListItem>
 
-      <ListItem button className={classes.menuItem}>
+      <ListItem button onClick={()=> {history.push('/orders')}}className={classes.menuItem}>
         <ListItemIcon className={classes.menuItemIcon}>
           <IconShoppingCart />
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItem>
 
-      <ListItem button className={classes.menuItem}>
+      <ListItem button onClick={()=> {history.push('/products')}}className={classes.menuItem}>
         <ListItemIcon className={classes.menuItemIcon}>
           <IconPeople />
         </ListItemIcon>
-        <ListItemText primary="Customers" />
+        <ListItemText primary="Products" />
       </ListItem>
 
       <ListItem button className={classes.menuItem}>
@@ -54,24 +54,7 @@ export default function AdminMenu(){
         </ListItemIcon>
         <ListItemText primary="Reports" />
       </ListItem>
-      <ListItem button onClick={handleClick} className={classes.menuItem}>
-        <ListItemIcon className={classes.menuItemIcon}>
-          <IconLibraryBooks />
-        </ListItemIcon>
-        <ListItemText primary="Nested Pages" />
-        {open ? <IconExpandLess /> : <IconExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <Divider />
-        <List component="div" disablePadding>
-          <ListItem button className={classes.menuItem}>
-            <ListItemText inset primary="Nested Page 1" />
-          </ListItem>
-          <ListItem button className={classes.menuItem}>
-            <ListItemText inset primary="Nested Page 2" />
-          </ListItem>
-        </List>
-      </Collapse>
+      
     </List>
   )
 }
@@ -80,7 +63,8 @@ const drawerWidth = 240
 
 const useStyles = makeStyles({
     adminMenu: {
-      width: '100%',
+      width: 240,
+      paddingTop:60
     },
     navList: {
       width: drawerWidth,

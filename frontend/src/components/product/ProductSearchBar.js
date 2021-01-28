@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import {useSelector, useDispatch } from 'react-redux';
+
 import {AppBar, Toolbar, Button, ButtonGroup, Typography, InputBase} from '@material-ui/core';
 import { fade, makeStyles } from '@material-ui/core/styles';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { setProductFilter, setProductSort} from '../../redux/actions/productActions';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,6 +68,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductSearchBar(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm, searchInput} = useSelector(state => state.products)
+
+  const handleSortChange = (sortTerm) => {
+    dispatch(setProductSort(sortTerm))
+  }
+  const handleFilterChange = (filterTerm) => {
+    dispatch(setProductFilter(filterTerm))
+  }
+
+  const handleInputChange = (e) => {
+      props.setSearchInput(e.target.value )
+  }
 
   return (
     <div className={classes.root}>
@@ -72,16 +89,17 @@ export default function ProductSearchBar(props) {
               <Typography className={classes.title} variant="h6" noWrap>
                   Products
               </Typography>
+              Sort By:
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-                  <Button>One</Button>
-                  <Button>Two</Button>
-                  <Button>Three</Button>
+                  <Button onClick={()=>handleSortChange('price')}>Price</Button>
+                  <Button onClick={()=>handleSortChange('title')}>Title</Button>
               </ButtonGroup>
               <div className={classes.search}>
                   <div className={classes.searchIcon}>
                     <SearchIcon />
                   </div>
                   <InputBase
+                    onChange={handleInputChange}
                     placeholder="Search…"
                     classes={{
                       root: classes.inputRoot,

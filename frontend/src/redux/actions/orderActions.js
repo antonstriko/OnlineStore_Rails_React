@@ -6,6 +6,31 @@ import {LOADING_ORDERS,
   UPDATE_FILTERED_ORDERS, 
   CHANGE_SELECTED_ORDER} from '../actionTypes'
 
+  // export function fetchProducts() {
+  //   return (dispatch) => {
+  //     dispatch({type: LOADING_PRODUCTS});
+  //     fetch('http://localhost:3000/api/v1/productss')
+  //       .then(response => response.json())
+  //       .then(items => dispatch({
+  //         type: ADD_FETCHED_PRODUCTS,
+  //         payload: data
+  //     }));
+  //   };
+  // }
+  
+  // export function saveProduct() {
+  //   return (dispatch) => {
+  //     dispatch({type: LOADING_PRODUCTS});
+  //     fetch('http://localhost:3000/api/v1/productss')
+  //       .then(response => response.json())
+  //       .then(item => dispatch({
+  //         type: ADD_NEW_PRODUCT,
+  //         payload: item
+  //     }));
+  //   };
+  // } 
+
+
 export const isLoadingOrders = () => {
   return {
       type: LOADING_ORDERS

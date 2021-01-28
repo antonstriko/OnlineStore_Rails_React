@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :date, :total, :item_count, :isShipped, :paid, :payment, :address_street, :address_city, :address_state, :address_zip, :order_items, :user
+  attributes :id, :user_id, :date, :total, :item_count, :isShipped, :paid, :payment, :address_street, :address_city, :address_state, :address_zip, :order_items, :user_name
 
   def order_items 
     self.object.order_items.map do |order_item|
@@ -11,8 +11,9 @@ class OrderSerializer < ActiveModel::Serializer
       subtotal: order_item.subtotal}
     end 
   end
-  def user 
-    {name: "#{self.object.user.firstname} #{self.object.user.lastname}", email: self.object.user.email} 
+  def user_name
+    name = "#{self.object.user.firstname} #{self.object.user.lastname}"
+    name
   end 
     
 end

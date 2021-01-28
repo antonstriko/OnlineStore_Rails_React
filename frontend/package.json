@@ -5,10 +5,9 @@
   "proxy": "http://localhost:3000/api/v1/",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "@material-ui/data-grid": "^4.0.0-alpha.18",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "axios": "^0.21.1",
-    "decimal.js": "^10.2.1",
     "mui-datatables": "^3.7.4",
     "react": "^16.14.0",
     "react-async": "^10.0.1",
