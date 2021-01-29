@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   procuctSearchBar: {
-   background: '#ffac33'
+   background: '#5d866e',
+   width: 1050,
   },
   search: {
     position: 'relative',
@@ -83,7 +84,8 @@ export default function ProductSearchBar(props) {
   }
 
   return (
-    <div className={classes.root}>
+    // <div className={classes.root}>
+    <React.Fragment>
       <AppBar className={classes.procuctSearchBar} position="static">
           <Toolbar>
               <Typography className={classes.title} variant="h6" noWrap>
@@ -110,6 +112,7 @@ export default function ProductSearchBar(props) {
               </div>
           </Toolbar>
       </AppBar>
-    </div>
+      </React.Fragment>
+    // </div>
   );
 }

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
@@ -57,12 +58,12 @@ function LoginForm() {
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', data.user.id);
           dispatch(loginSuccess(data.user))
-          history.push('/landingPage')
+          history.push('/storefront')
       });
     }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" >
       <CssBaseline />
       <div className={classes.paper}>
             <Avatar className={classes.avatar}> <LockOutlinedIcon /> </Avatar>

@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
     # skip_before_action :logged_in?, only: [:create, :show]
     def index
       @users = User.all
-      render json: @users, except: [:created_at, :updated_at]
+      render json: @users, except: [:created_at, :updated_at], include: [:reviews, :favorites]
     end
     def create
       @user = User.create(user_params)

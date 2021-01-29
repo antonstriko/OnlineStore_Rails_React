@@ -34,14 +34,14 @@ export default function AdminMenu(){
         <ListItemText primary="StoreFront" />
       </ListItem>
 
-      <ListItem button onClick={()=> {history.push('/orders')}}className={classes.menuItem}>
+      <ListItem button onClick={()=> {history.push('/admin')}}className={classes.menuItem}>
         <ListItemIcon className={classes.menuItemIcon}>
           <IconShoppingCart />
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItem>
 
-      <ListItem button onClick={()=> {history.push('/products')}}className={classes.menuItem}>
+      <ListItem button onClick={()=> {history.push('admin/products')}}className={classes.menuItem}>
         <ListItemIcon className={classes.menuItemIcon}>
           <IconPeople />
         </ListItemIcon>

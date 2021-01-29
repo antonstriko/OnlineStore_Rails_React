@@ -10,6 +10,9 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 import AdminMenu from './AdminMenu'
 import AdminOrderList from './AdminOrderList'
 import AdminProductList from './AdminProductList';
+import { fetchProducts } from '../../redux/actions/asyncProductActions';
+import { fetchOrders } from '../../redux/actions/asyncOrderActions';
+import { fetchUsers } from '../../redux/actions/asyncOrderActions';
 
 // import { fetchProducts } from '../../redux/actions/productActions';
 import { logout } from '../../redux/actions/userActions';
@@ -125,6 +128,12 @@ export default function AdminDashboard(props) {
         dispatch(logout())
         props.history.push('/login')
       }
+
+      useEffect(()=> {
+        dispatch(fetchProducts())
+        dispatch(fetchOrders())
+        dispatch(fetchUsers())
+    }, [])
 
       return (
         <div className={clsx(classes.root)}  >

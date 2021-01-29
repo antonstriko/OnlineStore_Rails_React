@@ -1,5 +1,8 @@
 // import axios from "axios";
 import {isLoadingOrders, addFetchedOrders, addNewOrder} from './orderActions'
+// import {addFetchedUsers} from './userActions'
+import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
+
 
 export function fetchOrders() {
   return (dispatch) => {
@@ -9,7 +12,14 @@ export function fetchOrders() {
       .then(data => dispatch(addFetchedOrders(data)));
   };
 }
-
+export function fetchUsers() {
+  return (dispatch) => {
+    // dispatch(isLoadingOrders());
+    fetch('http://localhost:3000/api/v1/users')
+      .then(response => response.json())
+      .then(data => dispatch({type:ADD_FETCHED_USERS, payload:data }));
+  };
+}
 // const token = localStorage.token || null
 // const headers = { 
 //   'Authorization': `Bearer ${token}`

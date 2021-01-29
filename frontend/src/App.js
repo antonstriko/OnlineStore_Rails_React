@@ -9,13 +9,13 @@ import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 
 function App() {
-
+  
   return (
     <Router>
-      <div className="wrapper" >
+      <div className="wrapper" className="backgroundPic" >
           <Switch>
               <Route exact path="/" component={LoginForm}/>
-              <Route path="/landingPage" component={LandingPage}/>
+              <Route path="/home" component={LandingPage}/>
               <Route path="/storefront" component={Storefront}/>
               <Route path="/user_profile" component={UserProfile}/>
               <Route path="/admin" component={AdminDashboard}/>

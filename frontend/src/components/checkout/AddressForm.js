@@ -9,38 +9,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 import { setupCheckout, addAddress } from "../../redux/actions/checkoutActions";
 
-export default function AddressForm() {
+export default function AddressForm({addressData, setAddressData}) {
   const dispatch = useDispatch()
 
   const currentUser = useSelector(state=> state.user.currentUser)
-  
-  // const currentCheckout = useSelector(state => state.checkout)
-  // let [checkout, setCheckout] = useState(currentCheckout)
-  // useEffect(()=> {
-  //   setCheckout(currentCheckout)
-  // }, [currentCheckout])
-
-  // const handleChange = (e) => {
-  //     console.log('handle change')
-  //     setCheckout({
-  //       ...checkout,
-  //       address: {
-  //         ...checkout.address,
-  //         [e.target.name] : e.target.value
-  //       }
-  //     });
-  //     dispatch({type:e.target.})
-  // }
-
-  const currentAddress = useSelector(state => state.checkout.address)
-  let [address, setAddress] = useState(currentAddress)
-  useEffect(()=> {
-    dispatch({type:'ADD_ADDRESS', address: address})
-  }, [address])
 
   const handleChange = (e) => {
-      setAddress({
-        ...address,
+    setAddressData({
+        ...addressData,
         [e.target.name] : e.target.value
       });
   }
@@ -57,8 +33,8 @@ export default function AddressForm() {
             name="firstname"
             label="First name"
             fullWidth
-            defaultValue={address.firstname}
-            value={address.firstname}
+            defaultValue={currentUser.firstname}
+            value={addressData.firstname}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
@@ -68,28 +44,27 @@ export default function AddressForm() {
             name="lastname"
             label="Last name"
             fullWidth
-            defaultValue={address.lastname}
-            value={address.lastname}
+            defaultValue={currentUser.lastname}
+            value={addressData.lastname}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             required
-            name="address1"
+            name="street"
             label="Address line 1"
             fullWidth
-            value={address.address1}
+            value={addressData.street}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             id="address2"
-            name="address2"
             label="Address line 2"
             fullWidth
-            value={address.address2}
+            value={addressData.street2}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
@@ -99,7 +74,7 @@ export default function AddressForm() {
             name="city"
             label="City"
             fullWidth
-            value={address.city}
+            value={addressData.city}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
@@ -108,7 +83,7 @@ export default function AddressForm() {
             name="state" 
             label="State" 
             fullWidth
-            value={address.state}
+            value={addressData.state}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>
@@ -118,7 +93,7 @@ export default function AddressForm() {
             name="zip"
             label="Zip / Postal code"
             fullWidth
-            value={address.zip}
+            value={addressData.zip}
             onChange={(e)=>handleChange(e)}
           />
         </Grid>

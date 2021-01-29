@@ -17,7 +17,7 @@ light-orange {
   background: #feb95a;
 }
 light-green {
-  background: #20bfa9;
+  background: #5d866e;
 }
 light-red {
   background: #ee786c;
@@ -32,13 +32,18 @@ light-grey {
   background:#b8bec3;
 }
 medium-grey {
-  background: #8b939c;
+  background: #989a9c;
 }
 /* LOADERS */
 body {
-  min-height: 32em;
   background: gainsboro;
 }
+backgroundPic {
+  background: url(http://localhost:3001/backgroundPhoto.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 /* 
 --body-bg-color: #e5f4f9;
 --body-color-light: #8b939c;

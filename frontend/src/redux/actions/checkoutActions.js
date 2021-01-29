@@ -13,7 +13,6 @@ export const setupCheckout = (currentUser) => {
       firstname:currentUser.firstname,
       lastname:currentUser.lastname
     }
-    
   }
   // history.push('dashboard/checkout')
 }
