@@ -9,6 +9,7 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 
 import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
+// import FavoritesList from '../product/FavoritesList'
 import CartCopy from '../shoppingCart/Cart'
 import Checkout from '../checkout/Checkout';
 import OrderDataGrid from '../order/OrderDataGrid';
@@ -36,7 +37,7 @@ import { logout } from '../../redux/actions/userActions';
           ...theme.mixins.toolbar,
         },
         appBar: {
-          background: 'green',
+          background: '#989a9c',
           zIndex: theme.zIndex.drawer + 1,
           transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -202,9 +203,9 @@ export default function Storefront(props) {
                     <Route exact path={`${path}/orders`}>
                         <OrderDataGrid />
                     </Route>
-                    <Route exact path={`${path}/orders`}>
-                        <OrderDataGrid />
-                    </Route>
+                    {/* <Route exact path={`${path}/favorites`}>
+                        <FavoritesList />
+                    </Route> */}
                     <Route exact path={`${path}/checkout`}>
                         <Checkout />
                     </Route>
