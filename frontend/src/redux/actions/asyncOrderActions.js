@@ -1,6 +1,5 @@
 // import axios from "axios";
 import {isLoadingOrders, addFetchedOrders, addNewOrder} from './orderActions'
-// import {addFetchedUsers} from './userActions'
 import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
 
 
