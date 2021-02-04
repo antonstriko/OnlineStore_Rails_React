@@ -9,6 +9,9 @@ import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 
 function App() {
+  useEffect(() => {
+      
+  }, [])
   
   return (
     <Router>

@@ -19,11 +19,11 @@ class Api::V1::UsersController < ApplicationController
       render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
     end
 
-    def profile
-      # @user = User.find(params[:id])
-      @user = AuthorizeApiRequest.call(user)
-      render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
-    end
+    # def profile
+    #   # @user = User.find(params[:id])
+    #   @user = AuthorizeApiRequest.call(user)
+    #   render json: @user, except: [:created_at, :updated_at], include: [:orders, :reviews, :favorites]
+    # end
     
     # PATCH/PUT /users/1
     def update

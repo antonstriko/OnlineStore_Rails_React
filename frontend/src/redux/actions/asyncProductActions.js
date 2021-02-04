@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios'
 import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productActions'
 // import {useDispatch } from 'react-redux';
 // const dispatch = useDispatch()
@@ -18,24 +18,14 @@ export function fetchProducts() {
   return (dispatch) => {
     dispatch(isLoadingProducts());
     fetch('http://localhost:3000/api/v1/products')
-      .then(response => response.json())
+      .then(resp => resp.json())
       .then(data => {
         console.log(data)
-        // setTimeout((dispatch) => {
           dispatch(addFetchedProducts(data))
-        // }, 3000);
       })
   };
 }
 
-
-
-  // fetch('http://localhost:3000/api/v1/products')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data)
-  //       dispatch(addFetchedProducts(data))
-  //     })
 
 export function postProduct(product) {
   return (dispatch) => {

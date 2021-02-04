@@ -10,6 +10,15 @@ Rails.application.routes.draw do
       resources :products
       resources :favorites
 
+      # resources :auth, only: %i[create] do
+      #   collection do
+      #     post 'password/forgot', to: 'auth#forgot_password'
+      #     post 'password/reset', to: 'auth#reset_password'
+      #     get 'me', to: 'auth#logged_in'
+      #     delete 'logout', to: 'auth#logout'
+      #   end
+      # end
+
     end
   end
 end
