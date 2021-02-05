@@ -12,14 +12,12 @@ import {loginSuccess} from './redux/actions/userActions'
 
 function App() {
   const dispatch = useDispatch
-  const headers = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.token}`
-    }
+  const configObj = {
+    method:'GET',
+    headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
   }
   const getUserProfile = async() => {
-    const resp = await fetch(`http://localhost:3000/api/v1/profile`, headers)
+    const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
     const user = await resp.json()
     dispatch(loginSuccess(user))
   }

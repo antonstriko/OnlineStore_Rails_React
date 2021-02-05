@@ -1,6 +1,7 @@
 class Api::V1::AuthController < ApplicationController
-  # skip_before_action :logged_in?, only: [:create, :profile]
+  skip_before_action :authorized, only: [:create, :profile]
   attr_reader :headers
+
   def create
     @user = User.find_by(email: user_login_params[:email])
     #User#authenticate comes from BCrypt
@@ -18,7 +19,7 @@ class Api::V1::AuthController < ApplicationController
     auth_h = request.headers[:Authorization]
     tok = auth_h.split(' ')[1]
     de_token = JWT.decode(tok, 'my_s3cr3t')
-    user_id = de_tok[0]['user_id']
+    user_id = de_token[0]['user_id']
     @user = User.find_by(id: user_id)
 
     if @user
@@ -49,42 +50,31 @@ class Api::V1::AuthController < ApplicationController
 
   private
 
-  def user_login_params
+  def auth_params
     # params { user: {email: 'example@gmail.com', password: 'hi' } }
     params.require(:user).permit(:email, :password)
   end
 end
 
-# class AuthorizeApiRequest
-#   prepend SimpleCommand
-
-#   def initialize(headers = {})
-#     @headers = headers
-#   end
-
-#   def call
-#     user
-#   end
-
-#   private
-
-#   attr_reader :headers
-
-#   def user
-#     @user ||= User.find(decoded_token[:user_id]) if decoded_token
-#     @user || errors.add(:token, 'Invalid token') && nil
-#   end
-
-#   def decoded_token
-#     @decoded_token ||= JWT.decode(http_auth_header)
-#   end
-
-#   def http_auth_header
-#     if headers['Authorization'].present?
-#       return headers['Authorization'].split(' ').last
-#     else
-#       errors.add :token, 'Missing token'
-#     end
-#     nil
-#   end
-# end
+class Api::V1::AuthController < ApplicationController
+  skip_before_action :authorized, only: [:create]
+   
+  #login method
+    def create
+      @user = User.find_by(username: user_login_params[:username])
+      #user.authenticate comes from bcrypt
+      if @user && @user.authenticate(user_login_params[:password])
+        # encode token comes from application controller
+        token = encode_token({ user_id: @user.id })
+        render json: { user: UserSerializer.new(@user), jwt: token }, status: :accepted
+      else
+        render json: { error: 'Incorrect username or password' }, status: :unauthorized
+      end
+    end
+   
+    private
+   
+    def user_login_params
+      params.require(:user).permit(:username, :password)
+    end
+  end
