@@ -2,7 +2,7 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_U
 
 
 const initialState = {
-    isLoggedIn: true,
+    isLoggedIn: false,
     isStoreManager: false,
     allUsers: [],
     currentUser: null

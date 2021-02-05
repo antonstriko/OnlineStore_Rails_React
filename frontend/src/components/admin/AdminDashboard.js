@@ -12,7 +12,7 @@ import AdminOrderList from './AdminOrderList'
 import AdminProductList from './AdminProductList';
 import { fetchProducts } from '../../redux/actions/asyncProductActions';
 import { fetchOrders } from '../../redux/actions/asyncOrderActions';
-import { fetchUsers } from '../../redux/actions/usersActions';
+import { fetchUsers } from '../../redux/actions/asyncUserActions';
 
 // import { fetchProducts } from '../../redux/actions/productActions';
 import { logout } from '../../redux/actions/userActions';

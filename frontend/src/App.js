@@ -9,9 +9,23 @@ import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 
 function App() {
-  useEffect(() => {
-      
-  }, [])
+
+  useEffect( () =>{
+    if (localStorage?.token){ 
+
+      fetch(`http://localhost:3000/accounts/${props.account_id}/get_data`, {
+        method: "GET", 
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        
+      })
+    }
+  }, [props.user]) // run if props.user changes
   
   return (
     <Router>

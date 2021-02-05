@@ -19,15 +19,6 @@ export const loginSuccess = (user) => {
   }
 }
 
-export function fetchUsers() {
-  return (dispatch) => {
-    // dispatch(isLoadingOrders());
-    fetch('http://localhost:3000/api/v1/users')
-      .then(response => response.json())
-      .then(data => dispatch({type:ADD_FETCHED_USERS, payload:data }));
-  };
-}
-
 export const addFetchedUsers = (data) => {
   return {
       type: ADD_FETCHED_USERS,
@@ -42,7 +33,6 @@ export const loginFailure = () => {
 }
 
 export const updateCurrentUser = (user) => {
-  localStorage
   if (user) {
     // localStorage.setItem('user_id', user.id)
     return {
