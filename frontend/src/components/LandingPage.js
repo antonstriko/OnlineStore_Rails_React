@@ -1,10 +1,10 @@
 import React, { useSelector, useEffect } from 'react'
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../redux/actions/userActions';
 
 
 export default function LandingPage(props) {
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
   const currentUser = useSelector(state => state.user.currentUser)
 

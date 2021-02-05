@@ -11,28 +11,31 @@ import AdminDashboard from './components/admin/AdminDashboard'
 import {loginSuccess} from './redux/actions/userActions'
 
 function App() {
-  const dispatch = useDispatch
+  const dispatch = useDispatch();
   const configObj = {
     method:'GET',
     headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
   }
   const getUserProfile = async() => {
-    const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
-    const user = await resp.json()
-    dispatch(loginSuccess(user))
-  }
-  useEffect( () => {
     if (localStorage?.token){ 
-      getUserProfile()
+      const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
+      const user = await resp.json()
+      dispatch(loginSuccess(user))
+    } else {
+      return
     }
-  }, [ ]) // run if props.user changes
+  }
+
+  useEffect( () => {
+    getUserProfile()
+  }, []) // run if props.user changes
   
   return (
     <Router>
       <div className="wrapper">
           <Switch>
               <Route exact path="/" component={LoginForm}/>
-              <Route path="/home" component={LandingPage}/>
+              {/* <Route path="/home" component={LandingPage}/> */}
               <Route path="/storefront" component={Storefront}/>
               <Route path="/user_profile" component={UserProfile}/>
               <Route path="/admin" component={AdminDashboard}/>

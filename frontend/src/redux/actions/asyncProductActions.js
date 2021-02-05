@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productActions'
 // import {useDispatch } from 'react-redux';
 // const dispatch = useDispatch()
@@ -13,11 +13,15 @@ import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productAct
 //       })
 //   };
 // }
+const configObj = {
+  method:'GET',
+  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
+}
 
 export function fetchProducts() {
   return (dispatch) => {
     dispatch(isLoadingProducts());
-    fetch('http://localhost:3000/api/v1/products')
+    fetch('http://localhost:3000/api/v1/products', configObj)
       .then(resp => resp.json())
       .then(data => {
         console.log(data)

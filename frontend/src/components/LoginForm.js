@@ -7,9 +7,6 @@ import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Containe
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { loginSuccess } from '../redux/actions/userActions'
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -61,6 +58,14 @@ function LoginForm() {
           history.push('/storefront')
       });
     }
+
+    const currentUser = useSelector(state => state.user.isLoggedIn)
+  
+    useEffect( () => {
+      if (currentUser) {
+        history.push('/storefront')
+      }
+    }, [currentUser])
 
   return (
     <Container component="main" maxWidth="xs" >

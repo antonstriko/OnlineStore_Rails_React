@@ -137,15 +137,19 @@ export default function Storefront(props) {
         dispatch(fetchProducts())
         dispatch(fetchOrders())
     }, [])
+    
     const handleRerouteToCheckout = () => {
         handleCartClose()
         history.push('storefront/checkout')
     }
+
     const handleLogout = (event) => {
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       dispatch(logout())
       props.history.push('/login')
     }
+
     const adLink = '/admin'
 
 
@@ -212,7 +216,6 @@ export default function Storefront(props) {
                 </Switch>
               </Container>
           </main>
-          {/* <FloatCart /> */}
         </div>
       )
 }
