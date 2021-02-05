@@ -8,7 +8,6 @@
     "@material-ui/data-grid": "^4.0.0-alpha.18",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "mui-datatables": "^3.7.4",
     "react": "^16.14.0",
     "react-async": "^10.0.1",
     "react-dom": "^16.14.0",
@@ -18,8 +17,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "swiper": "^6.4.8"
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

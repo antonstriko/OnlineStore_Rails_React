@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 import Storefront from './components/store/Storefront'
 import SignupForm from './components/SignupForm'
@@ -7,29 +8,30 @@ import LoginForm from './components/LoginForm'
 import LandingPage from './components/LandingPage'
 import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
+import {loginSuccess} from './redux/actions/userActions'
 
 function App() {
-
-  useEffect( () =>{
-    if (localStorage?.token){ 
-
-      fetch(`http://localhost:3000/accounts/${props.account_id}/get_data`, {
-        method: "GET", 
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.token}`
-        }
-      })
-      .then(resp => resp.json())
-      .then(data => {
-        
-      })
+  const dispatch = useDispatch
+  const headers = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.token}`
     }
-  }, [props.user]) // run if props.user changes
+  }
+  const getUserProfile = async() => {
+    const resp = await fetch(`http://localhost:3000/api/v1/profile`, headers)
+    const user = await resp.json()
+    dispatch(loginSuccess(user))
+  }
+  useEffect( () => {
+    if (localStorage?.token){ 
+      getUserProfile()
+    }
+  }, [ ]) // run if props.user changes
   
   return (
     <Router>
-      <div className="wrapper" className="backgroundPic" >
+      <div className="wrapper">
           <Switch>
               <Route exact path="/" component={LoginForm}/>
               <Route path="/home" component={LandingPage}/>

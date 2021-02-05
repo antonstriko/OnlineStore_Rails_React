@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 
   def encode_token(payload)
     # should store secret in env variable
-    JWT.encode(payload, 'my_s3cr3t','HS256' )
+    JWT.encode(payload, 'my_s3cr3t')
     # JWT.encode(payload, ENV["SECRET_KEY_BASE"])
   end
 
@@ -23,11 +23,12 @@ class ApplicationController < ActionController::API
   def current_user
       user_id = decoded_token && decoded_token[0] ? decoded_token[0]['user_id'] : nil
       @user = user_id ? User.find_by(id: user_id) : nil
+      byebug
       @user
   end
 
   def logged_in?
-    current_user
+    !!current_user
   end
 
   def authorized
