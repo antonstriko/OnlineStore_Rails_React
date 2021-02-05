@@ -1,17 +1,12 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import { DataGrid } from '@material-ui/data-grid';
 
 
 
 function AdminCustomerList() {
+  const allUsers = useSelector(state => state.user.allUsers)
 
-    const currentUser = useSelector(state => state.user.currentUser)
-    const allUsers = useSelector(state => state.user.allUsers)
-    // const [customerOrders, setCustomerOrders] = useState()
-
-    const data = allOrders.filter(item => order.user_id === currentUser.id)
-    //const data = filteredOrders.map(order => )
   const columns = [
     { field: 'id', headerName: 'ID', width: 80 },
     { field: 'email', headerName: 'Customer', width: 180 },

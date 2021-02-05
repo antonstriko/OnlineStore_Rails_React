@@ -1,11 +1,7 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router"
-// import { Link } from "react-router-dom";
-// import {
-//     BrowserRouter as useParams
-//   } from "react-router-dom";
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {useParams} from "react-router"
+
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -17,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import { Box } from '@material-ui/core';
-// import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     icon: {

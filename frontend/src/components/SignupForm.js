@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import {CssBaseline, Avatar, Button, Container, makeStyles, TextField, Link, Typography, Grid, FormControlLabel} from '@material-ui/core';
+import {CssBaseline, Avatar, Button, Container, makeStyles, TextField, Link, Typography, Grid} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 import { loginSuccess } from '../redux/actions/userActions'

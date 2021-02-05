@@ -1,11 +1,11 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
-import {Switch, Route, useHistory, useParams, useRouteMatch} from "react-router-dom";
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {Switch, Route, useHistory, useRouteMatch} from "react-router-dom";
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
-import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
+import {Menu as MenuIcon} from '@material-ui/icons';
+import {AppBar, CssBaseline, Container, Toolbar, Typography, IconButton} from '@material-ui/core';
 
 import AdminMenu from './AdminMenu'
 import AdminOrderList from './AdminOrderList'
@@ -118,10 +118,9 @@ export default function AdminDashboard(props) {
       const classes = useStyles();
                 const [open, setOpen] = React.useState(true);
                 const handleDrawerOpen = () => setOpen(true);
-                const handleDrawerClose = () => setOpen(false);
+                // const handleDrawerClose = () => setOpen(false);
               
-      const currentUser = useSelector(state => state.user.currentUser)
-      let { path, url } = useRouteMatch();
+      let {path} = useRouteMatch();
 
       const handleLogout = (event) => {
         localStorage.removeItem('token')

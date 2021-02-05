@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import { setupCheckout, addAddress } from "../../redux/actions/checkoutActions";
 
 export default function AddressForm({addressData, setAddressData}) {
   const dispatch = useDispatch()

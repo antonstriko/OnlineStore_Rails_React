@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -36,14 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review({paymentData, addressData}) {
   const classes = useStyles();
-
-  const dispatch = useDispatch();
-
-  const currentCheckout = useSelector(state => state.checkout)
   const cart = useSelector(state => state.cart)
-
-  const currentUser = useSelector(state=> state.user.currentUser)
-
 
   return (
     <React.Fragment>

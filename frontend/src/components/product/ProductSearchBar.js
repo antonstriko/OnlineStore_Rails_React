@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import {useDispatch } from 'react-redux';
 
 import {AppBar, Toolbar, Button, ButtonGroup, Typography, InputBase} from '@material-ui/core';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -70,14 +70,14 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductSearchBar(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm, searchInput} = useSelector(state => state.products)
+  // const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm, searchInput} = useSelector(state => state.products)
 
   const handleSortChange = (sortTerm) => {
     dispatch(setProductSort(sortTerm))
   }
-  const handleFilterChange = (filterTerm) => {
-    dispatch(setProductFilter(filterTerm))
-  }
+  // const handleFilterChange = (filterTerm) => {
+  //   dispatch(setProductFilter(filterTerm))
+  // }
 
   const handleInputChange = (e) => {
       props.setSearchInput(e.target.value )

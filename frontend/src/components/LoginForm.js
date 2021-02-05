@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
 import {useHistory} from "react-router"
-import PropTypes from 'prop-types'
 
 import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container, makeStyles} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
