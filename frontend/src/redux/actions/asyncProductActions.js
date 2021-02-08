@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productActions'
 // import {useDispatch } from 'react-redux';
 // const dispatch = useDispatch()
@@ -13,29 +13,23 @@ import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productAct
 //       })
 //   };
 // }
+const configObj = {
+  method:'GET',
+  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
+}
 
 export function fetchProducts() {
   return (dispatch) => {
     dispatch(isLoadingProducts());
-    fetch('http://localhost:3000/api/v1/products')
-      .then(response => response.json())
+    fetch('http://localhost:3000/api/v1/products', configObj)
+      .then(resp => resp.json())
       .then(data => {
         console.log(data)
-        // setTimeout((dispatch) => {
           dispatch(addFetchedProducts(data))
-        // }, 3000);
       })
   };
 }
 
-
-
-  // fetch('http://localhost:3000/api/v1/products')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data)
-  //       dispatch(addFetchedProducts(data))
-  //     })
 
 export function postProduct(product) {
   return (dispatch) => {

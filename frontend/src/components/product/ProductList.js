@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+
 
 import {makeStyles, Grid} from '@material-ui/core';
 
@@ -21,11 +21,8 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductList(props) {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const products = props.products.map(item => <ProductCard product={item} key={item.id} />)
   const isLoading = props.isLoading
-
-  
 
   return (
     <React.Fragment>

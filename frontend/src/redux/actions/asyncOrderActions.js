@@ -1,24 +1,29 @@
-// import axios from "axios";
 import {isLoadingOrders, addFetchedOrders, addNewOrder} from './orderActions'
-import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
+// import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
 
+const configObj = {
+  method:'GET',
+  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
+}
+// const getUserProfile = async() => {
+//   if (localStorage?.token){ 
+//     const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
+//     const user = await resp.json()
+//     dispatch(loginSuccess(user))
+//   } else {
+//     return
+//   }
+// }
 
 export function fetchOrders() {
   return (dispatch) => {
     dispatch(isLoadingOrders());
-    fetch('http://localhost:3000/api/v1/orders')
+    fetch('http://localhost:3000/api/v1/orders', configObj)
       .then(response => response.json())
       .then(data => dispatch(addFetchedOrders(data)));
   };
 }
-export function fetchUsers() {
-  return (dispatch) => {
-    // dispatch(isLoadingOrders());
-    fetch('http://localhost:3000/api/v1/users')
-      .then(response => response.json())
-      .then(data => dispatch({type:ADD_FETCHED_USERS, payload:data }));
-  };
-}
+
 // const token = localStorage.token || null
 // const headers = { 
 //   'Authorization': `Bearer ${token}`

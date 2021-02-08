@@ -1,12 +1,19 @@
 # Created by https://www.gitignore.io/api/node
 
-.DS_Store
+
+
+## Rails Backend
+
 .env
+.DS_Store
+/tmp-cache/*
+
 ### Node ###
 # Logs
 logs/*
 *.log
 npm-debug.log*
+tmp/*
 
 # Runtime data
 pids
@@ -42,5 +49,4 @@ jspm_packages
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp/*
-tmp/*
+

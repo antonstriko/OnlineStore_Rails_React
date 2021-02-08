@@ -1,18 +1,18 @@
-import React, { useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import {ListItem, ListItemIcon, ListItemText, ListSubheader, InputBase} from '@material-ui/core';
+import {ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 // import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ListAltIcon from '@material-ui/icons/ListAlt';
-import LayersIcon from '@material-ui/icons/Layers';
+// import LayersIcon from '@material-ui/icons/Layers';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+// import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import BusinessIcon from '@material-ui/icons/Business';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import RssFeedIcon from '@material-ui/icons/RssFeed';
-import SearchIcon from '@material-ui/icons/Search';
+// import BarChartIcon from '@material-ui/icons/BarChart';
+// import RssFeedIcon from '@material-ui/icons/RssFeed';
+// import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -70,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
 export function MainListItems() {
   const classes = useStyles();
   const currentUser = useSelector(state => state.user)
-
 
   return (
     <div>

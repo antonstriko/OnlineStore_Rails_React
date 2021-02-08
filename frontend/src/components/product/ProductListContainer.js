@@ -8,7 +8,7 @@ import ProductSearchBar from './ProductSearchBar'
 
 export default function ProductListContainer(props){
   const [searchInput, setSearchInput] = useState('')
-  const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm} = useSelector(state => state.products)
+  const {filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm} = useSelector(state => state.products)
 
 
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function ProductListContainer(props){
   // } else {
   //   data = allProducts
   // }
-  const data = allProducts.slice()
+  const data = filteredProducts.slice()
 
   const comparePrice = (a, b) => {
     const x = parseFloat(a.price);
@@ -48,9 +48,9 @@ export default function ProductListContainer(props){
     return comparison;
   }
 
-  if (sortTerm == 'price'){
+  if (sortTerm === 'price'){
     data.sort(comparePrice);
-  } else if (sortTerm == 'title'){
+  } else if (sortTerm === 'title'){
     data.sort(compareTitle);
   } 
     

@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
-import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
+import {Switch, Route, useHistory, useRouteMatch} from "react-router-dom";
 
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {ChevronLeft as ChevronLeftIcon, ShoppingCart as ShoppingCartIcon, Menu as MenuIcon} from '@material-ui/icons';
-import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, Buton } from '@material-ui/core';
+import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade} from '@material-ui/core';
 
 import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
@@ -127,26 +127,30 @@ export default function Storefront(props) {
     let history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles();
-    const [orders, setOrders] = useState([])
+    // const [orders, setOrders] = useState([])
 
     const cartItemCount = useSelector(state => state.cart.itemCount)
-    const currentUser = useSelector(state => state.user.currentUser)
-    let { path, url } = useRouteMatch();
+    // const currentUser = useSelector(state => state.user.currentUser)
+    let {path} = useRouteMatch();
 
     useEffect(()=> {
         dispatch(fetchProducts())
         dispatch(fetchOrders())
     }, [])
+    
     const handleRerouteToCheckout = () => {
         handleCartClose()
         history.push('storefront/checkout')
     }
+
     const handleLogout = (event) => {
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       dispatch(logout())
       props.history.push('/login')
     }
-    const adLink = '/admin'
+
+    // const adLink = '/admin'
 
 
       return (
@@ -174,7 +178,7 @@ export default function Storefront(props) {
             </Toolbar>
           </AppBar>
 
-          <Drawer variant="permanent" classes={{ paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose) }} open={open} >
+          <Drawer variant="permanent" classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}} open={open} >
               <div className={classes.toolbarIcon}>
                   <IconButton onClick={handleDrawerClose}>
                     <ChevronLeftIcon />
@@ -212,7 +216,6 @@ export default function Storefront(props) {
                 </Switch>
               </Container>
           </main>
-          {/* <FloatCart /> */}
         </div>
       )
 }

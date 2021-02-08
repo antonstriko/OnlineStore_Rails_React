@@ -1,14 +1,10 @@
 import React, { useState, useEffect} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
 import {useHistory} from "react-router"
-import PropTypes from 'prop-types'
 
 import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container, makeStyles} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { loginSuccess } from '../redux/actions/userActions'
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -61,6 +57,14 @@ function LoginForm() {
           history.push('/storefront')
       });
     }
+
+    const currentUser = useSelector(state => state.user.isLoggedIn)
+  
+    useEffect( () => {
+      if (currentUser) {
+        history.push('/storefront')
+      }
+    }, [currentUser])
 
   return (
     <Container component="main" maxWidth="xs" >

@@ -76,7 +76,6 @@ export default function Checkout() {
 
   const cart = useSelector(state => state.cart)
   const currentUser = useSelector(state => state.user.currentUser)
-  const currentCheckout = useSelector(state => state.checkout)
 
   const [paymentData, setPaymentData] = useState({
         name: '',
@@ -116,13 +115,16 @@ export default function Checkout() {
       setActiveStep(activeStep - 1);
   };
 
+  const configObj = {
+
+    headers: 
+  }
+
   useEffect(() => {
     if (activeStep === steps.length){
-      fetch('http://localhost:3000/orders', {
+      fetch('http://localhost:3000/api/v1/orders', {
           method: 'POST',
-          headers: {
-            "Content-type": "application/json"
-          },
+          headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage?.token}`},
           body: JSON.stringify({
             user_id: currentUser.id,
             total: cart.subtotal,
@@ -138,9 +140,9 @@ export default function Checkout() {
       .then(res => res.json())
       .then(order => {
             cart.cartItems.forEach(cartItem => {
-                fetch('http://localhost:3000/order_items', {
+                fetch('http://localhost:3000/api/v1/order_items', {
                   method: 'POST',
-                  headers: {"Content-type": "application/json"},
+                  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage?.token}`},
                   body: JSON.stringify({
                     title: cartItem.title,
                     order_id: order.id,
