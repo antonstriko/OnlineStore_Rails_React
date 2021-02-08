@@ -42,16 +42,30 @@ end
    
 #   #login method
 #     def create
-#       @user = User.find_by(username: user_login_params[:username])
+#       @user = User.find_by(email: auth_params[:email])
 #       #user.authenticate comes from bcrypt
 #       if @user && @user.authenticate(user_login_params[:password])
 #         # encode token comes from application controller
-#         token = encode_token({ user_id: @user.id })
-#         render json: { user: UserSerializer.new(@user), jwt: token }, status: :accepted
+#         # token = encode_token({ user_id: @user.id })
+#         render json: { user: @user, jwt: token }, status: :accepted
 #       else
 #         render json: { error: 'Incorrect username or password' }, status: :unauthorized
 #       end
 #     end
+
+    # def profile
+    #   auth_h = request.headers[:Authorization]
+    #   token = auth_h.split(' ')[1]
+    #   de_token = JWT.decode(token, 'my_s3cr3t')
+    #   user_id = de_token[0]['user_id']
+    #   @user = User.find_by(id: user_id)
+
+    #   if @user
+    #     render json: @user
+    #   else
+    #     render json: { message: 'Invalid username or password' }
+    #   end    
+    # end
    
 #     private
    

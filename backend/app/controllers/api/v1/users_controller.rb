@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
     
+    # get all users
     def index
       users = User.all
       render json: users, except: [:created_at, :updated_at]
