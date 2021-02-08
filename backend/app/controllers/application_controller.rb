@@ -2,7 +2,8 @@ class ApplicationController < ActionController::API
   before_action :authorized
   
       def encode_token(payload)
-          JWT.encode(payload, 'my_s3cr3t')
+          JWT.encode(payload, ENV()
+        #   JWT.encode(payload, 'my_s3cr3t')
       end
   
       # #This method looks at HTTP request for key of 'Authorization' with 

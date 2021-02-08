@@ -8,8 +8,9 @@ class Api::V1::AuthController < ApplicationController
     if @user && @user.authenticate(auth_params[:password])
       # encode token comes from ApplicationController
       payload = {user_id: @user.id}
-      @token = JWT.encode(payload, 'my_s3cr3t')
-      render json: {user: @user, token: @token}
+      token = encode_token({ user_id: @user.id })
+      # token = JWT.encode(payload, 'my_s3cr3t')
+      render json: {user: @user, token: token}
     else
       render json: { message: 'Invalid username or password' }, status: :unauthorized
     end
