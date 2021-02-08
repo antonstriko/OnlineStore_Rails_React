@@ -1,1 +1,1 @@
-# ReactRails-OnlineStore
+# ReactRails-OnlineStore - WIP
