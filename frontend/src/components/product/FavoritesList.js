@@ -1,9 +1,10 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import {makeStyles, Grid} from '@material-ui/core';
 
 import ProductCard from './ProductCard'
+// import Loading from '../Loading'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,20 +19,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function FavoritesList(props) {
+function FavoritesList() {
   const classes = useStyles();
-  
-  const currentUser = useSelector(state => state.user.currentUser)
-  const favIds = currentUser.favorites || []
-  const allProducts = useSelector(state => state.product.allProducts)
-  
-  const favs = allProducts.filter((item => favIds.includes(item.id)))
-  const favProducts = favs.map(item => <ProductCard product={item} key={item.id} />)
+  const userFavorites = useSelector(state => state.user.currentUser.favorites)
+  const favorites = userFavorites.map(item => <ProductCard product={item} key={item.id} />)
 
   return (
     <React.Fragment>
-      { favProducts && <Grid container className={classes.pList} spacing={2}> {favProducts} </Grid> }
-      { !favProducts && <Grid container className={classes.pList} spacing={2}> <p>You have not added any favorites yet</p></Grid> }
+        <h1>Favorites</h1>
+        {/* {!list && <p>You have not added any favorites yet</p>} */}
+        <Grid container className={classes.pList} spacing={2}>{favorites}</Grid>
+        {/* {!pList && <Grid container className={classes.pList} spacing={2}>{list}</Grid>} */}
+      
     </React.Fragment>
   );
 }

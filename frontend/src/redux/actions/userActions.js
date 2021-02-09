@@ -45,8 +45,9 @@ export const updateCurrentUser = (user) => {
           firstname: user.firstname,
           lastname: user.lastname,
           email: user.email,
-          favorites: user.favorites || null,
-          reviews: user.reviews || null
+          favIds: user.favorites.ids,
+          favorites: user.favorites.favorites || [],
+          reviews: user.reviews || []
         }
       }
     }

@@ -53,3 +53,4 @@ jspm_packages
 
 # Ignore application configuration
 /config/application.yml
+/db/seeds-copy.rb

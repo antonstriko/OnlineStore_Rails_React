@@ -1,6 +1,7 @@
 import React from 'react'
+import '../static/loading.css'
 
-function Loading(){
+const Loading = () => {
 // return <div class='loader loader--audioWave'></div>
 // return <div class='loader loader--snake'></div>
 return <div class='loader loader--spinningDisc'></div>

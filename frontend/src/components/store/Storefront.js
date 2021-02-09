@@ -9,7 +9,7 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 
 import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
-// import FavoritesList from '../product/FavoritesList'
+import FavoritesList from '../product/FavoritesList'
 import CartCopy from '../shoppingCart/Cart'
 import Checkout from '../checkout/Checkout';
 import OrderDataGrid from '../order/OrderDataGrid';
@@ -130,13 +130,13 @@ export default function Storefront(props) {
     // const [orders, setOrders] = useState([])
 
     const cartItemCount = useSelector(state => state.cart.itemCount)
-    // const currentUser = useSelector(state => state.user.currentUser)
+    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
     let {path} = useRouteMatch();
 
     useEffect(()=> {
         dispatch(fetchProducts())
         dispatch(fetchOrders())
-    }, [])
+    },[dispatch])
     
     const handleRerouteToCheckout = () => {
         handleCartClose()
@@ -164,7 +164,7 @@ export default function Storefront(props) {
                 </IconButton>
 
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backwoods Gear Store </Typography>
-                {/* {(getLocalCurrentUser()) ? 
+                {/* {isLoggedIn ? 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
                   <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
                 <IconButton edge="start" color="inherit" className={classes.logoutButton} onClick={handleLogout} >
@@ -207,9 +207,9 @@ export default function Storefront(props) {
                     <Route exact path={`${path}/orders`}>
                         <OrderDataGrid />
                     </Route>
-                    {/* <Route exact path={`${path}/favorites`}>
+                    <Route exact path={`${path}/favorites`}>
                         <FavoritesList />
-                    </Route> */}
+                    </Route>
                     <Route exact path={`${path}/checkout`}>
                         <Checkout />
                     </Route>

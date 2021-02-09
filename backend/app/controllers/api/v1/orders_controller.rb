@@ -20,22 +20,22 @@ class Api::V1::OrdersController < ApplicationController
         render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
     end
 
-    # def update
-    #     order = Order.find(params[:id])
-    #     order.update_attributes(order_params)
-    #     render json: order
-    # end
     def update
         @order = Order.find(params[:id])
-        # @order.update_attributes(order_params)
-        @order.update(order_params)
-        @order.save()
-        if @order
-            render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
-        else
-            render json: { message: 'Order not found/updated' }
-        end
+        @order.update_attributes(order_params)
+        render json: @order
     end
+    # def update
+    #     @order = Order.find(params[:id])
+    #     # @order.update_attributes(order_params)
+    #     @order.update(order_params)
+    #     @order.save()
+    #     if @order
+    #         render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
+    #     else
+    #         render json: { message: 'Order not found/updated' }
+    #     end
+    # end
 
     private
 
