@@ -5,30 +5,30 @@ import { useDispatch } from 'react-redux';
 import Storefront from './components/store/Storefront'
 import SignupForm from './components/SignupForm'
 import LoginForm from './components/LoginForm'
-import LandingPage from './components/LandingPage'
 import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 import {loginSuccess} from './redux/actions/userActions'
 
 function App() {
+  
   const dispatch = useDispatch();
-  const configObj = {
-    method:'GET',
-    headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
-  }
-  const getUserProfile = async() => {
-    if (localStorage?.token){ 
-      const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
-      const user = await resp.json()
-      dispatch(loginSuccess(user))
-    } else {
-      return
-    }
-  }
 
   useEffect( () => {
-    getUserProfile()
-  }, []) // run if props.user changes
+    const configObj = {
+      headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
+    }
+
+    async function fetchProfile(){
+      if (localStorage?.token){ 
+        const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
+        const user = await resp.json()
+        dispatch(loginSuccess(user))
+      } else {
+        return
+      }
+    }
+    fetchProfile()
+  }, [dispatch]) // run if props.user changes
   
   return (
     <Router>

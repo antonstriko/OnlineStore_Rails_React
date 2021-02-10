@@ -3,10 +3,13 @@ import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_U
 
 const initialState = {
     isLoggedIn: false,
-    isStoreManager: false,
     allUsers: [],
+    isStoreManager: false,
+    favIds: [],
+    favorites: [],
+    reviews: [],
     currentUser: null
-}
+  }
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -28,9 +31,7 @@ const userReducer = (state = initialState, action) => {
         case UPDATE_CURRENT_USER:{
             return {
                 ...state,
-                isLoggedIn: true,
-                isStoreManager: action.payload.isStoreManager,
-                currentUser: action.payload.currentUser
+                ...action.payload
             }
         }
         case LOGOUT: {

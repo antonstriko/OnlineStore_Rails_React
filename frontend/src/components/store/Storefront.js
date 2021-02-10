@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 import {Switch, Route, useHistory, useRouteMatch} from "react-router-dom";
 
@@ -10,7 +10,7 @@ import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divid
 import { MainListItems } from './StoreNavList';
 import ProductListContainer from '../product/ProductListContainer'
 import FavoritesList from '../product/FavoritesList'
-import CartCopy from '../shoppingCart/Cart'
+import Cart from '../shoppingCart/Cart'
 import Checkout from '../checkout/Checkout';
 import OrderDataGrid from '../order/OrderDataGrid';
 
@@ -147,7 +147,7 @@ export default function Storefront(props) {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       dispatch(logout())
-      props.history.push('/login')
+      history.push('/login')
     }
 
     // const adLink = '/admin'
@@ -196,7 +196,7 @@ export default function Storefront(props) {
                 <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
                     <Fade in={cartOpen}>
                         <div className={classes.paper}>
-                          <CartCopy handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
+                          <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
                         </div>
                     </Fade>
                 </Modal>

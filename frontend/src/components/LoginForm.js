@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function LoginForm() {
+function LoginForm(props) {
     const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
@@ -58,13 +58,13 @@ function LoginForm() {
       });
     }
 
-    const currentUser = useSelector(state => state.user.isLoggedIn)
+    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
   
     useEffect( () => {
-      if (currentUser) {
+      if (isLoggedIn) {
         history.push('/storefront')
       }
-    }, [currentUser])
+    }, [isLoggedIn, history])
 
   return (
     <Container component="main" maxWidth="xs" >
