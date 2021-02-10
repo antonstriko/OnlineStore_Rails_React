@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   cardPriceFav: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignContent: 'center'
   },
   title: {
@@ -115,7 +115,7 @@ function ProductCard({product}) {
                     <Box className={classes.cardPriceFav}>
                       <Typography className={classes.price}> $ {product.price} </Typography>
                       <Button aria-label="favorite button" type="button">
-                        <FontAwesomeIcon icon={isUserFavorite ? faStarSolid : faStar} aria-label={isUserFavorite ? "favorited icon" : "add-favorite icon"} />
+                        <FontAwesomeIcon size="lg" className={classes.favIcon} icon={isUserFavorite ? faStarSolid : faStar} aria-label={isUserFavorite ? "favorited icon" : "add-favorite icon"} />
                       </Button>
                     </Box>
                     <Typography className={classes.title}>
