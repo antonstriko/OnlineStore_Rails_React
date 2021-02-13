@@ -34,4 +34,46 @@ yarn install
 yarn start
 ```
 
+**NOTE: All Endpoints should follow: `http://localhost:3000/api/v1`**
+## Endpoints - Users
 
+|  Name     |    Path    | HTTP Verb |         Purpose                     |
+| :-------: | :--------: | :-------: | :---------------------------------: |
+| Index     | /users     |    GET    | Display all users                   |
+| Create.   | /users     |   POST    | Create a user                       |
+|  Show     | /users/:id |    GET    | Display a specific user             |
+|  Profile  | /profile   |    GET    | Token is used to login user back in |
+
+## Endpoints - Products
+|  Name  |     Path      | HTTP Verb |         Purpose         |
+| :----: | :-----------: | :-------: | :---------------------: |
+| Index  |   /products   |    GET    |  Displays all products  |
+| Create |   /products   |   POST    |    Create a product     |
+|  Show  | /products/:id |    GET    | Displays single product |
+| Update | /products/:id |   PATCH   |  Update single product  |
+| Delete | /products/:id |  DELETE   |  Delete single product  |
+
+## Endpoints - Orders
+
+|  Name  |    Path     | HTTP Verb |         Purpose          |
+| :----: | :---------: | :-------: | :----------------------: |
+| Index  |   /orders   |    GET    |    Display all orders    |
+| Create |   /orders   |   POST    |     Create an order      |
+| Delete | /orders/:id |  DELETE   | Delete a specific order  |
+|  Show  | /orders/:id |    GET    | Display a specific order |
+
+## Endpoints - Favorites
+
+|  Name    |           Path              |  HTTP Verb   |              Purpose               |
+| :------: | :-------------------------: | :----------: | :--------------------------------: |
+| Index    |   /products/:id/favorites   |    GET       | Displays all favorites for product |
+| Create.  |   /products/:id/favorites   |   POST       |   Create a favorite for a product  |
+| Delete   | /products/:id/favorites/:id |    DELETE    | Displays single review for product |
+
+## Endpoints - Reviews
+
+|  Name  |           Path            | HTTP Verb |              Purpose               |
+| :----: | :-----------------------: | :-------: | :--------------------------------: |
+| Index  |   /products/:id/reviews   |    GET    |  Displays all reviews for product  |
+| Create |   /products/:id/reviews   |   POST    |   Create a review for a product    |
+|  Show  | /products/:id/reviews/:id |    GET    | Displays single review for product |
