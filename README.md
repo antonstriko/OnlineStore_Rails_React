@@ -22,6 +22,28 @@ rails db:migrate
 rails db:seed
 rails s
 ```
+The JWT Token on the backend needs a secret phase for the token 
+to be encoded/decoded with, please do the following:
+
+### Figaro Config
+
+```bash
+$ bundle exec figaro install
+```
+
+This creates a commented `config/application.yml` file and adds it to your
+`.gitignore`. Add your own secret phrase to this file and you're done with backend setup!
+
+Given the following configuration file:
+```yaml
+# config/application.yml
+# Add configuration values here, as shown below.
+
+jwt_secret: <your Secret Phrase>
+
+```
+
+
 # React E-Commerce Store Frontend - Set up and run at localhost:3001
 First clone this repo and run the following commands:
 ```
@@ -33,6 +55,13 @@ or
 yarn install
 yarn start
 ```
+Demo Store Manager Login: 
+email: admin@gmail.com
+password: 1234
+
+Demo Customer Login:
+email: customer@gmail.com
+password: 1234
 
 **NOTE: All Endpoints should follow: `http://localhost:3000/api/v1`**
 ## Endpoints - Users
