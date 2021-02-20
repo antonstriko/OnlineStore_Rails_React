@@ -67,7 +67,7 @@ products_data = [
 
   ## *****************************************************************************************************
   ##    Users
-  ## Add a user with store manager privelege 
+  ## Add 2 users with set emails to test with along with 14 addition customers for fake orders
   User.create!(email:'admin@gmail.com', password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}",isStoreManager: true)
   User.create!(email:'customer@gmail.com', password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
   14.times do |i|
