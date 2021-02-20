@@ -67,9 +67,9 @@ products_data = [
 
   ## *****************************************************************************************************
   ##    Users
-
-  User.create!(email:'euberman@gmail.com', password:'1234',firstname:'Eric',lastname:'Uberman',isStoreManager: true)
-  User.create!(email:'demo@gmail.com', password:'1234', firstname:'Zack',lastname:'Jordan', isStoreManager: false)
+  ## Add a user with store manager privelege 
+  User.create!(email:'admin@gmail.com', password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}",isStoreManager: true)
+  User.create!(email:'customer@gmail.com', password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
   14.times do |i|
     User.create!(email:"#{Faker::Internet.email}", password:'1234', firstname: "#{Faker::Name.first_name}", lastname:"#{Faker::Name.last_name}", isStoreManager: false)
   end

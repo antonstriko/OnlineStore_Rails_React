@@ -31,7 +31,7 @@ export const decrementCartItem = (cartItem) => {
     payload: {
       ...cartItem,
       qty: cartItem.qty - 1,
-      subtotal: cartItem.subtotal + cartItem.price
+      subtotal: cartItem.subtotal - cartItem.price
     }
   }
 }

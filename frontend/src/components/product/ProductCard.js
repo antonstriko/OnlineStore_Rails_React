@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from "react-router-dom";
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, makeStyles, Box} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
-import styled from "styled-components";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import {faStar as faStarSolid} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 
 import { addToCart, incrementCartItem } from '../../redux/actions/cartActions';
 
@@ -60,28 +59,9 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none'
   }
 }));
-
-const FavButton = styled.button`
-  background: transparent;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px transparent,
-    0 0 0 0 ${props => (props.isFavorite ? "#E91616" : "#fff")};
-  color: ${props => (props.isFavorite ? "#E91616" : "#fff")};
-  cursor: pointer;
-  font-size: 1.2em;
-  line-height: 1;
-  padding: 0;
-  position: relative;
-  top: 0.5em;
-  right: 0.5em;
-  &:focus {
-    box-shadow: 0 0 0 2px transparent,
-      0 0 0 2px ${props => (props.isFavorite ? "#E91616" : "#fff")};
-    outline: none;
-    transition: 0.2s box-shadow;
-  }
-`;
+const handleToggleFavorite = () => {
+  
+}
 
 function ProductCard({product}) {
     const classes = useStyles();
@@ -115,7 +95,7 @@ function ProductCard({product}) {
                     <Box className={classes.cardPriceFav}>
                       <Typography className={classes.price}> $ {product.price} </Typography>
                       <Button aria-label="favorite button" type="button">
-                        <FontAwesomeIcon size="lg" className={classes.favIcon} icon={isUserFavorite ? faStarSolid : faStar} aria-label={isUserFavorite ? "favorited icon" : "add-favorite icon"} />
+                        <FontAwesomeIcon size="lg" onClick={handleToggleFavorite} className={classes.favIcon} icon={isUserFavorite ? faStarSolid : faStar} aria-label={isUserFavorite ? "favorited icon" : "add-favorite icon"} />
                       </Button>
                     </Box>
                     <Typography className={classes.title}>
