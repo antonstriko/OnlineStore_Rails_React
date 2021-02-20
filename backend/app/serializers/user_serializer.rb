@@ -1,14 +1,19 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :firstname, :lastname, :isStoreManager, :favorites_count, :favorites, :reviews_count, :reviews, :products
+  attributes :id, :email, :firstname, :lastname, :isStoreManager, :favorites_count, :favorites, :fav_ids, :reviews_count, :reviews
 
   def favorites 
     favs = object.favorites.map do |fav|
       @product = Product.find_by(id: fav.product_id)
+      @product
     end 
+    favs
+  end 
+  
+  def fav_ids 
     fav_ids = object.favorites.map do |fav|
       fav.product_id
     end 
-    { favorites: favs, fav_ids: fav_ids}
+    fav_ids
   end 
 
   def reviews 

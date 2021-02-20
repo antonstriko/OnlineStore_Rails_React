@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Paper, Box, Typography, Button} from '@material-ui/core';
 
 
-import { PlayCircleFilledWhite } from '@material-ui/icons';
+// import { PlayCircleFilledWhite } from '@material-ui/icons';
 // import { setupCheckout } from "../../_actions/checkoutActions";
 import CartProduct from './CartProduct';
 

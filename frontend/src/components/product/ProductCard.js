@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from "react-router-dom";
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, makeStyles, Box} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
+import { faStar } from "@fortawesome/free-regular-svg-icons";
+import {faStar as faStarSolid} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 
 import { addToCart, incrementCartItem } from '../../redux/actions/cartActions';
 
@@ -34,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     alignContent: 'center'
   },
+  cardPriceFav: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center'
+  },
   title: {
     fontSize: 18, 
     fontWeight: 'bold',
@@ -50,14 +59,19 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none'
   }
 }));
+const handleToggleFavorite = () => {
+  
+}
 
 function ProductCard({product}) {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [isUserFavorite, setIsUserFavorite] = React.useState(false)
+    const favIds = useSelector(state => state.user.favIds)
     
+
     const cartItems = useSelector(state => state.cart.cartItems)
-    const productInCart = cartItems.find( item => item.product_id === product.id)
-  
+    const productInCart = cartItems.find(item => item.product_id === product.id)
     const handleAddToCart = () => {
       if (productInCart) { 
         return dispatch(incrementCartItem(productInCart))
@@ -66,15 +80,24 @@ function ProductCard({product}) {
       }
     }
 
+    React.useEffect(()=> {
+      if (favIds.includes(product.id)) {
+        setIsUserFavorite(true)
+      }
+    },[favIds, product.id])
+
     return (
       <React.Fragment>
         <Grid item key={product.id}>
             <Card className={classes.card}>
                 <CardMedia className={classes.cardMedia} image={product.image_url} title={product.title} />
                 <CardContent className={classes.cardContent}>
-                    <Typography className={classes.price}>
-                      $ {product.price}
-                    </Typography>
+                    <Box className={classes.cardPriceFav}>
+                      <Typography className={classes.price}> $ {product.price} </Typography>
+                      <Button aria-label="favorite button" type="button">
+                        <FontAwesomeIcon size="lg" onClick={handleToggleFavorite} className={classes.favIcon} icon={isUserFavorite ? faStarSolid : faStar} aria-label={isUserFavorite ? "favorited icon" : "add-favorite icon"} />
+                      </Button>
+                    </Box>
                     <Typography className={classes.title}>
                       {product.brand}
                     </Typography>

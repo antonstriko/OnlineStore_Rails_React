@@ -1,8 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux';
 
-import {AppBar, CssBaseline, Drawer, Container, Toolbar, List, Typography, Divider, IconButton, Badge, Modal, Backdrop, Fade, } from '@material-ui/core';
-
 import ProductList from './ProductList'
 import ProductSearchBar from './ProductSearchBar'
 

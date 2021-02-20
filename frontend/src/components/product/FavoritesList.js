@@ -21,15 +21,15 @@ const useStyles = makeStyles((theme) => ({
 
 function FavoritesList() {
   const classes = useStyles();
-  const userFavorites = useSelector(state => state.user.currentUser.favorites)
+  const userFavorites = useSelector(state => state.user.favorites)
   const favorites = userFavorites.map(item => <ProductCard product={item} key={item.id} />)
 
   return (
     <React.Fragment>
         <h1>Favorites</h1>
-        {/* {!list && <p>You have not added any favorites yet</p>} */}
+        {!favorites && <p>You have not added any favorites yet</p>}
         <Grid container className={classes.pList} spacing={2}>{favorites}</Grid>
-        {/* {!pList && <Grid container className={classes.pList} spacing={2}>{list}</Grid>} */}
+        {/* {!favorites && <Grid container className={classes.pList} spacing={2}>{list}</Grid>} */}
       
     </React.Fragment>
   );

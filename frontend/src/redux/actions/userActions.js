@@ -7,13 +7,14 @@ export const loginSuccess = (user) => {
       payload: {
         isLoggedIn: true,
         isStoreManager: user.isStoreManager,
+        favIds: user.fav_ids,
+        favorites: user.favorites || [],
+        reviews: user.reviews || [],
         currentUser: {
           id: user.id,
           firstname: user.firstname,
           lastname: user.lastname,
-          email: user.email,
-          favorites: user.favorites || null,
-          reviews: user.reviews || null
+          email: user.email
         }
       }
   }
@@ -38,16 +39,16 @@ export const updateCurrentUser = (user) => {
     return {
       type: UPDATE_CURRENT_USER,
       payload: {
-        isLoggenIn: true,
+        isLoggedIn: true,
         isStoreManager: user.isStoreManager,
+        favIds: user.fav_ids,
+        favorites: user.favorites || [],
+        reviews: user.reviews || [],
         currentUser: {
           id: user.id,
           firstname: user.firstname,
           lastname: user.lastname,
-          email: user.email,
-          favIds: user.favorites.ids,
-          favorites: user.favorites.favorites || [],
-          reviews: user.reviews || []
+          email: user.email
         }
       }
     }
