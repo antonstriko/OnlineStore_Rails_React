@@ -31,12 +31,12 @@ to be encoded/decoded with, please do the following:
 $ bundle exec figaro install
 ```
 
-This creates a commented `config/application.yml` file and adds it to your
+This creates a commented `backend/config/application.yml` file and adds it to your
 `.gitignore`. Add your own secret phrase to this file and you're done with backend setup!
 
 Given the following configuration file:
 ```yaml
-# config/application.yml
+# backend/config/application.yml
 # Add configuration values here, as shown below.
 
 jwt_secret: <your Secret Phrase>
