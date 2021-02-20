@@ -149,6 +149,7 @@ products_data = [
   ##    Reviews
   ## *****************************************************************************************************
   15.times do |i|
+    ## plus one because I only want to create reviews for customers and not store manager
     y = i + 1
     product1 = products[prng.rand(1...10)]
     product2 = products[prng.rand(11...20)]
@@ -187,7 +188,9 @@ products_data = [
   ##    Favorites
   ## *****************************************************************************************************
   15.times do |i|
-     y = i + 1
+    ## plus one because I only want to create favorites for customers and not store manager
+
+     y = i + 1 
     product1 = products[prng.rand(1...10)]
     product2 = products[prng.rand(11...20)]
     product3 = products[prng.rand(21...30)]
