@@ -149,33 +149,31 @@ products_data = [
   ##    Reviews
   ## *****************************************************************************************************
   15.times do |i|
-    ## plus one because I only want to create reviews for customers and not store manager
-    y = i + 1
     product1 = products[prng.rand(1...10)]
     product2 = products[prng.rand(11...20)]
     product3 = products[prng.rand(21...30)]
     product4 = products[prng.rand(31...40)]
     product5 = products[prng.rand(41...47)]
-    Review.create!(user_id: y, product_id: product1.id, rating: "#{prng.rand(3...5)}" )
-    Review.create!(user_id: y, product_id: product2.id, rating: "#{prng.rand(3...5)}" )
-    Review.create!(user_id: y, product_id: product3.id, rating: "#{prng.rand(3...5)}" )
-    Review.create!(user_id: y, product_id: product4.id, rating: "#{prng.rand(3...5)}" )
-    Review.create!(user_id: y, product_id: product5.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: i, product_id: product1.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: i, product_id: product2.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: i, product_id: product3.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: i, product_id: product4.id, rating: "#{prng.rand(3...5)}" )
+    Review.create!(user_id: i, product_id: product5.id, rating: "#{prng.rand(3...5)}" )
   end
 
   products.each do |product|
     5.times do |i|
-      id1 = prng.rand(2...6)
+      id1 = prng.rand(1...5)
       @user1 = users[id1]
-      rating1 = prng.rand(4...5)
+      rating1 = prng.rand(3...5)
 
-      id2 = prng.rand(7...11)
+      id2 = prng.rand(6...11)
       @user2 = users[id2]
-      rating2 = prng.rand(4...5)
+      rating2 = prng.rand(3...5)
 
       id3 = prng.rand(12...16)
       @user3 = users[id3]
-      rating3 = prng.rand(4...5)
+      rating3 = prng.rand(3...5)
 
       Review.create!(user_id: @user1.id, product_id: product.id, rating: rating1)
       Review.create!(user_id: @user2.id, product_id: product.id, rating: rating2)
