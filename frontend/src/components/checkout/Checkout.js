@@ -92,20 +92,6 @@ export default function Checkout() {
     state: '',
     zip: ''
   })
-// const steps = ['Shipping Details', 'Payment Details', 'Review Your Order'];
-
-  // const getStepContent = (step, paymentData, setPaymentData, addressData, setAddressData) => {
-  //   switch (step) {
-  //     case 0:
-  //       return <AddressForm addressData={addressData} setAddressData={setAddressData}/>;
-  //     case 1:
-  //       return <PaymentForm paymentData={paymentData} setPaymentData={setPaymentData} addressData={addressData}/>;
-  //     case 2:
-  //       return <Review addressData={addressData} paymentData={paymentData}/>;
-  //     default:
-  //       throw new Error('Unknown step');
-  //   }
-  // }
 
   const handleNext = () => {
       setActiveStep(activeStep + 1);
@@ -170,9 +156,7 @@ export default function Checkout() {
               <React.Fragment>
                   {activeStep === steps.length ? (
                       <React.Fragment>
-                          <Typography variant="h5" gutterBottom>
-                            Thank you for your order.
-                          </Typography>
+                          <Typography variant="h5" gutterBottom> Thank you for your order. </Typography>
                           <Typography variant="subtitle1">
                             Your order number is #2001539. We have emailed your order confirmation, and will
                             send you an update when your order has shipped.

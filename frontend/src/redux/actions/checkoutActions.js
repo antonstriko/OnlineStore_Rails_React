@@ -2,7 +2,6 @@ import {SETUP_CHECKOUT,
   ADD_ADDRESS, 
   ADD_PAYMENT, 
   RESET_CHECKOUT} from '../actionTypes'
-import { useHistory } from "react-router-dom";
 
 export const setupCheckout = (currentUser) => {
   console.log('Checkout btn has been clicked')
