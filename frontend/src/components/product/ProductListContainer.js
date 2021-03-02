@@ -52,15 +52,15 @@ export default function ProductListContainer(props){
     data.sort(compareTitle);
   } 
     
-  const handleChange = (e) => {
-    e.preventDefault()
-    setSearchBarInput(e.target.value)
-    // dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.value})
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.firstElementChild.lastElementChild.value.toLowerCase()})
-  }
+  // const handleChange = (e) => {
+  //   e.preventDefault()
+  //   setSearchBarInput(e.target.value)
+  //   // dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.value})
+  // }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.firstElementChild.lastElementChild.value.toLowerCase()})
+  // }
   
   return (
     <React.Fragment>

@@ -3,11 +3,9 @@ import { useDispatch } from 'react-redux';
 import {incrementCartItem, decrementCartItem, removeCartItem} from '../../redux/actions/cartActions';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 
-function CartProduct(props) {
-
-  const { cartItem } = props;
+function CartProduct({ cartItem }) {
+  
   const dispatch = useDispatch()
-
   const handleOnIncrease = () => {
     dispatch(incrementCartItem(cartItem))
   }

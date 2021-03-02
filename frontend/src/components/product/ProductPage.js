@@ -87,7 +87,6 @@ function ProductPage() {
     const dispatch = useDispatch();
     let [rating, setRating] = useState(0)
 
-
     let { productId } = useParams();
     const products = useSelector(state => state.products.allProducts)
     let product = products.find(p => p.id === parseInt(productId))
@@ -161,22 +160,22 @@ function ProductPage() {
                             setNumReviews(tempNumRev)
 
                             let tempVar
-                            if (product.num_reviews === NaN){
+                            if (product.num_reviews.isNaN){
                               tempVar = 0
                             }
-                            if (prodRating === NaN) {
+                            if (prodRating.isNaN) {
                               prodRating = 1
                               setProdRating(1)
                             }
                             
                             let tempCustRating = ((prodRating * tempVar) + newRating) / tempNumRev
 
-                            if (tempCustRating === NaN){
+                            if (tempCustRating.isNaN){
                               tempCustRating = 1
                             }
                             setProdRating(tempCustRating)
                             
-                            fetch(`http://localhost:3000/products/${product.id}`, {
+                            fetch(`http://localhost:3000/api/v1/products/${product.id}`, {
                               method: 'PATCH',
                               headers: {
                                 "Content-Type": "application/json"

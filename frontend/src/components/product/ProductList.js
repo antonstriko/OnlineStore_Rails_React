@@ -1,11 +1,9 @@
 import React from 'react';
 
-
 import {makeStyles, Grid} from '@material-ui/core';
 
 import ProductCard from './ProductCard'
 import Loading from '../Loading'
-
 
 const useStyles = makeStyles((theme) => ({
   pList: {

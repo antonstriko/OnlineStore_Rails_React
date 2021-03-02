@@ -79,7 +79,6 @@ function Cart(props) {
 
   const items = useSelector(state => state.cart.cartItems)
   const subtotal  = useSelector(state => state.cart.subtotal)
-  const itemCount = useSelector(state => state.cart.itemCount)
 
   const cartItems = items.map(item => <CartProduct cartItem={item} key={item.id} />);
   return (
