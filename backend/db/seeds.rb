@@ -168,16 +168,16 @@ users = User.all
       product9 = products[prng.rand(31...40)]
       product10 = products[prng.rand(41...47)]
 
-      Review.create!(user_id: y, product_id: product1.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product2.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product3.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product4.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product5.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product6.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product7.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product8.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product9.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product10.id, rating: "#{(prng.rand(1...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product1.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product2.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product3.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product4.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product5.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product6.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product7.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product8.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product9.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product10.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
 
       Favorite.create!(user_id: y, product_id: prng.rand(1...10))
       Favorite.create!(user_id: y, product_id: prng.rand(11...20))
