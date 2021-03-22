@@ -4,6 +4,7 @@ Rails.application.routes.draw do
         resources :users
         post '/login', to: 'auth#create'
         get '/profile', to: 'auth#profile'
+        delete '/favorites', to: 'favorites#destroy'
         resources :order_items
         resources :orders
         resources :reviews

@@ -13,7 +13,6 @@ class Api::V1::UsersController < ApplicationController
       if @user.valid?
         @token = encode_token(user_id: @user.id)
         render json: { user: @user, jwt: @token}, status: :created
-        # render json: { user: UserSerializer.new(@user), jwt: @token}, status: :created
       else 
         render json: { error: 'That username already exists. Try again.' }, status: :not_acceptable
       end

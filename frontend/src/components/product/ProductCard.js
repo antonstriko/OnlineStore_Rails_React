@@ -95,8 +95,10 @@ function ProductCard({product}) {
     }
 
     const removeFav = () => {
-      fetch(`http://localhost:3000/api/v1/favorites/${toyId}`,{
-        method: "DELETE"
+      fetch(`http://localhost:3000/api/v1/favorites`,{
+        method: "DELETE",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({user_id: currentUser.id, product_id: product.id})
       })
         .then(res => res.json())
         .then(toy => {
