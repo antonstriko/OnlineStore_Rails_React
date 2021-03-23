@@ -10,9 +10,6 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 // import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import BusinessIcon from '@material-ui/icons/Business';
-// import BarChartIcon from '@material-ui/icons/BarChart';
-// import RssFeedIcon from '@material-ui/icons/RssFeed';
-// import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({

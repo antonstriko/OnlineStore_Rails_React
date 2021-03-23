@@ -16,7 +16,6 @@ import OrderDataGrid from '../order/OrderDataGrid';
 
 import { fetchProducts } from '../../redux/actions/asyncProductActions';
 import { fetchOrders } from '../../redux/actions/asyncOrderActions';
-
 import { logout } from '../../redux/actions/userActions';
 
 
@@ -151,71 +150,69 @@ export default function Storefront(props) {
     }
 
     // const adLink = '/admin'
+    return (
+      <div className={clsx(classes.root)}  >
+        <CssBaseline />
 
+        <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+          <Toolbar className={classes.toolbar}>
+              <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)} >
+                <MenuIcon />
+              </IconButton>
 
-      return (
-        <div className={clsx(classes.root)}  >
-          <CssBaseline />
+              <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backwoods Gear Store </Typography>
+              {/* {isLoggedIn ? 
+                <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
+                <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
+              <IconButton edge="start" color="inherit" className={classes.logoutButton} onClick={handleLogout} >
+                Log Out
+              </IconButton>
+              <IconButton color="inherit" onClick={handleCartOpen}>
+                  <Badge badgeContent={cartItemCount} color="secondary">
+                      <ShoppingCartIcon />
+                  </Badge>
+              </IconButton>
+          </Toolbar>
+        </AppBar>
 
-          <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-            <Toolbar className={classes.toolbar}>
-                <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)} >
-                  <MenuIcon />
+        <Drawer variant="permanent" classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}} open={open} >
+            <div className={classes.toolbarIcon}>
+                <IconButton onClick={handleDrawerClose}>
+                  <ChevronLeftIcon />
                 </IconButton>
+            </div>
+            <Divider />
+            <List>
+              <MainListItems />
+            </List>
+        </Drawer>
 
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> Backwoods Gear Store </Typography>
-                {/* {isLoggedIn ? 
-                  <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => logout(e)} >Log Out</IconButton> : 
-                  <IconButton edge="start" color="inherit" aria-label="open drawer" className={classes.logoutButton} onClick={(e) => login(e)} >Log In</IconButton>} */}
-                <IconButton edge="start" color="inherit" className={classes.logoutButton} onClick={handleLogout} >
-                  Log Out
-                </IconButton>
-                <IconButton color="inherit" onClick={handleCartOpen}>
-                    <Badge badgeContent={cartItemCount} color="secondary">
-                        <ShoppingCartIcon />
-                    </Badge>
-                </IconButton>
-            </Toolbar>
-          </AppBar>
-
-          <Drawer variant="permanent" classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}} open={open} >
-              <div className={classes.toolbarIcon}>
-                  <IconButton onClick={handleDrawerClose}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-              </div>
-              <Divider />
-              <List>
-                <MainListItems />
-              </List>
-          </Drawer>
-
-          <main className={classes.content}>
-              <div className={classes.appBarSpacer} />
-              <Container maxWidth="lg" className={classes.container}>
-                <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
-                    <Fade in={cartOpen}>
-                        <div className={classes.paper}>
-                          <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
-                        </div>
-                    </Fade>
-                </Modal>
-                <Switch> 
-                    <Route exact path={path}>
-                        <ProductListContainer />
-                    </Route>
-                    <Route exact path={`${path}/orders`}>
-                        <OrderDataGrid />
-                    </Route>
-                    <Route exact path={`${path}/favorites`}>
-                        <FavoritesList />
-                    </Route>
-                    <Route exact path={`${path}/checkout`}>
-                        <Checkout />
-                    </Route>
-                </Switch>
-              </Container>
-          </main>
-        </div>
-      )
+        <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="lg" className={classes.container}>
+              <Modal open={cartOpen} handleCartClose={handleCartClose} closeAfterTransition aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" className={classes.modal} BackdropComponent={Backdrop} BackdropProps={{timeout: 500,}}>
+                  <Fade in={cartOpen}>
+                      <div className={classes.paper}>
+                        <Cart handleRerouteToCheckout={handleRerouteToCheckout} handleCartClose={handleCartClose}/>
+                      </div>
+                  </Fade>
+              </Modal>
+              <Switch> 
+                  <Route exact path={path}>
+                      <ProductListContainer />
+                  </Route>
+                  <Route exact path={`${path}/orders`}>
+                      <OrderDataGrid />
+                  </Route>
+                  <Route exact path={`${path}/favorites`}>
+                      <FavoritesList />
+                  </Route>
+                  <Route exact path={`${path}/checkout`}>
+                      <Checkout />
+                  </Route>
+              </Switch>
+            </Container>
+        </main>
+      </div>
+    )
 }

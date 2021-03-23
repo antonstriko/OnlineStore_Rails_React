@@ -8,6 +8,7 @@ import {faStar as faStarSolid} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 
 import { addToCart, incrementCartItem } from '../../redux/actions/cartActions';
+import { removeFavorite, addFavorite } from '../../redux/actions/userActions';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -59,15 +60,12 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none'
   }
 }));
-const handleToggleFavorite = () => {
-  
-}
 
 function ProductCard({product}) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [isUserFavorite, setIsUserFavorite] = React.useState(false)
-    const currentUser = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
     
 
     const cartItems = useSelector(state => state.cart.cartItems)
@@ -85,39 +83,38 @@ function ProductCard({product}) {
       fetch('http://localhost:3000/api/v1/favorites',{
           method: "POST",
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({user_id:currentUser.id, product_id: product.id})
+          body: JSON.stringify({user_id: user.currentUser.id, product_id: product.id})
         })
         .then(res => res.json())
-        .then(toy => {
-          const newToysList = [...this.state.toys,toy]
-          this.setState({ toys: newToysList })
-        })
+
     }
 
     const removeFav = () => {
       fetch(`http://localhost:3000/api/v1/favorites`,{
         method: "DELETE",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user_id: currentUser.id, product_id: product.id})
+        body: JSON.stringify({user_id: user.currentUser.id, product_id: product.id})
       })
         .then(res => res.json())
-        .then(toy => {
-          const newToysList = [...this.state.toys,toy]
-          this.setState({ toys: newToysList })
-        })
     }
 
     const handleToggleFavorite = () => {
       if (isUserFavorite) {
+        setIsUserFavorite(false)
+        dispatch(removeFavorite(product.id))
+        removeFav(product.id)
+      } else {
         setIsUserFavorite(true)
-        
+        dispatch(addFavorite(product.id))
+        addFav(product.id)
+      }  
     }
 
     React.useEffect(()=> {
-      if (currentUser.favIds.includes(product.id)) {
+      if (user.favIds.includes(product.id)) {
         setIsUserFavorite(true)
       }
-    },[currentUser.favIds, product.id])
+    },[user.favIds, product.id])
 
     return (
       <React.Fragment>
