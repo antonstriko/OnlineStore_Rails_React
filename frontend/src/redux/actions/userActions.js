@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
+import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS, ADD_FAVORITE, REMOVE_FAVORITE} from '../actionTypes'
 
 
 export const loginSuccess = (user) => {
@@ -42,7 +42,6 @@ export const updateCurrentUser = (user) => {
         isLoggedIn: true,
         isStoreManager: user.isStoreManager,
         favIds: user.fav_ids,
-        favorites: user.favorites || [],
         reviews: user.reviews || [],
         currentUser: {
           id: user.id,
@@ -56,7 +55,19 @@ export const updateCurrentUser = (user) => {
     return null;
 }
 
+export const addFavorite = (product_id) => {
+    return {
+      type: ADD_FAVORITE,
+      payload: product_id
+    }
+}
 
+export const removeFavorite = (product_id) => {
+  return {
+    type: REMOVE_FAVORITE,
+    payload: product_id
+  }
+}
 
 export const logout = () => {
   return {

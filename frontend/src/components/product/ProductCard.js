@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from "react-router-dom";
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, makeStyles, Box} from '@material-ui/core';
 import {Rating} from '@material-ui/lab';
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import {faStar} from "@fortawesome/free-regular-svg-icons";
 import {faStar as faStarSolid} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 
 import { addToCart, incrementCartItem } from '../../redux/actions/cartActions';
+import { removeFavorite, addFavorite } from '../../redux/actions/userActions';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -59,19 +60,17 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none'
   }
 }));
-const handleToggleFavorite = () => {
-  
-}
 
 function ProductCard({product}) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [isUserFavorite, setIsUserFavorite] = React.useState(false)
-    const favIds = useSelector(state => state.user.favIds)
+    const user = useSelector(state => state.user)
     
 
     const cartItems = useSelector(state => state.cart.cartItems)
     const productInCart = cartItems.find(item => item.product_id === product.id)
+
     const handleAddToCart = () => {
       if (productInCart) { 
         return dispatch(incrementCartItem(productInCart))
@@ -80,11 +79,42 @@ function ProductCard({product}) {
       }
     }
 
+    const addFav = () => {
+      fetch('http://localhost:3000/api/v1/favorites',{
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({user_id: user.currentUser.id, product_id: product.id})
+        })
+        .then(res => res.json())
+
+    }
+
+    const removeFav = () => {
+      fetch(`http://localhost:3000/api/v1/favorites`,{
+        method: "DELETE",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({user_id: user.currentUser.id, product_id: product.id})
+      })
+        .then(res => res.json())
+    }
+
+    const handleToggleFavorite = () => {
+      if (isUserFavorite) {
+        setIsUserFavorite(false)
+        dispatch(removeFavorite(product.id))
+        removeFav(product.id)
+      } else {
+        setIsUserFavorite(true)
+        dispatch(addFavorite(product.id))
+        addFav(product.id)
+      }  
+    }
+
     React.useEffect(()=> {
-      if (favIds.includes(product.id)) {
+      if (user.favIds.includes(product.id)) {
         setIsUserFavorite(true)
       }
-    },[favIds, product.id])
+    },[user.favIds, product.id])
 
     return (
       <React.Fragment>

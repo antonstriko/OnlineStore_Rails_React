@@ -5,7 +5,7 @@ class Api::V1::OrderItemsController < ApplicationController
   end
 
   def show
-      @order_item = OrderItem.find_by(id: params[:id])
+      @order_item = OrderItem.find(params[:id])
       if @order_item
           render json: @order_item, except: [:created_at, :updated_at], include: [:product]
       else
@@ -20,7 +20,7 @@ class Api::V1::OrderItemsController < ApplicationController
   end
 
   def update
-      @order_item = OrderItem.find_by(params[:id])
+      @order_item = OrderItem.find(params[:id])
       @order_item.update_attributes(order_item_params)
       render json: @order_item, except: [:created_at, :updated_at], include: [:product]
   end

@@ -21,8 +21,12 @@ const useStyles = makeStyles((theme) => ({
 
 function FavoritesList() {
   const classes = useStyles();
-  const userFavorites = useSelector(state => state.user.favorites)
-  const favorites = userFavorites.map(item => <ProductCard product={item} key={item.id} />)
+  // const userFavorites = useSelector(state => state.user.favorites)
+  // const favorites = userFavorites.map(item => <ProductCard product={item} key={item.id} />)
+  const favIds = useSelector(state => state.user.favIds)
+  const allProducts = useSelector(state => state.products.allProducts)
+  const products = allProducts.filter(product => favIds.includes(product.id))
+  const favorites = products.map(item => <ProductCard product={item} key={item.id} />)
 
   return (
     <React.Fragment>

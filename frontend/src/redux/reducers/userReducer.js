@@ -1,4 +1,4 @@
-import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS} from '../actionTypes'
+import {LOGIN_SUCCESS, LOGIN_FAILURE, UPDATE_CURRENT_USER, LOGOUT, ADD_FETCHED_USERS, ADD_FAVORITE, REMOVE_FAVORITE} from '../actionTypes'
 
 
 const initialState = {
@@ -6,7 +6,6 @@ const initialState = {
     allUsers: [],
     isStoreManager: false,
     favIds: [],
-    favorites: [],
     reviews: [],
     currentUser: null
   }
@@ -32,6 +31,18 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.payload
+            }
+        }
+        case ADD_FAVORITE:{
+            return {
+                ...state,
+                favIds: [...state.favIds, action.payload]
+            }
+        }
+        case REMOVE_FAVORITE:{
+            return {
+                ...state,
+                favIds : state.favIds.filter(favorite => favorite !== action.payload)
             }
         }
         case LOGOUT: {

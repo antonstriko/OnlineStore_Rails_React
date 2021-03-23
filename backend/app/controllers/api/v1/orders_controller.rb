@@ -6,7 +6,7 @@ class Api::V1::OrdersController < ApplicationController
     end
 
     def show
-        @order = Order.find_by(id: params[:id])
+        @order = Order.find(params[:id])
         if @order
             render json: @order, except: [:created_at, :updated_at], include:[:order_items, :user]
         else

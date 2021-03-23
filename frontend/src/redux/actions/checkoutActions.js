@@ -1,7 +1,7 @@
 import {SETUP_CHECKOUT, 
-  ADD_ADDRESS, 
-  ADD_PAYMENT, 
-  RESET_CHECKOUT} from '../actionTypes'
+        ADD_ADDRESS, 
+        ADD_PAYMENT, 
+        RESET_CHECKOUT} from '../actionTypes'
 
 export const setupCheckout = (currentUser) => {
   console.log('Checkout btn has been clicked')

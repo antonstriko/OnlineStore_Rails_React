@@ -56,7 +56,7 @@ import {LOADING_ORDERS,
   // export function fetchProducts() {
   //   return (dispatch) => {
   //     dispatch({type: LOADING_PRODUCTS});
-  //     fetch('http://localhost:3000/api/v1/productss')
+  //     fetch('http://localhost:3000/api/v1/products')
   //       .then(response => response.json())
   //       .then(items => dispatch({
   //         type: ADD_FETCHED_PRODUCTS,
@@ -68,7 +68,7 @@ import {LOADING_ORDERS,
   // export function saveProduct() {
   //   return (dispatch) => {
   //     dispatch({type: LOADING_PRODUCTS});
-  //     fetch('http://localhost:3000/api/v1/productss')
+  //     fetch('http://localhost:3000/api/v1/products')
   //       .then(response => response.json())
   //       .then(item => dispatch({
   //         type: ADD_NEW_PRODUCT,

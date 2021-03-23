@@ -20,7 +20,7 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def update
-    @review = Review.find_by(params[:id])
+    @review = Review.find(params[:id])
     @review.update_attributes(review_params)
       render json: @review, except: [:created_at, :updated_at]
   end
