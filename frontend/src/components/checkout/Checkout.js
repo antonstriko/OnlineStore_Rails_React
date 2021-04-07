@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from "axios";
+import API from '../../utils/api'
 // import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +17,9 @@ import PaymentForm from './PaymentForm';
 import Review from './Review';
 
 import {resetCheckout} from '../../redux/actions/checkoutActions'
+import {addNewOrder} from '../../redux/actions/orderActions'
+import {resetCart} from '../../redux/actions/cartActions'
+// import {handleOrderSubmit} from '../../redux/actions/asyncOrderActions'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -101,43 +106,43 @@ export default function Checkout() {
       setActiveStep(activeStep - 1);
   };
 
-  useEffect(() => {
-    if (activeStep === steps.length){
-      fetch('http://localhost:3000/api/v1/orders', {
-          method: 'POST',
-          headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage?.token}`},
-          body: JSON.stringify({
-            user_id: currentUser.id,
-            total: cart.subtotal,
-            item_count: cart.itemCount,
-            paid: true,
-            payment: `VISA ⠀•••• ${paymentData.cardNumber.split("-")[3]}`,
-            address_street: addressData.street,
-            address_city: addressData.city,
-            address_state: addressData.state,
-            address_zip: addressData.zip
-          })
-      })
-      .then(res => res.json())
-      .then(order => {
-            cart.cartItems.forEach(cartItem => {
-                fetch('http://localhost:3000/api/v1/order_items', {
-                  method: 'POST',
-                  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage?.token}`},
-                  body: JSON.stringify({
-                    title: cartItem.title,
-                    order_id: order.id,
-                    product_id: cartItem.product_id,
-                    qty: cartItem.qty,
-                    price: cartItem.price,
-                    subtotal: cartItem.subtotal
-                  })
-                })
-            })
-            dispatch(resetCheckout())
-      })
+  const handleCheckoutCleanUp = () => {
+    dispatch(resetCart);
+    console.log('Dispatched resetCart')
+    dispatch(resetCheckout);
+    console.log('Dispatched resetCheckout')
+  }
+
+  const handleOrderSubmit = () => {
+    const order = {
+      user_id: currentUser.id,
+      total: cart.subtotal,
+      item_count: cart.itemCount,
+      paid: true,
+      payment: `VISA ⠀•••• ${paymentData.cardNumber.split("-")[3]}`,
+      address_street: addressData.street,
+      address_city: addressData.city,
+      address_state: addressData.state,
+      address_zip: addressData.zip,
+      order_item_attributes: cart.cartItems
     }
-  }, [activeStep])
+
+    API.post('orders', order)
+    .then(response => {
+        console.log(response)
+        dispatch(addNewOrder(response.data));
+        console.log('Dispatched addNewOrder with response.data')
+    }).then(handleCheckoutCleanUp())
+    .catch(error => console.log(error));
+  }
+
+  // useEffect(() => {
+  // }, [])
+  // useEffect(() => {
+  //   if (activeStep === steps.length){
+  //     handleOrderSubmit(currentUser, cart, paymentData, addressData)
+  //   }
+  // }, [activeStep, currentUser, cart, paymentData, addressData])
 
   return (
     <React.Fragment>
@@ -167,9 +172,13 @@ export default function Checkout() {
                           {getStepContent(activeStep, paymentData, setPaymentData, addressData, setAddressData)}
                           <div className={classes.buttons}>
                               {activeStep !== 0 && (<Button onClick={handleBack} className={classes.button}> Back </Button>)}
-                              <Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>
-                                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                              </Button>
+                              {activeStep < steps.length - 1  && (<Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>Next</Button>)}
+                              {activeStep === steps.length - 1  && (<Button onClick={handleOrderSubmit} variant="contained" color="primary" className={classes.button}>Place order</Button>)}
+
+                              {/* {activeStep !== 0 && (<Button onClick={handleBack} className={classes.button}> Back </Button>)}
+                                  <Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>
+                                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                                  </Button> */}
                           </div>
                       </React.Fragment>
                   )}

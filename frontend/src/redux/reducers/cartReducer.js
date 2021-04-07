@@ -14,6 +14,12 @@ const resetCartState = {
 const cachedCart = JSON.parse(localStorage.cart || "{}") 
 const initialState = cachedCart?.items ? cachedCart : resetCartState;
 
+const sumCartItems = cartItems => {
+  let itemCount = cartItems.reduce((total, product) => total + product.qty, 0);
+  let total = cartItems.reduce((total, product) => total + product.price * product.qty, 0).toFixed(2);
+  return { itemCount, total }
+}
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
       case ADD_TO_CART:

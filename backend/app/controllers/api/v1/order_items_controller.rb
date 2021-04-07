@@ -32,6 +32,6 @@ class Api::V1::OrderItemsController < ApplicationController
   private
 
   def order_item_params
-      params.require(:order_item).permit(:id, :order_id, :product_id, :title, :qty, :price, :subtotal)
+      params.require(:order_item).permit(:id, :order_id, :product_id, :title, :qty, :price, :subtotal, :title, :image_url)
   end
 end

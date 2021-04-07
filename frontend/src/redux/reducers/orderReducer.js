@@ -33,10 +33,10 @@ const orderReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case LOADING_ORDERS:
-            return {
-                ...state,
-                isLoading: true
-            }
+        return {
+            ...state,
+            isLoading: true
+        }
     case ADD_FETCHED_ORDERS:
         return {
             ...state,

@@ -81,12 +81,12 @@ users = User.all
 ## ORDERS + ORDER_ITEMS
 ## *****************************************************************************************************
     24.times do |i|
-      product1 = products[prng.rand(1...24)]
-      product2 = products[prng.rand(25...47)]
+      product1 = products[prng.rand(1..24)]
+      product2 = products[prng.rand(25..47)]
       subtotal = (product1.price.to_f + product2.price.to_f).truncate(2) 
       total = subtotal.to_s
       order = Order.create!(
-        user_id:"#{prng.rand(3...15)}", 
+        user_id:"#{prng.rand(3..15)}", 
         total: total,
         item_count:2, 
         isShipped: true,
@@ -106,8 +106,8 @@ users = User.all
 ##    ORDERS FOR ADMIN USER
 ## *****************************************************************************************************
     4.times do |i|
-      product1 = products[prng.rand(1...24)]
-      product2 = products[prng.rand(25...47)]
+      product1 = products[prng.rand(1..24)]
+      product2 = products[prng.rand(25..47)]
       subtotal = (product1.price.to_f + product2.price.to_f).truncate(2) 
       total = subtotal.to_s
       order = Order.create!(
@@ -131,8 +131,8 @@ users = User.all
 ##    ORDERS FOR DEMO CUSTOMER
 ## *****************************************************************************************************
     4.times do |i|
-      product1 = products[prng.rand(1...24)]
-      product2 = products[prng.rand(25...47)]
+      product1 = products[prng.rand(1..24)]
+      product2 = products[prng.rand(25..47)]
       subtotal = (product1.price.to_f + product2.price.to_f).truncate(2) 
       total = subtotal.to_s
       order = Order.create!(
@@ -157,31 +157,31 @@ users = User.all
 ## *****************************************************************************************************
     15.times do |i|
       y = i + 1
-      product1 = products[prng.rand(1...10)]
-      product2 = products[prng.rand(11...20)]
-      product3 = products[prng.rand(21...30)]
-      product4 = products[prng.rand(31...40)]
-      product5 = products[prng.rand(41...47)]
-      product6 = products[prng.rand(1...10)]
-      product7 = products[prng.rand(11...20)]
-      product8 = products[prng.rand(21...30)]
-      product9 = products[prng.rand(31...40)]
-      product10 = products[prng.rand(41...47)]
+      product1 = products[prng.rand(1..10)]
+      product2 = products[prng.rand(11..20)]
+      product3 = products[prng.rand(21..30)]
+      product4 = products[prng.rand(31..40)]
+      product5 = products[prng.rand(41..47)]
+      product6 = products[prng.rand(1..10)]
+      product7 = products[prng.rand(11..20)]
+      product8 = products[prng.rand(21..30)]
+      product9 = products[prng.rand(31..40)]
+      product10 = products[prng.rand(41..47)]
 
-      Review.create!(user_id: y, product_id: product1.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product2.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product3.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product4.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product5.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product6.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product7.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product8.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product9.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
-      Review.create!(user_id: y, product_id: product10.id, rating: "#{(prng.rand(5...10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product1.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product2.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product3.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product4.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product5.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product6.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product7.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product8.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product9.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
+      Review.create!(user_id: y, product_id: product10.id, rating: "#{(prng.rand(5..10)).to_f/2}" )
 
-      Favorite.create!(user_id: y, product_id: prng.rand(1...10))
-      Favorite.create!(user_id: y, product_id: prng.rand(11...20))
-      Favorite.create!(user_id: y, product_id: prng.rand(21...30))
-      Favorite.create!(user_id: y, product_id: prng.rand(31...40))
-      Favorite.create!(user_id: y, product_id: prng.rand(41...47))
+      Favorite.create!(user_id: y, product_id: prng.rand(1..10))
+      Favorite.create!(user_id: y, product_id: prng.rand(11..20))
+      Favorite.create!(user_id: y, product_id: prng.rand(21..30))
+      Favorite.create!(user_id: y, product_id: prng.rand(31..40))
+      Favorite.create!(user_id: y, product_id: prng.rand(41..47))
     end
