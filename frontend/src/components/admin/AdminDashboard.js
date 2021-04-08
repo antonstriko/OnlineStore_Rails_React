@@ -10,12 +10,11 @@ import {AppBar, CssBaseline, Container, Toolbar, Typography, IconButton} from '@
 import AdminMenu from './AdminMenu'
 import AdminOrderList from './AdminOrderList'
 import AdminProductList from './AdminProductList';
-import { fetchProducts } from '../../redux/actions/asyncProductActions';
-import { fetchOrders } from '../../redux/actions/asyncOrderActions';
-import { fetchUsers } from '../../redux/actions/asyncUserActions';
+import {addFetchedUsers, logout} from '../../redux/actions/userActions';
+import {isLoadingProducts, addFetchedProducts} from '../../redux/actions/productActions';
+import {isLoadingOrders, addFetchedOrders} from '../../redux/actions/orderActions';
+import API from '../../utils/api';
 
-// import { fetchProducts } from '../../redux/actions/productActions';
-import { logout } from '../../redux/actions/userActions';
 
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
@@ -129,10 +128,26 @@ export default function AdminDashboard(props) {
       }
 
       useEffect(()=> {
-        dispatch(fetchProducts())
-        dispatch(fetchOrders())
-        dispatch(fetchUsers())
-    }, [])
+        const getProducts = async () => {
+          dispatch(isLoadingProducts())
+          const { data } = await API.get("products");
+          dispatch(addFetchedProducts(data));
+        };
+        getProducts()
+    
+        const getOrders = async () => {
+          dispatch(isLoadingOrders())
+          const { data } = await API.get("orders");
+          dispatch(addFetchedOrders(data));
+        };
+        getOrders()
+
+        const getUsers = async () => {
+          const { data } = await API.get("users");
+          dispatch(addFetchedUsers(data));
+        };
+        getUsers()
+      },[dispatch])
 
       return (
         <div className={clsx(classes.root)}  >

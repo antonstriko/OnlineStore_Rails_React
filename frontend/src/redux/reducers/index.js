@@ -1,6 +1,4 @@
-// import { createStore, combineReducers } from 'redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
@@ -18,16 +16,16 @@ const rootReducer = combineReducers({
     order: orderReducer
 });
 
-// const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-// export default store;
-
 const store = createStore(
     rootReducer, 
     composeWithDevTools(
         applyMiddleware(thunk),
-    ));
+    )
+);
 export default store;
-
+        
+// const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// export default store;
 
 // export function configureStore(initialState) {
 //     const middleware = [thunk];
@@ -39,10 +37,6 @@ export default store;
 //     );
 //     return store;
 // }
-
-
-
-
 
 // import{ createStore, applyMiddleware, compose }from'redux'
 // import thunk from'redux-thunk'
@@ -62,14 +56,3 @@ export default store;
 //     )
 //   );
 // export default store
-
-// export default ({}) => {
-//   const store = createStore(
-//     rootReducer,
-//     compose(
-//       applyMiddleware(thunk),
-//       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//     )
-//   );
-//   return store;
-// }

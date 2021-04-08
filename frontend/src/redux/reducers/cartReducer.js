@@ -3,16 +3,21 @@ import {ADD_TO_CART,
   DECREMENT_CART_ITEM, 
   REMOVE_CART_ITEM, 
   TOGGLE_MODAL, 
+  CLEAR_CART,
   RESET_CART} from '../actionTypes'
 
-const resetCartState = {
+const initialState = {
   cartItems: [], 
   subtotal: 0, 
   itemCount: 0, 
   showModal: false
 }
-const cachedCart = JSON.parse(localStorage.cart || "{}") 
-const initialState = cachedCart?.items ? cachedCart : resetCartState;
+// const cachedCart = JSON.parse(localStorage.cart || "{}") 
+// const initialState = cachedCart?.items ? cachedCart : resetCartState;
+
+const sumCartItemsCount = cartItems => cartItems.reduce((total, product) => total + product.qty, 0);
+const sumCartItemsTotal = cartItems => cartItems.reduce((total, product) => total + product.price * product.qty, 0).toFixed(2);
+
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -61,9 +66,16 @@ const cartReducer = (state = initialState, action) => {
             ...state,
             showModal: !state.showModal
           }
+      case CLEAR_CART:
+          return {
+            cartItems: [], 
+            subtotal: 0, 
+            itemCount: 0, 
+            showModal: false
+          }
       case RESET_CART:
           return {
-            resetCartState
+            initialState
           }
       default:
           return state;
@@ -71,32 +83,3 @@ const cartReducer = (state = initialState, action) => {
     }
 };
 export default cartReducer;
-
-
-// case 'INCREMENT_QTY':
-//   return {
-//     ...state,
-//     items: state.items.map(item => {
-//         if (item.product_id === action.payload.product.product_id) {
-//           return action.product
-//         } else {
-//           return item
-//         }
-//     }),
-//     subTotal: action.subTotal,
-//     count: state.count + 1
-//   }
-// case 'DECREMENT_QTY':
-//   return {
-//     ...state,
-//     items: state.items.map(item => {
-//         if (item.product_id === action.product.product_id) {
-//           return action.product
-//         } else {
-//           return item
-//         }
-//     }),
-//     subTotal: action.subTotal,
-//     count: state.count - 1
-//   }
-

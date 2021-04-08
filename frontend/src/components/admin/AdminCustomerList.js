@@ -14,7 +14,6 @@ function AdminCustomerList() {
     { field: 'lastname', headerName: 'Last Name', width: 180 },
     { field: 'reviews_count', headerName: 'Reviews', width: 75 },
     { field: 'favorites_count', headerName: 'Favorites', width: 75 },
-    
   ];
 
   return (
