@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import API from '../../utils/api'
-// import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
-
 
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
@@ -101,12 +99,6 @@ export default function Checkout({handleRerouteToStorefront}) {
       .then(() => handleRerouteToStorefront())
       .catch(error => console.log(error));
   }
-
-  // useEffect(() => {
-  //   if (activeStep === steps.length){
-  //     handleOrderSubmit(currentUser, cart, paymentData, addressData)
-  //   }
-  // }, [activeStep, currentUser, cart, paymentData, addressData])
 
   return (
     <React.Fragment>
