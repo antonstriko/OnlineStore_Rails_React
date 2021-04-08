@@ -1,5 +1,4 @@
-// import axios from 'axios'
-// import {isLoadingProducts, addFetchedProducts, addNewProduct} from './productActions'
+
 import {ADD_FETCHED_USERS} from '../actionTypes'
 
 export function fetchUsers() {

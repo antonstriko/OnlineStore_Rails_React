@@ -1,7 +1,7 @@
 class Api::V1::OrderItemsController < ApplicationController
   def index
       @order_items = OrderItem.all
-      render json: @order_items, except: [:created_at, :updated_at], include: [:product]
+      render json: @order_items, except: [:created_at, :updated_at] #, include: [:product]
   end
 
   def show
@@ -22,7 +22,7 @@ class Api::V1::OrderItemsController < ApplicationController
   def update
       @order_item = OrderItem.find(params[:id])
       @order_item.update_attributes(order_item_params)
-      render json: @order_item, except: [:created_at, :updated_at], include: [:product]
+      render json: @order_item, except: [:created_at, :updated_at] #, include: [:product]
   end
 
   def destroy
@@ -32,6 +32,6 @@ class Api::V1::OrderItemsController < ApplicationController
   private
 
   def order_item_params
-      params.require(:order_item).permit(:id, :order_id, :product_id, :title, :qty, :price, :subtotal, :title, :image_url)
+      params.require(:order_item).permit(:id, :order_id, :product_id, :title, :qty, :price, :subtotal, :title)
   end
 end

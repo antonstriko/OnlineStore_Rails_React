@@ -13,10 +13,11 @@ import FavoritesList from '../product/FavoritesList'
 import Cart from '../shoppingCart/Cart'
 import Checkout from '../checkout/Checkout';
 import OrderDataGrid from '../order/OrderDataGrid';
+import API from '../../utils/api';
 
-import { fetchProducts } from '../../redux/actions/asyncProductActions';
-import { fetchOrders } from '../../redux/actions/asyncOrderActions';
-import { logout } from '../../redux/actions/userActions';
+import {isLoadingProducts, addFetchedProducts} from '../../redux/actions/productActions'
+import {isLoadingOrders, addFetchedOrders} from '../../redux/actions/orderActions';
+import {logout} from '../../redux/actions/userActions';
 
 
     const drawerWidth = 240;
@@ -114,44 +115,54 @@ import { logout } from '../../redux/actions/userActions';
     });
 
 export default function Storefront(props) {
-  // Sidebar Menu
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => setOpen(true);
-  const handleDrawerClose = () => setOpen(false);
-  // ShoppingCart
-  const [cartOpen, setCartOpen] = React.useState(false);
-  const handleCartOpen = () => setCartOpen(true);
-  const handleCartClose = () => setCartOpen(false);
+    // Sidebar Menu
+    const [open, setOpen] = React.useState(false);
+    const handleDrawerOpen = () => setOpen(true);
+    const handleDrawerClose = () => setOpen(false);
+    // ShoppingCart
+    const [cartOpen, setCartOpen] = React.useState(false);
+    const handleCartOpen = () => setCartOpen(true);
+    const handleCartClose = () => setCartOpen(false);
+    const cartItemCount = useSelector(state => state.cart.itemCount)
 
     let history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles();
-    // const [orders, setOrders] = useState([])
-
-    const cartItemCount = useSelector(state => state.cart.itemCount)
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
     let {path} = useRouteMatch();
 
-    useEffect(()=> {
-        dispatch(fetchProducts())
-        dispatch(fetchOrders())
-    },[dispatch])
-    
     const handleRerouteToCheckout = () => {
-        handleCartClose()
-        history.push('storefront/checkout')
+      handleCartClose()
+      history.push('storefront/checkout')
     }
 
+    const handleRerouteToStorefront = () => history.push('/storefront')
+  
     const handleLogout = (event) => {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       dispatch(logout())
       history.push('/login')
     }
-
+    
+    useEffect(()=> {
+      const getProducts = async () => {
+        dispatch(isLoadingProducts())
+        const { data } = await API.get("products");
+        dispatch(addFetchedProducts(data));
+      };
+      getProducts()
+  
+      const getOrders = async () => {
+        dispatch(isLoadingOrders())
+        const { data } = await API.get("orders");
+        dispatch(addFetchedOrders(data));
+      };
+      getOrders()
+    },[dispatch])
     // const adLink = '/admin'
+
     return (
-      <div className={clsx(classes.root)}  >
+      <div className={clsx(classes.root)} >
         <CssBaseline />
 
         <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -208,7 +219,7 @@ export default function Storefront(props) {
                       <FavoritesList />
                   </Route>
                   <Route exact path={`${path}/checkout`}>
-                      <Checkout />
+                      <Checkout handleRerouteToStorefront={handleRerouteToStorefront}/>
                   </Route>
               </Switch>
             </Container>

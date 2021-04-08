@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from "axios";
 import API from '../../utils/api'
 // import {Switch, Route, useHistory, Link, useParams, useRouteMatch} from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {Paper, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
+
 
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
-import {resetCheckout} from '../../redux/actions/checkoutActions'
 import {addNewOrder} from '../../redux/actions/orderActions'
-import {resetCart} from '../../redux/actions/cartActions'
-// import {handleOrderSubmit} from '../../redux/actions/asyncOrderActions'
+import {clearCart} from '../../redux/actions/cartActions'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -73,71 +66,42 @@ function getStepContent(step, paymentData, setPaymentData, addressData, setAddre
   }
 }
 
-export default function Checkout() {
+export default function Checkout({handleRerouteToStorefront}) {
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  const [activeStep, setActiveStep] = React.useState(0);
-
   const cart = useSelector(state => state.cart)
   const currentUser = useSelector(state => state.user.currentUser)
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [paymentData, setPaymentData] = useState({name: '', cardNumber: '', cvv: '', expDate: ''})
+  const [addressData, setAddressData] = useState({fistname: '', lastname: '', street: '', street2: '', city: '', state: '', zip: ''})
 
-  const [paymentData, setPaymentData] = useState({
-        name: '',
-        cardNumber: '',
-        cvv: '',
-        expDate: ''
-  })
-  const [addressData, setAddressData] = useState({
-    fistname: '',
-    lastname: '',
-    street: '',
-    street2: '',
-    city: '',
-    state: '',
-    zip: ''
-  })
+  const handleNext = () => setActiveStep(activeStep + 1);
+  const handleBack = () => setActiveStep(activeStep - 1);
 
-  const handleNext = () => {
-      setActiveStep(activeStep + 1);
-  };
-
-  const handleBack = () => {
-      setActiveStep(activeStep - 1);
-  };
-
-  const handleCheckoutCleanUp = () => {
-    dispatch(resetCart);
-    console.log('Dispatched resetCart')
-    dispatch(resetCheckout);
-    console.log('Dispatched resetCheckout')
-  }
-
-  const handleOrderSubmit = () => {
+  const handleOrderSubmit = (e) => {
+    e.preventDefault()
     const order = {
       user_id: currentUser.id,
       total: cart.subtotal,
       item_count: cart.itemCount,
       paid: true,
-      payment: `VISA ⠀•••• ${paymentData.cardNumber.split("-")[3]}`,
+      payment: `VISA ⠀•••• ${paymentData.cardNumber.slice(-12)}`,
       address_street: addressData.street,
       address_city: addressData.city,
       address_state: addressData.state,
       address_zip: addressData.zip,
-      order_item_attributes: cart.cartItems
+      order_items_attributes: cart.cartItems
     }
 
     API.post('orders', order)
-    .then(response => {
-        console.log(response)
-        dispatch(addNewOrder(response.data));
-        console.log('Dispatched addNewOrder with response.data')
-    }).then(handleCheckoutCleanUp())
-    .catch(error => console.log(error));
+      .then(response => {
+          dispatch(addNewOrder(response.data));
+      })
+      .then(() => dispatch(clearCart()))
+      .then(() => handleRerouteToStorefront())
+      .catch(error => console.log(error));
   }
 
-  // useEffect(() => {
-  // }, [])
   // useEffect(() => {
   //   if (activeStep === steps.length){
   //     handleOrderSubmit(currentUser, cart, paymentData, addressData)
@@ -174,11 +138,6 @@ export default function Checkout() {
                               {activeStep !== 0 && (<Button onClick={handleBack} className={classes.button}> Back </Button>)}
                               {activeStep < steps.length - 1  && (<Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>Next</Button>)}
                               {activeStep === steps.length - 1  && (<Button onClick={handleOrderSubmit} variant="contained" color="primary" className={classes.button}>Place order</Button>)}
-
-                              {/* {activeStep !== 0 && (<Button onClick={handleBack} className={classes.button}> Back </Button>)}
-                                  <Button onClick={handleNext} variant="contained" color="primary" className={classes.button}>
-                                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                                  </Button> */}
                           </div>
                       </React.Fragment>
                   )}

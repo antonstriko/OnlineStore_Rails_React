@@ -5,8 +5,7 @@ import { DataGrid } from '@material-ui/data-grid';
 
 
 function AdminOrderList() {
-    const allOrders = useSelector(state => state.order.allOrders)
-    //const data = filteredOrders.map(order => )
+  const allOrders = useSelector(state => state.order.allOrders)
   const columns = [
     { field: 'date', headerName: 'Date', width: 180 },
     { field: 'id', headerName: 'ID', width: 100 },

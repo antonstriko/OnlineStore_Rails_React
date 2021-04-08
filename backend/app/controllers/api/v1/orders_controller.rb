@@ -37,7 +37,7 @@ class Api::V1::OrdersController < ApplicationController
             :user_id,
             :total, :item_count, :paid, :payment, 
             :isShipped, :shipped_date, :address_street, :address_city, :address_state, :address_zip,
-            order_items_attributes: [:product_id, :title, :qty, :price, :subtotal, :title]
+            order_items_attributes: [:id, :product_id, :title, :qty, :price, :subtotal, :title]
         )
     end
 end
