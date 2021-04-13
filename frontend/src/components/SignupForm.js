@@ -49,7 +49,6 @@ function SignupForm() {
       .then(resp => resp.json())
       .then(data => {
           localStorage.setItem('token', data.token);
-          localStorage.setItem('user', data.user?.id);
           dispatch(loginSuccess(data.user))
           history.push('/storefront')
       });
