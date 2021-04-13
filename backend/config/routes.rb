@@ -10,7 +10,6 @@ Rails.application.routes.draw do
         resources :reviews
         resources :products
         resources :favorites
-
     end
   end
 end

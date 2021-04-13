@@ -11,7 +11,7 @@ const initialState = {
     filteredProducts: [],
     isLoading: false,
     selectedProduct: null,
-    sortTerm: '',
+    sortTerm: null,
     filterTerm: '',
     searchInput: '',
 }

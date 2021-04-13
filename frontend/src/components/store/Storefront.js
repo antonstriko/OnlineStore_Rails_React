@@ -209,9 +209,6 @@ export default function Storefront(props) {
                   </Fade>
               </Modal>
               <Switch> 
-                  <Route exact path={path}>
-                      <ProductListContainer />
-                  </Route>
                   <Route exact path={`${path}/orders`}>
                       <OrderDataGrid />
                   </Route>
@@ -220,6 +217,12 @@ export default function Storefront(props) {
                   </Route>
                   <Route exact path={`${path}/checkout`}>
                       <Checkout handleRerouteToStorefront={handleRerouteToStorefront}/>
+                  </Route>
+                  <Route exact path={`${path}/product`}>
+                      <Checkout handleRerouteToStorefront={handleRerouteToStorefront}/>
+                  </Route>
+                  <Route exact path={path}>
+                      <ProductListContainer />
                   </Route>
               </Switch>
             </Container>

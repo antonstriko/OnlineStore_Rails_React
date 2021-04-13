@@ -110,6 +110,10 @@ function ProductCard({product}) {
       }  
     }
 
+    const showProductPage = () => {
+
+    }
+
     React.useEffect(()=> {
       if (user.favIds.includes(product.id)) {
         setIsUserFavorite(true)
@@ -120,7 +124,7 @@ function ProductCard({product}) {
       <React.Fragment>
         <Grid item key={product.id}>
             <Card className={classes.card}>
-                <CardMedia className={classes.cardMedia} image={product.image_url} title={product.title} />
+                <CardMedia onClick={() => showProductPage(product)} className={classes.cardMedia} image={product.image_url} title={product.title} />
                 <CardContent className={classes.cardContent}>
                     <Box className={classes.cardPriceFav}>
                       <Typography className={classes.price}> $ {product.price} </Typography>

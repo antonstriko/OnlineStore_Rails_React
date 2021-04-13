@@ -24,3 +24,4 @@ yarn-error.log*
 yarn.lock
 
 /React-Redux-Notes.js
+/src/utils/exampleCartReducer.js

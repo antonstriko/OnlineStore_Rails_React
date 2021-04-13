@@ -2,17 +2,9 @@ import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useParams} from "react-router"
 
-
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, Box} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -114,13 +106,9 @@ function ProductPage() {
                         title={product.title}
                     />
                     <CardContent >
-                        <Typography className={classes.brand}>
-                            Brand: {product.brand}
-                        </Typography>
-                        <Typography >
-                            {product.title}
-                        </Typography>
-                        <Box className={classes.cardActions}>
+                        <Typography className={classes.brand}> Brand: {product.brand} </Typography>
+                        <Typography > {product.title} </Typography>
+                        <Box className={classes.cardActions}> 
                             <Rating name="half-rating-read" value={prodRating} precision={0.5} readOnly />
                             {numReviews}
                         </Box>
@@ -128,7 +116,6 @@ function ProductPage() {
                         <Typography className={classes.price}>
                             <div className={classes.dataLabel}>Price:</div> ${product.price}
                         </Typography>
-
 
                         <Box className={classes.inStock}>{ product.in_stock ? 'In-Stock' : 'Unavailable Online'}</Box>
                         <Typography className={classes.twoDayShipping}>{product.two_day_shipping_eligible ? " Eligible for two day shipping from, and s" : "S"}old by {product.store_name.split(".")[0]}</Typography>
@@ -142,7 +129,6 @@ function ProductPage() {
                         {product.two_day_shipping_eligible ? "and eligible for two day shipping" : ""}
                       </Box> */}
                       <CardActions className={classes.cardActions}>
-                          
                         <Button size='medium' variant="contained" color="primary" onClick={() => addToCart()}>
                           Add to Cart
                         </Button>

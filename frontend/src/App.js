@@ -8,27 +8,21 @@ import LoginForm from './components/LoginForm'
 import UserProfile from './components/UserProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 import {loginSuccess} from './redux/actions/userActions'
+import API from './utils/api';
 
 function App() {
   
   const dispatch = useDispatch();
 
-  useEffect( () => {
-    const configObj = {
-      headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.token}`}
-    }
-
+  useEffect(() => {
     async function fetchProfile(){
       if (localStorage?.token){ 
-        const resp = await fetch(`http://localhost:3000/api/v1/profile`, configObj)
-        const user = await resp.json()
-        dispatch(loginSuccess(user))
-      } else {
-        return
-      }
+        const {data} = await API.get(`http://localhost:3000/api/v1/profile`)
+        dispatch(loginSuccess(data))
+      } 
     }
     fetchProfile()
-  }, [dispatch]) // run if props.user changes
+  }, [dispatch])
   
   return (
     <Router>

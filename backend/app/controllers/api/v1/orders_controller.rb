@@ -1,7 +1,7 @@
 class Api::V1::OrdersController < ApplicationController
 
     def index
-        @orders = Order.all
+        @orders = Order.where(user_id: current_user[:id])
         render json: @orders, except: [:created_at, :updated_at], include:[:order_items, :user]
     end
 
