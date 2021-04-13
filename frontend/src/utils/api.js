@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-const API = axios.create({
+export default axios.create({
   baseURL: `http://localhost:3000/api/v1/`,
-  headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage?.token}`},
+  headers: {Authorization: `Bearer ${localStorage?.token}`},
 });
 
-export default API;
+// const API = axios.create({
+//   baseURL: `http://localhost:3000/api/v1/`,
+//   headers: {Authorization: `Bearer ${localStorage?.token}`},
+// });
+
+// export default API;
 // Alter defaults after instance has been created
 // instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;

@@ -3,9 +3,7 @@ import {useSelector} from 'react-redux';
 import {DataGrid} from '@material-ui/data-grid';
 
 function OrderDataGrid() {
-  const allOrders = useSelector(state => state.order.allOrders)
-  const currentUser = useSelector(state => state.user.currentUser)
-  const data = allOrders.filter(order => order.user_id === currentUser.id)
+  const data = useSelector(state => state.order.allOrders)
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 100 },

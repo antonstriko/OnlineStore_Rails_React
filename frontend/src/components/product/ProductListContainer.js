@@ -9,7 +9,8 @@ export default function ProductListContainer(props){
   const [searchInput, setSearchInput] = useState('')
   const {allProducts, filteredProducts, isLoading, selectedProduct, sortTerm, filterTerm} = useSelector(state => state.products)
 
-  let data = allProducts.slice;
+  let data = allProducts
+  console.log(data)
   if (searchInput && searchInput !== '') {
     data = data.filter(product => product.title.includes(searchInput))
   }
@@ -21,7 +22,7 @@ export default function ProductListContainer(props){
         case 'priceDesc':
           return data.sort((a,b) => parseFloat(b.price) - parseFloat(a.price))
         case 'title': {
-            return (a, b) => {
+            return data.sort((a, b) => {
               const x = a.title.toLowerCase();
               const y = b.title.toLowerCase();
               let comparison = 0;
@@ -31,10 +32,10 @@ export default function ProductListContainer(props){
                 comparison = -1;
               }
               return comparison;
-            }
+            })
         }
         case 'titleDesc': {
-          return (a, b) => {
+          return data.sort((a, b) => {
             const x = a.title.toLowerCase();
             const y = b.title.toLowerCase();
             let comparison = 0;
@@ -44,8 +45,8 @@ export default function ProductListContainer(props){
               comparison = -1;
             }
             return comparison;
-          }
-      }
+          })
+        }
         case 'rating':
           return data.sort((a,b) => a.rating - b.rating)
         case 'ratingDesc':
@@ -59,47 +60,8 @@ export default function ProductListContainer(props){
             break;
       }
   }
-  if (sortTerm && sortTerm !)
-  // const data = filteredProducts.slice()
-
-  // const comparePrice = (a, b) => {
-  //   const x = parseFloat(a.price);
-  //   const y = parseFloat(b.price);
-  //   let comparisonPrice = 0;
-  //   if (x > y) {
-  //     comparisonPrice = 1;
-  //   } else if (x < y) {
-  //     comparisonPrice = -1;
-  //   }
-  //   return comparisonPrice;
-  // }
-
-  // const compareTitle = (a, b) => {
-  //   const x = a.title.toLowerCase();
-  //   const y = b.title.toLowerCase();
-  //   let comparison = 0;
-  //   if (x > y) {
-  //     comparison = 1;
-  //   } else if (x < y) {
-  //     comparison = -1;
-  //   }
-  //   return comparison;
-  // }
-
-  // if (sortTerm === 'price'){
-  //   data.sort(comparePrice);
-  // } else if (sortTerm === 'title'){
-  //   data.sort(compareTitle);
-  // } 
-    
-  // const handleChange = (e) => {
-  //   e.preventDefault()
-  //   setSearchInput(e.target.value)
-  //   // dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.value})
-  // }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   dispatch({type: 'SEARCH_PRODUCTS', searchBarInput: e.target.firstElementChild.lastElementChild.value.toLowerCase()})
+  // if (sortTerm && sortTerm !== '') {
+  //   data = sortData()
   // }
   
   return (

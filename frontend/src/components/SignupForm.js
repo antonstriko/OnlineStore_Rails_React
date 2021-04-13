@@ -53,6 +53,10 @@ function SignupForm() {
           history.push('/storefront')
       });
     }
+    const handLoginLink = (e) => {
+      e.preventDefault()
+      history.push('/storefront')
+    }
   
   return (
     <Container component="main" maxWidth="xs">
@@ -110,7 +114,7 @@ function SignupForm() {
 
                 <Grid container justify="flex-end">
                   <Grid item>
-                    <Link href="http://localhost:3001/login" variant="body2">
+                    <Link href="#" onClick={handLoginLink} variant="body2">
                       Already have an account? Sign in
                     </Link>
                   </Grid>

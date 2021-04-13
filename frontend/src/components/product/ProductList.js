@@ -17,15 +17,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function ProductList(props) {
+function ProductList({products, isLoading}) {
   const classes = useStyles();
-  const products = props.products.map(item => <ProductCard product={item} key={item.id} />)
-  const isLoading = props.isLoading
+  const productCards = products.map(item => <ProductCard product={item} key={item.id} />)
 
   return (
     <React.Fragment>
       { isLoading && <Loading /> }
-      { !isLoading && <Grid container className={classes.pList} spacing={2}> {products} </Grid> }
+      { !isLoading && <Grid container className={classes.pList} spacing={2}> {productCards} </Grid> }
     </React.Fragment>
   );
 }

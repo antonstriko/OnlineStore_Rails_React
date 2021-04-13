@@ -148,6 +148,7 @@ export default function Storefront(props) {
       const getProducts = async () => {
         dispatch(isLoadingProducts())
         const { data } = await API.get("products");
+        console.log('getProducts result: ', data)
         dispatch(addFetchedProducts(data));
       };
       getProducts()
@@ -155,6 +156,7 @@ export default function Storefront(props) {
       const getOrders = async () => {
         dispatch(isLoadingOrders())
         const { data } = await API.get("orders");
+        console.log('getOrders result: ', data)
         dispatch(addFetchedOrders(data));
       };
       getOrders()

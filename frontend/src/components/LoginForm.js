@@ -57,6 +57,10 @@ function LoginForm(props) {
           history.push('/storefront')
       });
     }
+    const handSignupLink = (e) => {
+      e.preventDefault()
+      history.push('/signup')
+    }
 
     const isLoggedIn = useSelector(state => state.user.isLoggedIn)
   
@@ -94,8 +98,8 @@ function LoginForm(props) {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="http://localhost:3001/signup" variant="body2">
-                      {"Don't have an account? Sign Up"}
+                    <Link href="#" onClick={handSignupLink} variant="body2">
+                      Don't have an account? Sign Up
                     </Link>
                   </Grid>
                 </Grid>
