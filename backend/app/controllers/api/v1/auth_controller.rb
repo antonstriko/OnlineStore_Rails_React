@@ -29,15 +29,6 @@ class Api::V1::AuthController < ApplicationController
     end    
   end
 
-  def current_user
-    auth_h = request.headers[:Authorization]
-    token = auth_h.split(' ')[1]
-    de_token = JWT.decode(token, ENV["jwt_secret"])
-    user_id = de_token[0]['user_id']
-    @user = User.find_by(id: user_id)
-    @user
-  end
-
   private
 
   def auth_params
