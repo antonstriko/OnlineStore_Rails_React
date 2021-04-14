@@ -5,6 +5,6 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :order_items
 
-  validates :order_items, presence: true
-  validates :user_id, presence: true
+  validates :user_id, :order_items, :total, presence: true
+
 end
